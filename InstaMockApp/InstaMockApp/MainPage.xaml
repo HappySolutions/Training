@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:InstaMockApp"
+             x:Class="InstaMockApp.MainPage"
+            NavigationPage.HasNavigationBar="False">
+
+    <local:ActivityFeedPage Title="Activity" Icon="heart.png"/>
+    <local:MyProfile Title="Profile" Icon="user.png"/>
+
+</TabbedPage>
