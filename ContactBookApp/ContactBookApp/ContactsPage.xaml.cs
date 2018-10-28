@@ -102,6 +102,10 @@ namespace ContactBookApp
 
             if (await DisplayAlert("Warning", $"Are you sure you want to delete {contact.FullName}?", "Yes", "No"))
                 _contacts.Remove(contact);
+            // we must add this line to make sure the contact is deleted from the database
+            await _connection.DeleteAsync(contact);
+
+
         }
     }
 }

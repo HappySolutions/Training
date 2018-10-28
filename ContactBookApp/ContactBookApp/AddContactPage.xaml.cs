@@ -1,4 +1,5 @@
 ﻿using ContactBookApp.Modals;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace ContactBookApp
 	{
         private ContactDetailPage page;
         private AddContactPage page1;
+        private SQLiteAsyncConnection _connection;
+
 
         public event EventHandler<Contact> ContactAdded;
         public event EventHandler<Contact> ContactUpdated;
@@ -25,6 +28,8 @@ namespace ContactBookApp
                 throw new ArgumentNullException();
 
             InitializeComponent();
+            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
+
 
             BindingContext = new Contact
             {
