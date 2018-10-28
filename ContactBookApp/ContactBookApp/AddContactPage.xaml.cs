@@ -42,6 +42,7 @@ namespace ContactBookApp
         {
             var contact = BindingContext as Contact;
 
+            //This to make sure the user enter a name
             if (String.IsNullOrWhiteSpace(contact.FullName))
             {
                 await DisplayAlert("Error", "Please enter the name.", "OK");
@@ -51,19 +52,9 @@ namespace ContactBookApp
             if (contact.Id == 0)
             {
                 // This is just a temporary hack to differentiate between a
-                // new and an existing Contact object. In the next section, 
-                // we'll store these Contact objects in a database. So, they
-                // will automaticlaly get an Id.
+                // new and an existing Contact object. 
                 contact.Id = 1;
 
-                // This is null-conditional operator in C#. It is the same as:
-                // 
-                // if (ContactAdded != null)
-                // 		ContactAdded(this, contact);
-                //
-                // Read my blog post for more details:
-                // http://programmingwithmosh.com/csharp/csharp-6-features-that-help-you-write-cleaner-code/
-                //
                 ContactAdded?.Invoke(this, contact);
             }
             else

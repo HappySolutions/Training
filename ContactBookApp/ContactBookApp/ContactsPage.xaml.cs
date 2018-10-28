@@ -15,6 +15,7 @@ namespace ContactBookApp
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ContactsPage : ContentPage
 	{
+         
         private ObservableCollection<Contact> _contacts;
         private SQLiteAsyncConnection _connection;
         private bool _isDataLoaded;
@@ -56,7 +57,6 @@ namespace ContactBookApp
             var page = new ContactDetailPage(new Contact());
 
             // We can subscribe to the ContactAdded event using a lambda expression.
-            // If you're not familiar with this syntax, watch my C# Advanced course. 
             page.ContactAdded += (source, contact) =>
             {
                 // ContactAdded event is raised when the user taps the Done button.
@@ -83,10 +83,7 @@ namespace ContactBookApp
             {
                 // When the target page raises ContactUpdated event, we get 
                 // notified and update properties of the selected contact. 
-                // Here we are dealing with a small class with only a few 
-                // properties. If working with a larger class, you may want 
-                // to look at AutoMapper, which is a convention-based mapping
-                // tool. 
+                
                 selectedContact.Id = contact.Id;
                 selectedContact.FirstName = contact.FirstName;
                 selectedContact.LastName = contact.LastName;
