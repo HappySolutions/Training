@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookStore.Views.AddBookPage">
+    <TableView Intent="Form">
+        <TableRoot>
+            <TableSection Title="Book Details">
+                <EntryCell Label="Book name" Text="{Binding BookName}" />
+                <EntryCell Label="Auther name" Text="{Binding Auther}" />
+                <EntryCell Label="ISBN number" Text="{Binding ISBN}" />
+            </TableSection>
+            
+            <TableSection Title="Info">
+                <SwitchCell Text="Available" On="{Binding IsBlocked}" />
+            </TableSection>
+            <TableSection>
+                <ViewCell>
+                    <Button Text="Save" Clicked="OnSave" />
+                </ViewCell>
+            </TableSection>
+        </TableRoot>
+    </TableView>
+
+</ContentPage>
