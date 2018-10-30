@@ -15,8 +15,8 @@ namespace MessagingCenterDemo
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ContactDetailPage : ContentPage
 	{
-        public event EventHandler<Contact> ContactAdded;
-        public event EventHandler<Contact> ContactUpdated;
+       // public event EventHandler<Contact> ContactAdded;
+       // public event EventHandler<Contact> ContactUpdated;
         private SQLiteAsyncConnection _connection;
 
         public ContactDetailPage(Contact contact)
@@ -55,13 +55,16 @@ namespace MessagingCenterDemo
             {
                 await _connection.InsertAsync(contact);
 
-                ContactAdded?.Invoke(this, contact);
+                MessagingCenter.Send(this, Events.ContactAdded, contact);
+
+                //ContactAdded?.Invoke(this, contact);
             }
             else
             {
                 await _connection.UpdateAsync(contact);
+                MessagingCenter.Send(this, Events.ContactUpdated, contact);
 
-                ContactUpdated?.Invoke(this, contact);
+                //ContactUpdated?.Invoke(this, contact);
             }
 
             await Navigation.PopAsync();

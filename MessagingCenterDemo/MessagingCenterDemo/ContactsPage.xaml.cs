@@ -56,7 +56,7 @@ namespace MessagingCenterDemo
             // We can subscribe to the ContactAdded event using a lambda expression instead of the usual method onContactAdded.
             //page.ContactAdded += onContactAdded;
 
-            MessagingCenter.Subscribe<AddContactPage, Contact>(this, "ContactAdded", onContactAdded);
+            MessagingCenter.Subscribe<AddContactPage, Contact>(this, Events.ContactAdded, onContactAdded);
 
             await Navigation.PushAsync(page);
         }
@@ -65,7 +65,7 @@ namespace MessagingCenterDemo
         private void onContactAdded (AddContactPage source, Contact contact)
         {
             _contacts.Add(contact);
-          }
+        }
          
 
         private async void MenuItem_Clicked(object sender, SelectedItemChangedEventArgs e)
@@ -79,6 +79,16 @@ namespace MessagingCenterDemo
 
             var page = new ContactDetailPage(selectedContact);
 
+            MessagingCenter.Subscribe<AddContactPage, Contact>(this, Events.ContactUpdated, (source, contact) =>
+            {
+                selectedContact.Id = contact.Id;
+                selectedContact.FirstName = contact.FirstName;
+                selectedContact.LastName = contact.LastName;
+                selectedContact.Phone = contact.Phone;
+                selectedContact.Email = contact.Email;
+                selectedContact.IsBlocked = contact.IsBlocked;
+            });
+            /*
             page.ContactUpdated += (source, contact) =>
             {
                 // When the target page raises ContactUpdated event, we get 
@@ -90,7 +100,7 @@ namespace MessagingCenterDemo
                 selectedContact.Phone = contact.Phone;
                 selectedContact.Email = contact.Email;
                 selectedContact.IsBlocked = contact.IsBlocked;
-            };
+            }; */
 
             await Navigation.PushAsync(page);
 

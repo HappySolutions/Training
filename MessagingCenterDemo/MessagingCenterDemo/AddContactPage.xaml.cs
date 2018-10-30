@@ -59,12 +59,14 @@ namespace MessagingCenterDemo
                 // new and an existing Contact object. 
                 contact.Id = 1;
 
-                MessagingCenter.Send(this, "ContactAdded", contact);
+                MessagingCenter.Send(this, Events.ContactAdded, contact);
                 //ContactAdded?.Invoke(this, contact);
             }
             else
             {
-                ContactUpdated?.Invoke(this, contact);
+                MessagingCenter.Send(this, Events.ContactUpdated, contact);
+
+                //ContactUpdated?.Invoke(this, contact);
             }
 
             await Navigation.PopAsync();
