@@ -11,7 +11,7 @@ namespace MessagingCenterDemo
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+			MainPage = new NavigationPage(new ContactsPage());
 		}
 
 		protected override void OnStart ()
