@@ -16,5 +16,25 @@ namespace SweetsDokkana.Views
 		{
 			InitializeComponent ();
 		}
-	}
+        private void BtnLogin_Clicked(object sender, EventArgs e)
+        {
+            bool isEmailEmpty = string.IsNullOrEmpty(emailEntry.Text);
+            bool isPasswordEmpty = string.IsNullOrEmpty(passwordEntry.Text);
+
+            if (isEmailEmpty || isPasswordEmpty)
+            {
+                DisplayAlert("Fail", "Please enter valid email and password", "Cancel");
+            }
+            else
+            {
+                Navigation.PushAsync(new MainPage());
+            }
+
+        }
+
+        private void BtnSignUp_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SignUpPage());
+        }
+    }
 }

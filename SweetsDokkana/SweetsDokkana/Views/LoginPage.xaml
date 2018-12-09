@@ -1,12 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"             
              x:Class="SweetsDokkana.Views.LoginPage">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="primary">#ff3467</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Spacing="10" >
+
+                <Label HeightRequest="110"  
+                          HorizontalOptions="FillAndExpand" 
+                          Text="Sweet Dokkana" 
+                          TextColor="Black" 
+                          FontSize="40" 
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="Center"/>
+
+                <Entry  Margin="20,40,20,0" 
+                         HeightRequest="50" 
+                         Placeholder="Email"
+                        x:Name="emailEntry">
+
+                </Entry>
+
+                <Entry Margin="20,0,20,0" 
+                        HeightRequest="50" IsPassword="true"
+                        Placeholder="Password"
+                       x:Name="passwordEntry">
+
+                </Entry>
+
+                <Button Margin="20,0,20,0"
+                        x:Name="btnLogin"
+                        HeightRequest="50" 
+                        TextColor="White" 
+                        Text="Login"  
+                        BackgroundColor="{StaticResource primary}"
+                        HorizontalOptions="FillAndExpand"
+                        Clicked="BtnLogin_Clicked"/>
+
+                <Button Margin="20,0,20,0"
+                        x:Name="btnSignUp"
+                        HeightRequest="50" 
+                        TextColor="White" 
+                        Text="SignUp"  
+                        BackgroundColor="Gray"
+                        HorizontalOptions="FillAndExpand"
+                        Clicked="BtnSignUp_Clicked"/>
+
+                <Label Text="Forgot password" 
+                        HorizontalOptions="Center" 
+                        TextColor="{StaticResource primary}"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

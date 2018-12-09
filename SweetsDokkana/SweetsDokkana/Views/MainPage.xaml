@@ -1,9 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SweetsDokkana.Views.MainPage">
-  <!--Pages can be added as references or inline-->
-  <ContentPage Title="Tab 1" />
-  <ContentPage Title="Tab 2" />
-  <ContentPage Title="Tab 3" />
+             xmlns:local="clr-namespace:SweetsDokkana.Views"
+
+            
+             x:Class="SweetsDokkana.Views.MainPage"
+             NavigationPage.HasNavigationBar="false"
+             x:Name="MyPage"
+             CurrentPageChanged="MyPage_CurrentPageChanged">
+    
+    
+    <local:CategoryPage Title="Home" Icon="Home.png" BackgroundColor="#0489C1"/>
+
+    <local:ProfilePage Title="Profil" Icon="profile.png" BackgroundColor="#0489B1"/>
+
+    <local:CartPage Title="Cart"  Icon="cart.png" BackgroundColor="#FA58D0"/>
+
+    <local:OrderPage Title="Order"  Icon="order.png" BackgroundColor="#5858FA"/>
+
+    <local:ContactUsPage Title="ContactUs"  Icon="contact.png" BackgroundColor="#04B404"/>
+
 </TabbedPage>

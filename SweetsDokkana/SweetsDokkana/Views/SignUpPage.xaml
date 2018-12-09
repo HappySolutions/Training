@@ -2,11 +2,64 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SweetsDokkana.Views.SignUpPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="primary">#ff3467</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Spacing="10" >
+
+                <Label HeightRequest="110"  
+                          HorizontalOptions="FillAndExpand" 
+                          Text="Sweet Dokkana" 
+                          TextColor="Black" 
+                          FontSize="40" 
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="Center"/>
+
+                <Entry  Margin="20,40,20,0" 
+                         HeightRequest="50" 
+                         Placeholder="Name">
+                </Entry>
+
+                <Entry Margin="20,0,20,0" 
+                        HeightRequest="50" IsPassword="true"
+                        Placeholder="Password">
+                </Entry>
+
+                <Entry  Margin="20,40,20,0" 
+                         HeightRequest="50" 
+                         Placeholder="Repeat Password">
+                </Entry>
+
+                <Entry  Margin="20,40,20,0" 
+                         HeightRequest="50" 
+                         Placeholder="Email">
+                </Entry>
+
+                <Entry  Margin="20,40,20,0" 
+                         HeightRequest="50" 
+                         Placeholder="Phone">
+                </Entry>
+
+                <Entry  Margin="20,40,20,0" 
+                         HeightRequest="50" 
+                         Placeholder="Address">
+                </Entry>
+
+                <Button Margin="20,0,20,0" 
+                         HeightRequest="50" 
+                         TextColor="White" 
+                         Text="SignUp"  
+                         BackgroundColor="Gray"
+                         HorizontalOptions="FillAndExpand"/>
+
+                <Label Text="Already a Cleint" 
+                        HorizontalOptions="Center" 
+                        TextColor="{StaticResource primary}"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
