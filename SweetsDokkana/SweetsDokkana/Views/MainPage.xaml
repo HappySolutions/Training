@@ -4,11 +4,7 @@
              
              xmlns:local="clr-namespace:SweetsDokkana.Views"
              x:Class="SweetsDokkana.Views.MainPage">
-    <TabbedPage.ToolbarItems>
-        <ToolbarItem Name="MenuItem1" Order="Primary" Icon="Home.png" Text="Item 1" Priority="0" />
-        <ToolbarItem Name="MenuItem2" Order="Primary" Icon="Home.png" Text="Item 2" Priority="1" />
-    </TabbedPage.ToolbarItems>
-
+   
 
     <local:CategoryPage Icon="Home.png" />
 

@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SweetsDokkana.Styles"
              NavigationPage.HasNavigationBar="false"             
              x:Class="SweetsDokkana.Views.LoginPage">
-    
     <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="primary">#ff3467</Color>
-        </ResourceDictionary>
+        <Color x:Key="primary">#ff3467</Color>
+
+        <StyleSheet Source="../Styles/SweetStyles.css"/>
     </ContentPage.Resources>
+     
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="10" >
@@ -21,35 +22,32 @@
                           HorizontalTextAlignment="Center"
                           VerticalTextAlignment="Center"/>
 
-                <Entry  Margin="20,40,20,0" 
+                <local:RoundedEntry  Margin="20,40,20,0" 
                          HeightRequest="50" 
                          Placeholder="Email"
                         x:Name="emailEntry">
 
-                </Entry>
+                </local:RoundedEntry>
 
-                <Entry Margin="20,0,20,0" 
+                <local:RoundedEntry Margin="20,0,20,0" 
                         HeightRequest="50" IsPassword="true"
                         Placeholder="Password"
                        x:Name="passwordEntry">
 
-                </Entry>
+                </local:RoundedEntry>
 
-                <Button Margin="20,0,20,0"
+                <local:RoundedButton Margin="20,0,20,0"
                         x:Name="btnLogin"
-                        HeightRequest="50" 
-                        TextColor="White" 
-                        Text="Login"  
-                        BackgroundColor="{StaticResource primary}"
+                        HeightRequest="50"
+                        Text="Login"                          
                         HorizontalOptions="FillAndExpand"
+                        BorderRadius="20"
                         Clicked="BtnLogin_Clicked"/>
 
                 <Button Margin="20,0,20,0"
                         x:Name="btnSignUp"
                         HeightRequest="50" 
-                        TextColor="White" 
                         Text="SignUp"  
-                        BackgroundColor="Gray"
                         HorizontalOptions="FillAndExpand"
                         Clicked="BtnSignUp_Clicked"/>
 
