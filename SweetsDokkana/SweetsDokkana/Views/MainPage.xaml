@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"           
+             
              xmlns:local="clr-namespace:SweetsDokkana.Views"
+             x:Class="SweetsDokkana.Views.MainPage">
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Order="Primary" Icon="Home.png" Text="Item 1" Priority="0" />
+        <ToolbarItem Name="MenuItem2" Order="Primary" Icon="Home.png" Text="Item 2" Priority="1" />
+    </TabbedPage.ToolbarItems>
 
-            
-             x:Class="SweetsDokkana.Views.MainPage"
-             NavigationPage.HasNavigationBar="false"
-             x:Name="MyPage"
-             CurrentPageChanged="MyPage_CurrentPageChanged">
-    
-    
-    <local:CategoryPage Title="Home" Icon="Home.png" BackgroundColor="#0489C1"/>
 
-    <local:ProfilePage Title="Profil" Icon="profile.png" BackgroundColor="#0489B1"/>
+    <local:CategoryPage Icon="Home.png" />
 
-    <local:CartPage Title="Cart"  Icon="cart.png" BackgroundColor="#FA58D0"/>
+    <local:ProfilePage  Icon="profile.png" />
 
-    <local:OrderPage Title="Order"  Icon="order.png" BackgroundColor="#5858FA"/>
+    <local:CartPage   Icon="cart.png" />
 
-    <local:ContactUsPage Title="ContactUs"  Icon="contact.png" BackgroundColor="#04B404"/>
+    <local:OrderPage  Icon="order.png"/>
+
+    <local:ContactUsPage Icon="contact.png" />
 
 </TabbedPage>
