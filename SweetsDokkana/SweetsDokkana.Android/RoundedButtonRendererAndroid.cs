@@ -11,9 +11,9 @@ using SweetsDokkana.Styles;
 
 namespace SweetsDokkana.Droid
 {
+#pragma warning disable CS0618 // Type or member is obsolete
     public class RoundedButtonRendererAndroid : ButtonRenderer
     {
-        private GradientDrawable _normal, _pressed;
 
         protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.Button> e)
         {
@@ -25,6 +25,7 @@ namespace SweetsDokkana.Droid
             }
         }
 
-        
+
     }
+#pragma warning restore CS0618 // Type or member is obsolete
 }

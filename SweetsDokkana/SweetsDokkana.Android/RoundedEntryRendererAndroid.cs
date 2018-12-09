@@ -11,6 +11,7 @@ using SweetsDokkana.Droid;
 [assembly: ExportRenderer(typeof(RoundedEntry), typeof(RoundedEntryRendererAndroid))]
 namespace SweetsDokkana.Droid
 {
+#pragma warning disable CS0618 // Type or member is obsolete
     public class RoundedEntryRendererAndroid : EntryRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
@@ -24,4 +25,5 @@ namespace SweetsDokkana.Droid
             }
         }
     }
+#pragma warning restore CS0618 // Type or member is obsolete
 }
