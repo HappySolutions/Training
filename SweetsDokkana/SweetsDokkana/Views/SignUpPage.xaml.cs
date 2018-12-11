@@ -16,5 +16,20 @@ namespace SweetsDokkana.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void BtnSignUp_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MainPage());
+        }
+
+        private void BtnForgotPW_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ForgotPasswordPage());
+        }
+
+        private void Btnclient_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new LoginPage());
+        }
+    }
 }

@@ -2,59 +2,70 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SweetsDokkana.Styles"
-             NavigationPage.HasNavigationBar="false"             
+             NavigationPage.HasNavigationBar="false"
              x:Class="SweetsDokkana.Views.LoginPage">
     <ContentPage.Resources>
         <Color x:Key="primary">#ff3467</Color>
-
         <StyleSheet Source="../Styles/SweetStyles.css"/>
     </ContentPage.Resources>
-     
-    <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Spacing="10" >
 
-                <Label HeightRequest="110"  
+    <StackLayout>
+        <Label HeightRequest="100"  
                           HorizontalOptions="FillAndExpand" 
                           Text="Sweet Dokkana" 
                           TextColor="Black" 
                           FontSize="40" 
                           HorizontalTextAlignment="Center"
-                          VerticalTextAlignment="Center"/>
+                          VerticalTextAlignment="Center">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="Lobster-Regular" />
+                            <On Platform="Android" Value="Handlee-Regular.ttf#Handlee-Regular" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
 
-                <local:RoundedEntry  Margin="20,40,20,0" 
+                <local:RoundedEntry  Margin="20,20,20,0" 
                          HeightRequest="50" 
                          Placeholder="Email"
-                        x:Name="emailEntry">
+                         x:Name="emailEntry">
 
                 </local:RoundedEntry>
 
                 <local:RoundedEntry Margin="20,0,20,0" 
-                        HeightRequest="50" IsPassword="true"
+                        HeightRequest="50" 
+                        IsPassword="true"
                         Placeholder="Password"
                        x:Name="passwordEntry">
 
                 </local:RoundedEntry>
 
-                <local:RoundedButton Margin="20,0,20,0"
+                <local:RoundedButton Margin="20,40,20,0"
                         x:Name="btnLogin"
                         HeightRequest="50"
-                        Text="Login"                          
+                        Text="Login"     
+                        TextColor="#c5d86d"
                         HorizontalOptions="FillAndExpand"
-                        BorderRadius="20"
                         Clicked="BtnLogin_Clicked"/>
 
-                <Button Margin="20,0,20,0"
+                <local:RoundedButton Margin="20,0,20,0"
                         x:Name="btnSignUp"
                         HeightRequest="50" 
-                        Text="SignUp"  
+                        Text="SignUp"
+                        TextColor="#c5d86d"
                         HorizontalOptions="FillAndExpand"
                         Clicked="BtnSignUp_Clicked"/>
 
-                <Label Text="Forgot password" 
+                <Button Text="Forgot password" 
                         HorizontalOptions="Center" 
-                        TextColor="{StaticResource primary}"/>
-            </StackLayout>
-        </ScrollView>
-    </ContentPage.Content>
+                        x:Name="btnForgotPW"
+                        Clicked="BtnForgotPW_Clicked"
+                        TextColor="{StaticResource primary}"
+                        BackgroundColor="White"
+                        BorderColor="White"/>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="offerCack.png" HeightRequest="300" WidthRequest="300" HorizontalOptions="Center"/>
+                </StackLayout>
+    </StackLayout>
+
 </ContentPage>

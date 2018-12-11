@@ -1,7 +1,3 @@
-﻿button {
-    color: #c5d86d;
-    background-color: #571f4e;
-    border-color: #571f4e;
-    outline: none;
-    border-radius: 14;
+﻿^ContentPage {
+    padding: 20;
 }

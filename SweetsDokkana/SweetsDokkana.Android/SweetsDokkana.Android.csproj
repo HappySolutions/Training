@@ -63,6 +63,9 @@
     <Compile Include="RoundedEntryRendererAndroid.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\Cedarville-Cursive.ttf" />
+    <AndroidAsset Include="Assets\Handlee-Regular.ttf" />
+    <AndroidAsset Include="Assets\Lobster-Regular.ttf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
@@ -93,18 +96,6 @@
       <Project>{E1926914-C39A-4810-8024-48CF338E888C}</Project>
       <Name>SweetsDokkana</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\background1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\background2.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\background3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\backgroung4.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\cart.png" />
@@ -210,6 +201,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\rounded_Button.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\offerCack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\hh.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

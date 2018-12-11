@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SweetsDokkana.Styles"
+             NavigationPage.HasNavigationBar="false"
              x:Class="SweetsDokkana.Views.SignUpPage">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -9,55 +11,66 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="10" >
+            <StackLayout>
 
-                <Label HeightRequest="110"  
+                <Label HeightRequest="100"  
                           HorizontalOptions="FillAndExpand" 
                           Text="Sweet Dokkana" 
                           TextColor="Black" 
                           FontSize="40" 
                           HorizontalTextAlignment="Center"
-                          VerticalTextAlignment="Center"/>
+                          VerticalTextAlignment="Center">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="Lobster-Regular" />
+                            <On Platform="Android" Value="Handlee-Regular.ttf#Handlee-Regular" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
 
-                <Entry  Margin="20,40,20,0" 
+                <local:RoundedEntry  Margin="20,20,20,0" 
                          HeightRequest="50" 
                          Placeholder="Name">
-                </Entry>
+                </local:RoundedEntry>
 
-                <Entry Margin="20,0,20,0" 
+                <local:RoundedEntry Margin="20,0,20,0" 
                         HeightRequest="50" IsPassword="true"
                         Placeholder="Password">
-                </Entry>
+                </local:RoundedEntry>
 
-                <Entry  Margin="20,40,20,0" 
+                <local:RoundedEntry  Margin="20,0,20,0" 
                          HeightRequest="50" 
                          Placeholder="Repeat Password">
-                </Entry>
+                </local:RoundedEntry>
 
-                <Entry  Margin="20,40,20,0" 
+                <local:RoundedEntry  Margin="20,0,20,0" 
                          HeightRequest="50" 
                          Placeholder="Email">
-                </Entry>
+                </local:RoundedEntry>
 
-                <Entry  Margin="20,40,20,0" 
+                <local:RoundedEntry  Margin="20,0,20,0" 
                          HeightRequest="50" 
                          Placeholder="Phone">
-                </Entry>
+                </local:RoundedEntry>
 
-                <Entry  Margin="20,40,20,0" 
+                <local:RoundedEntry  Margin="20,0,20,0" 
                          HeightRequest="50" 
                          Placeholder="Address">
-                </Entry>
+                </local:RoundedEntry>
 
-                <Button Margin="20,0,20,0" 
+                <local:RoundedButton Margin="20,20,20,0" 
                          HeightRequest="50" 
-                         TextColor="White" 
-                         Text="SignUp"  
-                         BackgroundColor="Gray"
-                         HorizontalOptions="FillAndExpand"/>
+                         Text="SignUp"
+                         TextColor="#c5d86d"
+                         HorizontalOptions="FillAndExpand"
+                         x:Name="btnSignUp"
+                         Clicked="BtnSignUp_Clicked"/>
 
-                <Label Text="Already a Cleint" 
-                        HorizontalOptions="Center" 
+                <Button Text="Already a Cleint" 
+                        HorizontalOptions="Center"
+                        x:Name="btnclient"
+                        Clicked="Btnclient_Clicked"
+                        BackgroundColor="White"
                         TextColor="{StaticResource primary}"/>
             </StackLayout>
         </ScrollView>

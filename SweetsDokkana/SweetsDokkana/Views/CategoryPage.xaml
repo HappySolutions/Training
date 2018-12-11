@@ -21,28 +21,28 @@
                 </Grid.ColumnDefinitions>
 
                 <AbsoluteLayout Grid.Row="0"  Grid.ColumnSpan="2">
-                    <Image Source="background1.jpg" Aspect="Fill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
+                    <Image Source="" Aspect="Fill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
                     <ContentView Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" AbsoluteLayout.LayoutBounds=".5,.5,1,1" AbsoluteLayout.LayoutFlags="All">
                         <Label Text="Oriental Sweets" TextColor="White" Font="Bold, 30" HorizontalOptions="Start" />
                     </ContentView>
                 </AbsoluteLayout>
 
                 <AbsoluteLayout Grid.Row="1" Grid.ColumnSpan="2">
-                    <Image Source="background2" Aspect="Fill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
+                    <Image Source="" Aspect="Fill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
                     <ContentView Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" Padding="20" AbsoluteLayout.LayoutBounds=".5,.5,1,1" AbsoluteLayout.LayoutFlags="All">
                         <Label Text="Western Sweets" TextColor="White" Font="Bold, 30" HorizontalOptions="Start" />
                     </ContentView>
                 </AbsoluteLayout>
 
                 <AbsoluteLayout Grid.Row="2" Grid.ColumnSpan="2">
-                    <Image Source="background3" Aspect="Fill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
+                    <Image Source="" Aspect="Fill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
                     <ContentView Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" Padding="20" AbsoluteLayout.LayoutBounds=".5,.5,1,1" AbsoluteLayout.LayoutFlags="All">
                         <Label Text="Cakes" TextColor="White" Font="Bold, 30" HorizontalOptions="Start" />
                     </ContentView>
                 </AbsoluteLayout>
 
                 <AbsoluteLayout Grid.Row="3" Grid.ColumnSpan="2">
-                    <Image Source="backgroung4" Aspect="Fill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
+                    <Image Source="" Aspect="Fill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
                     <ContentView Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" Padding="20" AbsoluteLayout.LayoutBounds=".5,.5,1,1" AbsoluteLayout.LayoutFlags="All">
                         <Label Text="Bastry" TextColor="White" Font="Bold, 30" HorizontalOptions="Start" />
                     </ContentView>

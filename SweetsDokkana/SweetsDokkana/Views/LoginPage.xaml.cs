@@ -36,5 +36,10 @@ namespace SweetsDokkana.Views
         {
             Navigation.PushAsync(new SignUpPage());
         }
+
+        private void BtnForgotPW_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ForgotPasswordPage());
+        }
     }
 }
