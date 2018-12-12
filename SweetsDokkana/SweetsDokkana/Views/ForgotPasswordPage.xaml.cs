@@ -17,7 +17,7 @@ namespace SweetsDokkana.Views
 			InitializeComponent ();
 		}
 
-        private async Task BtnSubmit_Clicked(object sender, EventArgs e)
+        private async void BtnSubmit_Clicked(object sender, EventArgs e)
         {
            await DisplayAlert("Done", "Recover Password Email Has Been Sent", "OK");
            await Navigation.PushAsync(new LoginPage());

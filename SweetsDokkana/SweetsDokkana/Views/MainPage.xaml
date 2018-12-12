@@ -2,20 +2,27 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SweetsDokkana.Views"
+            
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
-             android:TabbedPage.ToolbarPlacement="Bottom"          
+             android:TabbedPage.ToolbarPlacement="Bottom"
+             BarBackgroundColor="#571f4e"
+             android:TabbedPage.BarItemColor="#c5d86d"
+             android:TabbedPage.BarSelectedItemColor="Black"
+            
+             NavigationPage.HasNavigationBar="false"
              x:Class="SweetsDokkana.Views.MainPage"
-             NavigationPage.HasNavigationBar="false">
-   
+             x:Name="MyPage"
+             CurrentPageChanged="MyPage_CurrentPageChanged">
 
-    <local:CategoryPage Icon="Home.png" />
 
-    <local:ProfilePage  Icon="profile.png" />
+    <local:CategoryPage Icon="Home.png" BackgroundColor="#0489C1" />
 
-    <local:CartPage   Icon="cart.png" />
+    <local:ProfilePage  Icon="profile.png" BackgroundColor="#0489B1"/>
 
-    <local:OrderPage  Icon="order.png"/>
+    <local:CartPage   Icon="cart.png" BackgroundColor="#FA58D0"/>
 
-    <local:ContactUsPage Icon="contact.png" />
+    <local:OrderPage  Icon="order.png" BackgroundColor="#5858FA"/>
+
+    <local:ContactUsPage Icon="contact.png" BackgroundColor="#04B404"/>
 
 </TabbedPage>
