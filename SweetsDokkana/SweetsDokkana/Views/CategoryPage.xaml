@@ -2,10 +2,6 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SweetsDokkana.Views.CategoryPage">
-    <StackLayout>
-        <ContentView Padding="20">
-            <Label HeightRequest="120" Text="Sweet Dokkana" TextColor="White" Font="Bold, 30" HorizontalOptions="Center" VerticalOptions="Center" />
-        </ContentView>
         <StackLayout>
             <Grid RowSpacing="0">
                 <Grid.RowDefinitions>
@@ -13,41 +9,105 @@
                     <RowDefinition Height="135" />
                     <RowDefinition Height="135" />
                     <RowDefinition Height="135" />
-                    <RowDefinition Height="135" />
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
+                
 
                 <AbsoluteLayout Grid.Row="0"  Grid.ColumnSpan="2">
-                    <Image Source="" Aspect="Fill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
-                    <ContentView Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" AbsoluteLayout.LayoutBounds=".5,.5,1,1" AbsoluteLayout.LayoutFlags="All">
-                        <Label Text="Oriental Sweets" TextColor="White" Font="Bold, 30" HorizontalOptions="Start" />
-                    </ContentView>
+                <Image Source="bg1.jpg"
+                           Aspect="AspectFill" 
+                            AbsoluteLayout.LayoutBounds="0,0,1,200" 
+                            AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
+                           HorizontalOptions="FillAndExpand"/>
+                    <Label AbsoluteLayout.LayoutBounds="0,0,1,200" 
+                           AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
+                           Text="Oreintal" 
+                           TextColor="White" Font="Bold, 30" 
+                           HorizontalOptions="FillAndExpand"
+                           VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
+                        <Label.BackgroundColor>
+                            <Color>
+                                <x:Arguments>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0.6</x:Double>
+                                </x:Arguments>
+                            </Color>
+                        </Label.BackgroundColor>
+                    </Label>
                 </AbsoluteLayout>
 
                 <AbsoluteLayout Grid.Row="1" Grid.ColumnSpan="2">
-                    <Image Source="" Aspect="Fill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
-                    <ContentView Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" Padding="20" AbsoluteLayout.LayoutBounds=".5,.5,1,1" AbsoluteLayout.LayoutFlags="All">
-                        <Label Text="Western Sweets" TextColor="White" Font="Bold, 30" HorizontalOptions="Start" />
-                    </ContentView>
+                <Image Source="bg1.jpg"
+                           Aspect="AspectFill" 
+                            AbsoluteLayout.LayoutBounds="0,0,1,200" 
+                            AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
+                           HorizontalOptions="FillAndExpand"/>
+                    <Label AbsoluteLayout.LayoutBounds="0,0,1,200" 
+                           AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
+                           Text="Western Sweets" 
+                           TextColor="White" Font="Bold, 30"  
+                           VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
+                        <Label.BackgroundColor>
+                            <Color>
+                                <x:Arguments>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0.6</x:Double>
+                                </x:Arguments>
+                            </Color>
+                        </Label.BackgroundColor>
+                    </Label>
                 </AbsoluteLayout>
 
                 <AbsoluteLayout Grid.Row="2" Grid.ColumnSpan="2">
-                    <Image Source="" Aspect="Fill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
-                    <ContentView Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" Padding="20" AbsoluteLayout.LayoutBounds=".5,.5,1,1" AbsoluteLayout.LayoutFlags="All">
-                        <Label Text="Cakes" TextColor="White" Font="Bold, 30" HorizontalOptions="Start" />
-                    </ContentView>
+                <Image Source="bg1.jpg"
+                           Aspect="AspectFill" 
+                            AbsoluteLayout.LayoutBounds="0,0,1,200" 
+                            AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
+                           HorizontalOptions="FillAndExpand"/>
+                    <Label AbsoluteLayout.LayoutBounds="0,0,1,200" 
+                           AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
+                           Text="Cacks" 
+                           TextColor="White" Font="Bold, 30"  
+                           VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
+                        <Label.BackgroundColor>
+                            <Color>
+                                <x:Arguments>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0.6</x:Double>
+                                </x:Arguments>
+                            </Color>
+                        </Label.BackgroundColor>
+                    </Label>
                 </AbsoluteLayout>
 
                 <AbsoluteLayout Grid.Row="3" Grid.ColumnSpan="2">
-                    <Image Source="" Aspect="Fill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
-                    <ContentView Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" Padding="20" AbsoluteLayout.LayoutBounds=".5,.5,1,1" AbsoluteLayout.LayoutFlags="All">
-                        <Label Text="Bastry" TextColor="White" Font="Bold, 30" HorizontalOptions="Start" />
-                    </ContentView>
+                <Image Source="bg1.jpg"
+                           Aspect="AspectFill" 
+                            AbsoluteLayout.LayoutBounds="0,0,1,200" 
+                            AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
+                           HorizontalOptions="FillAndExpand"/>
+                    <Label AbsoluteLayout.LayoutBounds="0,0,1,200" 
+                           AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
+                           Text="Bastry" 
+                           TextColor="White" Font="Bold, 30"  
+                           VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
+                        <Label.BackgroundColor>
+                            <Color>
+                                <x:Arguments>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0.6</x:Double>
+                                </x:Arguments>
+                            </Color>
+                        </Label.BackgroundColor>
+                    </Label>
                 </AbsoluteLayout>
             </Grid>
         </StackLayout>
-    </StackLayout>
 </ContentPage>
