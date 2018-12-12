@@ -1,18 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
              x:Class="SweetsDokkana.Views.CategoryPage">
         <StackLayout>
             <Grid RowSpacing="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="135" />
-                    <RowDefinition Height="135" />
-                    <RowDefinition Height="135" />
-                    <RowDefinition Height="135" />
-                </Grid.RowDefinitions>
-                
+            <Grid.RowDefinitions>
+                <RowDefinition Height="135" />
+            </Grid.RowDefinitions>
 
-                <AbsoluteLayout Grid.Row="0"  Grid.ColumnSpan="2">
+            <AbsoluteLayout Grid.Row="0"  Grid.ColumnSpan="2">
                 <Image Source="bg1.jpg"
                            Aspect="AspectFill" 
                             AbsoluteLayout.LayoutBounds="0,0,1,200" 
@@ -38,7 +35,7 @@
                 </AbsoluteLayout>
 
                 <AbsoluteLayout Grid.Row="1" Grid.ColumnSpan="2">
-                <Image Source="bg1.jpg"
+                <Image Source="bg2.jpeg"
                            Aspect="AspectFill" 
                             AbsoluteLayout.LayoutBounds="0,0,1,200" 
                             AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
@@ -86,7 +83,7 @@
                 </AbsoluteLayout>
 
                 <AbsoluteLayout Grid.Row="3" Grid.ColumnSpan="2">
-                <Image Source="bg1.jpg"
+                <Image Source="bastry.jpg"
                            Aspect="AspectFill" 
                             AbsoluteLayout.LayoutBounds="0,0,1,200" 
                             AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
