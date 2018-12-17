@@ -5,7 +5,7 @@
             
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
              android:TabbedPage.ToolbarPlacement="Bottom"
-             BarBackgroundColor="#571f4e"
+             BarBackgroundColor="White"
              android:TabbedPage.BarItemColor="#c5d86d"
              android:TabbedPage.BarSelectedItemColor="Black"
             
@@ -15,14 +15,14 @@
              CurrentPageChanged="MyPage_CurrentPageChanged">
 
 
-    <local:CategoryPage Icon="Home.png" BackgroundColor="#0489C1" />
+    <local:CategoryPage Icon="Home.png" Title="Home"/>
 
-    <local:ProfilePage  Icon="profile.png" BackgroundColor="#0489B1"/>
+    <local:ProfilePage  Icon="profile.png"  Title="Profile"/>
 
-    <local:CartPage   Icon="cart.png" BackgroundColor="#FA58D0"/>
+    <local:CartPage   Icon="cart.png"  Title="Cart"/>
 
-    <local:OrderPage  Icon="order.png" BackgroundColor="#5858FA"/>
+    <local:OrderPage  Icon="order.png" Title="Order"/>
 
-    <local:ContactUsPage Icon="contact.png" BackgroundColor="#04B404"/>
+    <local:ContactUsPage Icon="contact.png" Title="Contact"/>
 
 </TabbedPage>

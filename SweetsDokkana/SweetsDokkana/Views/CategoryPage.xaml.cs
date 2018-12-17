@@ -16,5 +16,15 @@ namespace SweetsDokkana.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void BtnSearch_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SearchResultsPage());
+        }
+    }
 }

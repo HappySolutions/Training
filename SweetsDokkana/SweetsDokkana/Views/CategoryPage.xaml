@@ -4,20 +4,40 @@
              NavigationPage.HasNavigationBar="false"
              x:Class="SweetsDokkana.Views.CategoryPage">
         <StackLayout>
-            <Grid RowSpacing="0">
+        <ScrollView>
+            <Grid RowSpacing="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="135" />
             </Grid.RowDefinitions>
+                    <StackLayout Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="White" Orientation="Horizontal">
+                        <ImageButton x:Name="btnSearch" Clicked="BtnSearch_Clicked" Source="Search.png" BackgroundColor="Transparent"/>
 
-            <AbsoluteLayout Grid.Row="0"  Grid.ColumnSpan="2">
-                <Image Source="bg1.jpg"
+                        <Label  
+                          HorizontalOptions="FillAndExpand" 
+                          Text="Sweet Dokkana" 
+                          TextColor="Black" 
+                          FontSize="40" 
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="Center">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS" Value="Lobster-Regular" />
+                                    <On Platform="Android" Value="Handlee-Regular.ttf#Handlee-Regular" />
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+
+                    </StackLayout>
+                <AbsoluteLayout Grid.Row="1"  Grid.ColumnSpan="2">
+
+                        <Image Source="gf.jpg"
                            Aspect="AspectFill" 
                             AbsoluteLayout.LayoutBounds="0,0,1,200" 
                             AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
                            HorizontalOptions="FillAndExpand"/>
                     <Label AbsoluteLayout.LayoutBounds="0,0,1,200" 
                            AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
-                           Text="Oreintal" 
+                           Text="Oriental" 
                            TextColor="White" Font="Bold, 30" 
                            HorizontalOptions="FillAndExpand"
                            VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
@@ -32,9 +52,10 @@
                             </Color>
                         </Label.BackgroundColor>
                     </Label>
+
                 </AbsoluteLayout>
 
-                <AbsoluteLayout Grid.Row="1" Grid.ColumnSpan="2">
+                <AbsoluteLayout Grid.Row="2" Grid.ColumnSpan="2">
                 <Image Source="bg2.jpeg"
                            Aspect="AspectFill" 
                             AbsoluteLayout.LayoutBounds="0,0,1,200" 
@@ -58,7 +79,7 @@
                     </Label>
                 </AbsoluteLayout>
 
-                <AbsoluteLayout Grid.Row="2" Grid.ColumnSpan="2">
+                <AbsoluteLayout Grid.Row="3" Grid.ColumnSpan="2">
                 <Image Source="bg1.jpg"
                            Aspect="AspectFill" 
                             AbsoluteLayout.LayoutBounds="0,0,1,200" 
@@ -82,7 +103,7 @@
                     </Label>
                 </AbsoluteLayout>
 
-                <AbsoluteLayout Grid.Row="3" Grid.ColumnSpan="2">
+                <AbsoluteLayout Grid.Row="4" Grid.ColumnSpan="2">
                 <Image Source="bastry.jpg"
                            Aspect="AspectFill" 
                             AbsoluteLayout.LayoutBounds="0,0,1,200" 
@@ -106,5 +127,6 @@
                     </Label>
                 </AbsoluteLayout>
             </Grid>
-        </StackLayout>
+        </ScrollView>
+    </StackLayout>
 </ContentPage>

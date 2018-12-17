@@ -1,22 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SweetsDokkana.Views.ProfilePage"
-             >
-    <ContentPage.Resources>
-        <StyleSheet Source="../Styles/SweetStyles.css"/>
-    </ContentPage.Resources>
-    <StackLayout>
-        <SearchBar Placeholder="Search..." FontAttributes="Bold" TextChanged="SearchBar_TextChanged"/>
-        <!-- <ListView x:Name="listView">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding Name}" Detail="{Binding Status}"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
+             xmlns:local="clr-namespace:SweetsDokkana.Styles"
+             x:Class="SweetsDokkana.Views.ProfilePage">
+    
+    <StackLayout Padding="0" Margin="0">
+        <StackLayout BackgroundColor="White" Orientation="Horizontal">
 
-        </ListView>-->
-        <Button Text="Login"/>
-
+            <Label HorizontalOptions="FillAndExpand"
+                   Text="Sweet Dokkana" 
+                   TextColor="Black" 
+                   FontSize="40" 
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="Lobster-Regular" />
+                        <On Platform="Android" Value="Handlee-Regular.ttf#Handlee-Regular" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+        </StackLayout>
+        <StackLayout BackgroundColor="White" Orientation="Horizontal">
+            <Image Source="personal.png" HeightRequest="100" WidthRequest="100" Aspect="AspectFit" HorizontalOptions="FillAndExpand"/>
+            <StackLayout>
+            <Label Text="Personal Information" FontAttributes="Bold">
+            <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="iOS" Value="Lobster-Regular" />
+                    <On Platform="Android" Value="Handlee-Regular.ttf#Handlee-Regular" />
+                </OnPlatform>
+            </Label.FontFamily>
+            </Label>
+            <Label Text="Name">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="Lobster-Regular" />
+                        <On Platform="Android" Value="Handlee-Regular.ttf#Handlee-Regular" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            <Label Text="Email">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="Lobster-Regular" />
+                        <On Platform="Android" Value="Handlee-Regular.ttf#Handlee-Regular" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout>
+            <local:RoundedButton Margin="20,20,20,0" 
+                         HeightRequest="50" 
+                         Text="Edit Profile"
+                         TextColor="#c5d86d"
+                         HorizontalOptions="FillAndExpand"/>
+            <local:RoundedButton Margin="20,40,20,0" 
+                         HeightRequest="50" 
+                         Text="My Orders"
+                         TextColor="#c5d86d"
+                         HorizontalOptions="FillAndExpand"/>
+            <local:RoundedButton Margin="20,40,20,0" 
+                         HeightRequest="50" 
+                         Text="Log Out"
+                         TextColor="#c5d86d"
+                         HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
     </StackLayout>
+        
 </ContentPage>

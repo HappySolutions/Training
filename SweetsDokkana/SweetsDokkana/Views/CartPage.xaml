@@ -2,7 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SweetsDokkana.Views.CartPage">
-    <StackLayout >
-        <Label Text="New Page" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+
+
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="Your Cart is Empty Add Items From the Home tab " VerticalTextAlignment="Center">
+            <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="iOS" Value="Lobster-Regular" />
+                    <On Platform="Android" Value="Handlee-Regular.ttf#Handlee-Regular" />
+                </OnPlatform>
+            </Label.FontFamily>
+        </Label>
     </StackLayout>
+    
 </ContentPage>

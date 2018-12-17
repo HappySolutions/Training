@@ -4,11 +4,7 @@
              xmlns:local="clr-namespace:SweetsDokkana.Styles"
              NavigationPage.HasNavigationBar="false"
              x:Class="SweetsDokkana.Views.SignUpPage">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="primary">#ff3467</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
+    
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>

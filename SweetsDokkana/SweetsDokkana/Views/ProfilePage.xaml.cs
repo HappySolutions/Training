@@ -20,5 +20,9 @@ namespace SweetsDokkana.Views
         {
 
         }
+        private void BtnSearch_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SearchResultsPage());
+        }
     }
 }
