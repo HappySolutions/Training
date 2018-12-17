@@ -7,19 +7,11 @@
     <StackLayout Padding="0" Margin="0">
         <StackLayout BackgroundColor="White" Orientation="Horizontal">
 
-            <Label HorizontalOptions="FillAndExpand"
-                   Text="Sweet Dokkana" 
-                   TextColor="Black" 
-                   FontSize="40" 
-                   HorizontalTextAlignment="Center"
-                   VerticalTextAlignment="Center">
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS" Value="Lobster-Regular" />
-                        <On Platform="Android" Value="Handlee-Regular.ttf#Handlee-Regular" />
-                    </OnPlatform>
-                </Label.FontFamily>
-            </Label>
+            <Label  HorizontalOptions="FillAndExpand" 
+                Text="Sweet Dokkana" 
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                Style="{StaticResource MainLabel}"/>
         </StackLayout>
         <StackLayout BackgroundColor="White" Orientation="Horizontal">
             <Image Source="personal.png" HeightRequest="100" WidthRequest="100" Aspect="AspectFit" HorizontalOptions="FillAndExpand"/>

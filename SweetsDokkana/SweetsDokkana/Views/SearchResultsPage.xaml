@@ -4,9 +4,11 @@
              x:Class="SweetsDokkana.Views.SearchResultsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label  HorizontalOptions="FillAndExpand" 
+                Text="Sweet Dokkana" 
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                Style="{StaticResource MainLabel}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

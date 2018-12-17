@@ -5,14 +5,13 @@
 
 
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Label Text="Your Cart is Empty Add Items From the Home tab " VerticalTextAlignment="Center">
-            <Label.FontFamily>
-                <OnPlatform x:TypeArguments="x:String">
-                    <On Platform="iOS" Value="Lobster-Regular" />
-                    <On Platform="Android" Value="Handlee-Regular.ttf#Handlee-Regular" />
-                </OnPlatform>
-            </Label.FontFamily>
-        </Label>
+        <Label  HorizontalOptions="FillAndExpand" 
+                Text="Sweet Dokkana" 
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                Style="{StaticResource MainLabel}"/>
+        <Label Text="Your Cart is Empty Add Items From the Home tab " VerticalTextAlignment="Center" Style="{StaticResource MainBodyLabel}"/>
+
     </StackLayout>
     
 </ContentPage>

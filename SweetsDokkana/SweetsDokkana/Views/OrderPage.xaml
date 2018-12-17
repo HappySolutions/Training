@@ -3,6 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SweetsDokkana.Views.OrderPage">
     <StackLayout BackgroundColor="#FFFFFF">
+        <Label  HorizontalOptions="FillAndExpand" 
+                Text="Sweet Dokkana" 
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                Style="{StaticResource MainLabel}"/>
         <Label Text="Report Page" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
     </StackLayout>
 </ContentPage>

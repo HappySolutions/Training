@@ -12,22 +12,14 @@
                     <StackLayout Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="White" Orientation="Horizontal">
                         <ImageButton x:Name="btnSearch" Clicked="BtnSearch_Clicked" Source="Search.png" BackgroundColor="Transparent"/>
 
-                        <Label  
+                    <Label  
                           HorizontalOptions="FillAndExpand" 
                           Text="Sweet Dokkana" 
-                          TextColor="Black" 
-                          FontSize="40" 
                           HorizontalTextAlignment="Center"
-                          VerticalTextAlignment="Center">
-                            <Label.FontFamily>
-                                <OnPlatform x:TypeArguments="x:String">
-                                    <On Platform="iOS" Value="Lobster-Regular" />
-                                    <On Platform="Android" Value="Handlee-Regular.ttf#Handlee-Regular" />
-                                </OnPlatform>
-                            </Label.FontFamily>
-                        </Label>
+                          VerticalTextAlignment="Center"
+                          Style="{StaticResource MainLabel}"/>
 
-                    </StackLayout>
+                </StackLayout>
                 <AbsoluteLayout Grid.Row="1"  Grid.ColumnSpan="2">
 
                         <Image Source="gf.jpg"
