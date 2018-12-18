@@ -7,10 +7,10 @@
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <Label  HorizontalOptions="FillAndExpand" 
                 Text="Sweet Dokkana" 
-                HorizontalTextAlignment="Center"
-                VerticalTextAlignment="Center"
                 Style="{StaticResource MainLabel}"/>
-        <Label Text="Your Cart is Empty Add Items From the Home tab " VerticalTextAlignment="Center" Style="{StaticResource MainBodyLabel}"/>
+
+        <Label Text="Your Cart is Empty Add Items From the Home tab " VerticalTextAlignment="Center" 
+               Style="{StaticResource HeaderLabels}"/>
 
     </StackLayout>
     

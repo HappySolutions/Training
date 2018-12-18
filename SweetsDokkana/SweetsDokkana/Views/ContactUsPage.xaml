@@ -2,12 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SweetsDokkana.Views.ContactUsPage">
-    <StackLayout BackgroundColor="#FFFFFF">
-        <Label  HorizontalOptions="FillAndExpand" 
+    <ScrollView>
+        <Grid BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="AUTO" />
+                <RowDefinition Height="AUTO" />
+                <RowDefinition Height="AUTO" />
+            </Grid.RowDefinitions>
+            
+            <Label  HorizontalOptions="FillAndExpand" 
                 Text="Sweet Dokkana" 
                 HorizontalTextAlignment="Center"
                 VerticalTextAlignment="Center"
                 Style="{StaticResource MainLabel}"/>
-        <Label Text="Search Page" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+        </Grid>
+    </ScrollView>
 </ContentPage>
