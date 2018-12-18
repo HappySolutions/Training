@@ -35,7 +35,7 @@
                         x:Name="btnLogin"
                         HeightRequest="50"
                         Text="Login"     
-                        TextColor="#c5d86d"
+                        Style="{StaticResource MainButton}"
                         HorizontalOptions="FillAndExpand"
                         Clicked="BtnLogin_Clicked"/>
 
@@ -43,7 +43,7 @@
                         x:Name="btnSignUp"
                         HeightRequest="50" 
                         Text="SignUp"
-                        TextColor="#c5d86d"
+                        Style="{StaticResource MainButton}"
                         HorizontalOptions="FillAndExpand"
                         Clicked="BtnSignUp_Clicked"/>
 

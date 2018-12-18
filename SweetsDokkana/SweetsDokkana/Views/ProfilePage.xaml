@@ -13,7 +13,7 @@
             </Grid.RowDefinitions>
 
             <!--  header background  -->
-            <Image Aspect="AspectFill" Source="bg1.jpg" />
+            <Image Aspect="AspectFill" Source="caramelcake.jpg" />
             <Image Aspect="Fill" Margin="0,-1,0,-1" Source="CurvedMask.png" VerticalOptions="End" />
 
             <!--  profile image  -->
@@ -21,8 +21,8 @@
 
             <!--  Profile Name  -->
             <StackLayout Grid.Row="1" Padding="0,50,0,00" HorizontalOptions="Center">
-                <Label  Text="Happy" />
-                <Label Margin="0,-5"  Text="Sweets@gmail.com" />
+                <Label  Text="Happy" Style="{StaticResource MainBodyText}" HorizontalTextAlignment="Center"/>
+                <Label  Text="Sweets@gmail.com" Style="{StaticResource MainBodyText}" HorizontalTextAlignment="Center" />
             </StackLayout>
 
             <!--  Profile buttons  -->
@@ -30,17 +30,17 @@
                 <local:RoundedButton Margin="20,20,20,0" 
                          HeightRequest="50" 
                          Text="Edit Profile"
-                         TextColor="#c5d86d"
+                         Style="{StaticResource MainButton}"
                          HorizontalOptions="FillAndExpand"/>
                 <local:RoundedButton Margin="20,40,20,0" 
                          HeightRequest="50" 
                          Text="My Orders"
-                         TextColor="#c5d86d"
+                         Style="{StaticResource MainButton}"
                          HorizontalOptions="FillAndExpand"/>
                 <local:RoundedButton Margin="20,40,20,0" 
                          HeightRequest="50" 
                          Text="Log Out"
-                         TextColor="#c5d86d"
+                         Style="{StaticResource MainButton}"
                          HorizontalOptions="FillAndExpand"/>
             </StackLayout>
 
@@ -48,62 +48,4 @@
     </ScrollView>
 </ContentPage>
     
-<!-- 
-    <StackLayout Padding="0" Margin="0">
-        <StackLayout BackgroundColor="White" Orientation="Horizontal">
 
-            <Label  HorizontalOptions="FillAndExpand" 
-                Text="Sweet Dokkana" 
-                HorizontalTextAlignment="Center"
-                VerticalTextAlignment="Center"
-                Style="{StaticResource MainLabel}"/>
-        </StackLayout>
-        <StackLayout BackgroundColor="White" Orientation="Horizontal">
-            <Image Source="personal.png" HeightRequest="100" WidthRequest="100" Aspect="AspectFit" HorizontalOptions="FillAndExpand"/>
-            <StackLayout>
-            <Label Text="Personal Information" FontAttributes="Bold">
-            <Label.FontFamily>
-                <OnPlatform x:TypeArguments="x:String">
-                    <On Platform="iOS" Value="Lobster-Regular" />
-                    <On Platform="Android" Value="Handlee-Regular.ttf#Handlee-Regular" />
-                </OnPlatform>
-            </Label.FontFamily>
-            </Label>
-            <Label Text="Name">
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS" Value="Lobster-Regular" />
-                        <On Platform="Android" Value="Handlee-Regular.ttf#Handlee-Regular" />
-                    </OnPlatform>
-                </Label.FontFamily>
-            </Label>
-            <Label Text="Email">
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS" Value="Lobster-Regular" />
-                        <On Platform="Android" Value="Handlee-Regular.ttf#Handlee-Regular" />
-                    </OnPlatform>
-                </Label.FontFamily>
-            </Label>
-            </StackLayout>
-        </StackLayout>
-        <StackLayout>
-            <local:RoundedButton Margin="20,20,20,0" 
-                         HeightRequest="50" 
-                         Text="Edit Profile"
-                         TextColor="#c5d86d"
-                         HorizontalOptions="FillAndExpand"/>
-            <local:RoundedButton Margin="20,40,20,0" 
-                         HeightRequest="50" 
-                         Text="My Orders"
-                         TextColor="#c5d86d"
-                         HorizontalOptions="FillAndExpand"/>
-            <local:RoundedButton Margin="20,40,20,0" 
-                         HeightRequest="50" 
-                         Text="Log Out"
-                         TextColor="#c5d86d"
-                         HorizontalOptions="FillAndExpand"/>
-        </StackLayout>
-    </StackLayout>
-        
-</ContentPage> -->

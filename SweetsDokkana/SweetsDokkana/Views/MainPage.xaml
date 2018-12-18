@@ -15,7 +15,7 @@
              CurrentPageChanged="MyPage_CurrentPageChanged">
 
 
-    <local:CategoryPage Icon="Home.png" Title="Home"/>
+    <local:CategoryPage Icon="Home.png" Title="Home" />
 
     <local:ProfilePage  Icon="profile.png"  Title="Profile"/>
 

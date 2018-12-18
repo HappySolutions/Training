@@ -48,7 +48,7 @@
                 <local:RoundedButton Margin="20,20,20,0" 
                          HeightRequest="50" 
                          Text="SignUp"
-                         TextColor="#c5d86d"
+                         Style="{StaticResource MainButton}"
                          HorizontalOptions="FillAndExpand"
                          x:Name="btnSignUp"
                          Clicked="BtnSignUp_Clicked"/>
