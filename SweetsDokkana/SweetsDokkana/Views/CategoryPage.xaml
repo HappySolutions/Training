@@ -1,124 +1,1 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             NavigationPage.HasNavigationBar="false"
-             x:Class="SweetsDokkana.Views.CategoryPage">
-        <StackLayout>
-        <ScrollView>
-            <Grid RowSpacing="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="135" />
-            </Grid.RowDefinitions>
-                    <StackLayout Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="White" Orientation="Horizontal">
-                        <ImageButton x:Name="btnSearch" Clicked="BtnSearch_Clicked" Source="Search.png" BackgroundColor="Transparent"/>
-
-                    <Label  
-                          HorizontalOptions="FillAndExpand" 
-                          Text="Sweet Dokkana" 
-                          HorizontalTextAlignment="Center"
-                          VerticalTextAlignment="Center"
-                          Style="{StaticResource MainLabel}"/>
-
-                </StackLayout>
-                <AbsoluteLayout Grid.Row="1"  Grid.ColumnSpan="2">
-
-                        <Image Source="gf.jpg"
-                           Aspect="AspectFill" 
-                            AbsoluteLayout.LayoutBounds="0,0,1,200" 
-                            AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
-                           HorizontalOptions="FillAndExpand"/>
-                    <Label AbsoluteLayout.LayoutBounds="0,0,1,200" 
-                           AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
-                           Text="Oriental" 
-                           TextColor="White" Font="Bold, 30" 
-                           HorizontalOptions="FillAndExpand"
-                           VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
-                        <Label.BackgroundColor>
-                            <Color>
-                                <x:Arguments>
-                                    <x:Double>0</x:Double>
-                                    <x:Double>0</x:Double>
-                                    <x:Double>0</x:Double>
-                                    <x:Double>0.6</x:Double>
-                                </x:Arguments>
-                            </Color>
-                        </Label.BackgroundColor>
-                    </Label>
-
-                </AbsoluteLayout>
-
-                <AbsoluteLayout Grid.Row="2" Grid.ColumnSpan="2">
-                <Image Source="bg2.jpeg"
-                           Aspect="AspectFill" 
-                            AbsoluteLayout.LayoutBounds="0,0,1,200" 
-                            AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
-                           HorizontalOptions="FillAndExpand"/>
-                    <Label AbsoluteLayout.LayoutBounds="0,0,1,200" 
-                           AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
-                           Text="Western Sweets" 
-                           TextColor="White" Font="Bold, 30"  
-                           VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
-                        <Label.BackgroundColor>
-                            <Color>
-                                <x:Arguments>
-                                    <x:Double>0</x:Double>
-                                    <x:Double>0</x:Double>
-                                    <x:Double>0</x:Double>
-                                    <x:Double>0.6</x:Double>
-                                </x:Arguments>
-                            </Color>
-                        </Label.BackgroundColor>
-                    </Label>
-                </AbsoluteLayout>
-
-                <AbsoluteLayout Grid.Row="3" Grid.ColumnSpan="2">
-                <Image Source="bg1.jpg"
-                           Aspect="AspectFill" 
-                            AbsoluteLayout.LayoutBounds="0,0,1,200" 
-                            AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
-                           HorizontalOptions="FillAndExpand"/>
-                    <Label AbsoluteLayout.LayoutBounds="0,0,1,200" 
-                           AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
-                           Text="Cacks" 
-                           TextColor="White" Font="Bold, 30"  
-                           VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
-                        <Label.BackgroundColor>
-                            <Color>
-                                <x:Arguments>
-                                    <x:Double>0</x:Double>
-                                    <x:Double>0</x:Double>
-                                    <x:Double>0</x:Double>
-                                    <x:Double>0.6</x:Double>
-                                </x:Arguments>
-                            </Color>
-                        </Label.BackgroundColor>
-                    </Label>
-                </AbsoluteLayout>
-
-                <AbsoluteLayout Grid.Row="4" Grid.ColumnSpan="2">
-                <Image Source="bastry.jpg"
-                           Aspect="AspectFill" 
-                            AbsoluteLayout.LayoutBounds="0,0,1,200" 
-                            AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
-                           HorizontalOptions="FillAndExpand"/>
-                    <Label AbsoluteLayout.LayoutBounds="0,0,1,200" 
-                           AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional" 
-                           Text="Bastry" 
-                           TextColor="White" Font="Bold, 30"  
-                           VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
-                        <Label.BackgroundColor>
-                            <Color>
-                                <x:Arguments>
-                                    <x:Double>0</x:Double>
-                                    <x:Double>0</x:Double>
-                                    <x:Double>0</x:Double>
-                                    <x:Double>0.6</x:Double>
-                                </x:Arguments>
-                            </Color>
-                        </Label.BackgroundColor>
-                    </Label>
-                </AbsoluteLayout>
-            </Grid>
-        </ScrollView>
-    </StackLayout>
-</ContentPage>
+﻿<?xml version="1.0" encoding="utf-8" ?><ContentPage xmlns="http://xamarin.com/schemas/2014/forms"             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             NavigationPage.HasNavigationBar="false"             x:Class="SweetsDokkana.Views.CategoryPage">        <ScrollView>        <Grid ColumnSpacing="0" RowSpacing="0">            <Grid.RowDefinitions>                <RowDefinition Height="150" />                <RowDefinition Height="250" />                <RowDefinition Height="250" />                <RowDefinition Height="250" />                <RowDefinition Height="250" />            </Grid.RowDefinitions>            <Grid Grid.Row="0">                <Label Grid.Row="0"                         Text="Sweet Dokkana"                         Style="{StaticResource MainLabel}"/>                <SearchBar Placeholder="Search" Grid.Row="1"/>            </Grid>            <Grid Grid.Row="1">                <Image Aspect="AspectFill" Source="gf.jpg" />                <Label Margin="0,-1,0,-1" Text="Oriental"                             TextColor="White" Font="Bold, 30"                       VerticalOptions="End">                    <Label.BackgroundColor>                        <Color>                            <x:Arguments>                                <x:Double>0</x:Double>                                <x:Double>0</x:Double>                                <x:Double>0</x:Double>                                <x:Double>0.6</x:Double>                            </x:Arguments>                        </Color>                    </Label.BackgroundColor>                </Label>            </Grid>            <Grid Grid.Row="2">                <Image Aspect="AspectFill" Source="bg2.jpeg" />                <Label Margin="0,-1,0,-1" Text="Western Sweets"                             TextColor="White" Font="Bold, 30"                       VerticalOptions="End">                    <Label.BackgroundColor>                        <Color>                            <x:Arguments>                                <x:Double>0</x:Double>                                <x:Double>0</x:Double>                                <x:Double>0</x:Double>                                <x:Double>0.6</x:Double>                            </x:Arguments>                        </Color>                    </Label.BackgroundColor>                </Label>            </Grid>            <Grid Grid.Row="3">                <Image Aspect="AspectFill" Source="bg1.jpg" />                <Label Margin="0,-1,0,-1" Text="Cakes"                             TextColor="White" Font="Bold, 30"                       VerticalOptions="End">                    <Label.BackgroundColor>                        <Color>                            <x:Arguments>                                <x:Double>0</x:Double>                                <x:Double>0</x:Double>                                <x:Double>0</x:Double>                                <x:Double>0.6</x:Double>                            </x:Arguments>                        </Color>                    </Label.BackgroundColor>                </Label>            </Grid>            <Grid Grid.Row="4">                <Image Aspect="AspectFill" Source="bastry.jpg" />                <Label Margin="0,-1,0,-1" Text="bastry"                         TextColor="White" Font="Bold, 30"                       VerticalOptions="End">                    <Label.BackgroundColor>                        <Color>                            <x:Arguments>                                <x:Double>0</x:Double>                                <x:Double>0</x:Double>                                <x:Double>0</x:Double>                                <x:Double>0.6</x:Double>                            </x:Arguments>                        </Color>                    </Label.BackgroundColor>                </Label>            </Grid>        </Grid>    </ScrollView></ContentPage>

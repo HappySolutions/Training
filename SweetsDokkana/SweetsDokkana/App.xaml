@@ -32,7 +32,7 @@
                     <Setter Property="TextColor" Value="{StaticResource HeaderTextColor}" />
                     <Setter Property="FontFamily" Value="{StaticResource RegularFontFamily}" />
                     <Setter Property="FontSize" Value="{StaticResource TitleFontSize}" />
-                    <Setter Property="HorizontalTextAlignment" Value="Center" />
+                
                 </Style>
 
                 <Style x:Key="MainBodyLabel" TargetType="Label">
