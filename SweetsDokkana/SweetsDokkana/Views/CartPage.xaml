@@ -10,7 +10,7 @@
                 Style="{StaticResource MainLabel}"/>
 
         <Label Text="Your Cart is Empty Add Items From the Home tab " VerticalTextAlignment="Center" 
-               Style="{StaticResource HeaderLabels}"/>
+               Style="{StaticResource Miniheader}"/>
 
     </StackLayout>
     
