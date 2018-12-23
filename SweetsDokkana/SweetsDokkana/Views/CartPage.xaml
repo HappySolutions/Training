@@ -5,26 +5,27 @@
     <Grid>
         <Image Source="patternbackground.jpeg" Aspect="AspectFill" Opacity="0.2" />
 
-        <TableView Grid.Row="1">
-            <TableRoot Title="Orderd Products">
-                <TableSection Title="SectionWhatever">
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal">
-                            <!--Put the three things you want as colums here -->
-                        </StackLayout>
-                    </ViewCell>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal">
-                            <!--Put the three things you want as colums here -->
-                        </StackLayout>
-                    </ViewCell>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal">
-                            <!--Put the three things you want as colums here -->
-                        </StackLayout>
-                    </ViewCell>
-                </TableSection>
-            </TableRoot>
-        </TableView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="AUTO"/>
+                <ColumnDefinition Width="AUTO"/>
+                <ColumnDefinition Width="AUTO"/>
+                <ColumnDefinition Width="AUTO"/>
+                <ColumnDefinition Width="AUTO"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Text="Product Name" />
+            <Label Grid.Row="0" Grid.Column="1" Text="Category"/>
+            <Label Grid.Row="0" Grid.Column="2" Text="Quantity" />
+            <Label Grid.Row="0" Grid.Column="3" Text="Unit-Price" />
+            <Label Grid.Row="0" Grid.Column="4" Text="Total" />
+        </Grid>
+        
     </Grid>
 </ContentPage>
