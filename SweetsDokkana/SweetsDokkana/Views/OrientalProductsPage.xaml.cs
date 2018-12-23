@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SweetsDokkana.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
@@ -30,6 +31,13 @@ namespace SweetsDokkana.Views
             booksListView.ItemsSource = _products;
 
             base.OnAppearing();
+        }
+
+        private void listView_Refreshing(object sender, EventArgs e)
+        {
+            booksListView.ItemsSource = _products;
+            //then we use this function to end the refreshing loading
+            booksListView.EndRefresh();
         }
 
         async void OnAdd(object sender, System.EventArgs e)

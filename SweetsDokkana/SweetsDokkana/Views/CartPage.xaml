@@ -4,27 +4,52 @@
              x:Class="SweetsDokkana.Views.CartPage">
     <Grid>
         <Image Source="patternbackground.jpeg" Aspect="AspectFill" Opacity="0.2" />
-
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="AUTO"/>
-                <RowDefinition Height="AUTO"/>
-                <RowDefinition Height="AUTO"/>
-                <RowDefinition Height="AUTO"/>
-                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="AUTO"/>
-                <ColumnDefinition Width="AUTO"/>
-                <ColumnDefinition Width="AUTO"/>
-                <ColumnDefinition Width="AUTO"/>
-                <ColumnDefinition Width="AUTO"/>
-            </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.Column="0" Text="Product Name" />
-            <Label Grid.Row="0" Grid.Column="1" Text="Category"/>
-            <Label Grid.Row="0" Grid.Column="2" Text="Quantity" />
-            <Label Grid.Row="0" Grid.Column="3" Text="Unit-Price" />
-            <Label Grid.Row="0" Grid.Column="4" Text="Total" />
+            <Label Grid.Row="0" 
+                        Text="Sweet Dokkana" 
+                        Style="{StaticResource MainLabel}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <StackLayout Grid.Row="1">
+                <StackLayout>
+                    <Label  
+                        Text="Your Shopping Items" 
+                        TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </StackLayout>
+
+                <BoxView 
+                        HeightRequest="1" 
+                        BackgroundColor="Black" 
+                        HorizontalOptions="FillAndExpand"
+                        Margin="20,0,20,0"/>
+
+                <ListView x:Name="booksListView" HasUnevenRows="True" BackgroundColor="Red">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+
+                            <ViewCell>
+                                <!--We set a little padding to make it more clear-->
+                                <StackLayout Orientation="Horizontal" Padding="5" >
+                                    <Image Source="sweets.png"/>
+
+                                    <!--We set its horizontalOption to this because we want the middle content to have all the availble space-->
+                                    <StackLayout HorizontalOptions="StartAndExpand">
+                                        <Label Text="Cake" TextColor="Black" FontSize="30"/>
+                                        <Label Text="Big Chocolate Cake" TextColor="Black"/>
+                                    </StackLayout>
+
+                                    <Button Text="45"/>
+
+                                </StackLayout>
+                            </ViewCell>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
         </Grid>
         
     </Grid>

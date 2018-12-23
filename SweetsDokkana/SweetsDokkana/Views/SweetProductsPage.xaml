@@ -12,7 +12,7 @@
                 <SearchBar Placeholder="Search" Grid.Row="1" BackgroundColor="#720e64" Opacity="0.9"/>
 
             </StackLayout>
-            <ListView x:Name="booksListView" HasUnevenRows="True">
+            <ListView x:Name="booksListView" HasUnevenRows="True" IsPullToRefreshEnabled="True" Refreshing="listView_Refreshing">
                 <ListView.ItemTemplate>
                     <DataTemplate>
 
