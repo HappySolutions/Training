@@ -8,31 +8,32 @@
         <Color x:Key="primary">#ff3467</Color>
         <StyleSheet Source="../Styles/SweetStyles.css"/>
     </ContentPage.Resources>
-    <Grid>
-        <Image Source="patternbackground.jpeg" Aspect="AspectFill" Opacity="0.2" />
-        <StackLayout>
-            <Label  HorizontalOptions="FillAndExpand" 
+    <ScrollView>
+        <Grid>
+            <Image Source="patternbackground.jpeg" Aspect="AspectFill" Opacity="0.2" />
+            <StackLayout>
+                <Label  HorizontalOptions="FillAndExpand" 
                 Text="Sweet Dokkana" 
                 HorizontalTextAlignment="Center"
                 VerticalTextAlignment="Center"
                 Style="{StaticResource MainLabel}"/>
 
-            <local:RoundedEntry  Margin="20,20,20,0" 
+                <local:RoundedEntry  Margin="20,20,20,0" 
                          HeightRequest="50" 
                          Placeholder="Email"
                          x:Name="emailEntry">
 
-            </local:RoundedEntry>
+                </local:RoundedEntry>
 
-            <local:RoundedEntry Margin="20,0,20,0" 
+                <local:RoundedEntry Margin="20,0,20,0" 
                         HeightRequest="50" 
                         IsPassword="true"
                         Placeholder="Password"
                        x:Name="passwordEntry">
 
-            </local:RoundedEntry>
+                </local:RoundedEntry>
 
-            <local:RoundedButton Margin="20,40,20,0"
+                <local:RoundedButton Margin="20,40,20,0"
                         x:Name="btnLogin"
                         HeightRequest="50"
                         Text="Login"     
@@ -40,7 +41,7 @@
                         HorizontalOptions="FillAndExpand"
                         Clicked="BtnLogin_Clicked"/>
 
-            <local:RoundedButton Margin="20,0,20,0"
+                <local:RoundedButton Margin="20,0,20,0"
                         x:Name="btnSignUp"
                         HeightRequest="50" 
                         Text="SignUp"
@@ -48,15 +49,16 @@
                         HorizontalOptions="FillAndExpand"
                         Clicked="BtnSignUp_Clicked"/>
 
-            <Button Text="Forgot password" 
+                <Button Text="Forgot password" 
                         HorizontalOptions="Center" 
                         x:Name="btnForgotPW"
                         Clicked="BtnForgotPW_Clicked"
                         TextColor="{StaticResource primary}"
                         BackgroundColor="Transparent"/>
-            <StackLayout Orientation="Horizontal">
-                <Image Source="offerCack.png" HeightRequest="300" WidthRequest="300" HorizontalOptions="Center"/>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="offerCack.png" HeightRequest="300" WidthRequest="300" HorizontalOptions="Center"/>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
-    </Grid>
+        </Grid>
+    </ScrollView>
 </ContentPage>

@@ -234,9 +234,6 @@
     <AndroidResource Include="Resources\drawable\CurvedMask.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\caramelcake.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\GoogleMapTA.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -249,10 +246,13 @@
     <AndroidResource Include="Resources\drawable\imgGallery4.jpeg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\images.jpg" />
+    <AndroidResource Include="Resources\drawable\stock2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\stock2.jpg" />
+    <AndroidResource Include="Resources\drawable\hh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\hhh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
