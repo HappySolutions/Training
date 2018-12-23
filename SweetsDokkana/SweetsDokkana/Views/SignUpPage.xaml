@@ -4,8 +4,9 @@
              xmlns:local="clr-namespace:SweetsDokkana.Styles"
              NavigationPage.HasNavigationBar="false"
              x:Class="SweetsDokkana.Views.SignUpPage">
-    
-    <ContentPage.Content>
+
+    <Grid>
+        <Image Source="patternbackground.jpeg" Aspect="AspectFill" Opacity="0.2" />
         <ScrollView>
             <StackLayout>
 
@@ -54,12 +55,12 @@
                          Clicked="BtnSignUp_Clicked"/>
 
                 <Button Text="Already a Cleint" 
+                        BackgroundColor="Transparent"
                         HorizontalOptions="Center"
                         x:Name="btnclient"
                         Clicked="Btnclient_Clicked"
-                        BackgroundColor="White"
                         TextColor="{StaticResource primary}"/>
             </StackLayout>
         </ScrollView>
-    </ContentPage.Content>
+    </Grid>
 </ContentPage>

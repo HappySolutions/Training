@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SweetsDokkana.Views.BastryProductsPage">
+    <Grid>
+        <Image Source="patternbackground.jpeg" Aspect="AspectFill" Opacity="0.2" />
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Add" Clicked="OnAdd" />
+                <Button Text="Delete" Clicked="OnDelete" />
+                <SearchBar Placeholder="Search" Grid.Row="1" BackgroundColor="#720e64" Opacity="0.9"/>
+
+            </StackLayout>
+            <ListView x:Name="booksListView" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <ViewCell>
+                            <!--We set a little padding to make it more clear-->
+                            <StackLayout Orientation="Horizontal" Padding="5">
+                                <Image Source="{Binding image_link}"/>
+
+                                <!--We set its horizontalOption to this because we want the middle content to have all the availble space-->
+                                <StackLayout HorizontalOptions="StartAndExpand">
+                                    <Label Text="{Binding name}"/>
+                                    <Label Text="{Binding brand}" TextColor="Gray"/>
+                                </StackLayout>
+
+                                <Button Text="{Binding price}"/>
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -13,7 +13,7 @@ namespace SweetsDokkana
 		{
 			InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage());
+            MainPage = new NavigationPage(new WelcomePage());
 		}
 
 		protected override void OnStart ()

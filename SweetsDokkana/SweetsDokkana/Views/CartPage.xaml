@@ -2,16 +2,29 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SweetsDokkana.Views.CartPage">
+    <Grid>
+        <Image Source="patternbackground.jpeg" Aspect="AspectFill" Opacity="0.2" />
 
-
-    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Label  HorizontalOptions="FillAndExpand" 
-                Text="Sweet Dokkana" 
-                Style="{StaticResource MainLabel}"/>
-
-        <Label Text="Your Cart is Empty Add Items From the Home tab " VerticalTextAlignment="Center" 
-               Style="{StaticResource Miniheader}"/>
-
-    </StackLayout>
-    
+        <TableView Grid.Row="1">
+            <TableRoot Title="Orderd Products">
+                <TableSection Title="SectionWhatever">
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <!--Put the three things you want as colums here -->
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <!--Put the three things you want as colums here -->
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <!--Put the three things you want as colums here -->
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </Grid>
 </ContentPage>

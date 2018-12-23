@@ -20,9 +20,7 @@
     <local:ProfilePage  Icon="profile.png"  Title="Profile"/>
 
     <local:CartPage   Icon="cart.png"  Title="Cart"/>
-
-    <local:OrderPage  Icon="order.png" Title="Order"/>
-
+    
     <local:ContactUsPage Icon="contact.png" Title="Contact"/>
 
 </TabbedPage>

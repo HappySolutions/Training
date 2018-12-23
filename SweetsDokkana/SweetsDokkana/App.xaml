@@ -6,13 +6,14 @@
 
             <ResourceDictionary>
                 <Color x:Key="primary">#ff3467</Color>
+                <Color x:Key="secondry">#585858</Color>
 
                 <!--  colors  -->
-                <Color x:Key="HeaderTextColor">#585858</Color>
+                <Color x:Key="HeaderTextColor">White</Color>
                 <Color x:Key="BodyTextColor">#720e64</Color>
                 <Color x:Key="ButtonBackgroundColor">#571f4e</Color>
                 <Color x:Key="ButtonFontColor">#c5d86d</Color>
-                <Color x:Key="BackgroundColor">White</Color>
+                <Color x:Key="MainLabelColor">Black</Color>
                 
             <!--  font families  -->
                 <OnPlatform x:Key="RegularFontFamily" x:TypeArguments="x:String">
@@ -34,15 +35,16 @@
                     <Setter Property="FontFamily" Value="{StaticResource RegularFontFamily}" />
                     <Setter Property="FontSize" Value="{StaticResource HeaderFontSize}" />
                 </Style>
+                
                 <Style x:Key="MainLabel" TargetType="Label">
-                    <Setter Property="TextColor" Value="{StaticResource HeaderTextColor}" />
+                <Setter Property="TextColor" Value="{StaticResource MainLabelColor}" />
                     <Setter Property="FontFamily" Value="{StaticResource RegularFontFamily}" />
                     <Setter Property="FontSize" Value="{StaticResource TitleFontSize}" />
                     <Setter Property="HorizontalTextAlignment" Value="Center" />
-                </Style>
+            </Style>
 
                 <Style x:Key="HeaderLabels" TargetType="Label">
-                    <Setter Property="TextColor" Value="{StaticResource BackgroundColor}" />
+                <Setter Property="TextColor" Value="{StaticResource HeaderTextColor}" />
                     <Setter Property="FontFamily" Value="{StaticResource RegularFontFamily}" />
                     <Setter Property="FontSize" Value="{StaticResource HeaderFontSize}" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />

@@ -4,9 +4,18 @@
              xmlns:local="clr-namespace:SweetsDokkana.Styles"
              xmlns:controls="clr-namespace:SweetsDokkana.Controls"
              x:Class="SweetsDokkana.Views.ContactUsPage">
+    <Grid>
+        <Image Source="GoogleMapTA.jpg" Aspect="AspectFill" Opacity="0.2" />
+    
     <ScrollView>
         <StackLayout>
-            <Frame HasShadow="True" OutlineColor="Black" HorizontalOptions="Center" Margin="10">
+                <Label  HorizontalOptions="FillAndExpand" 
+                Text="Sweet Dokkana" 
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                Style="{StaticResource MainLabel}"/>
+
+                <Frame Opacity="0.8" HasShadow="True" OutlineColor="Black" HorizontalOptions="Center" Margin="10">
             <StackLayout>
                 <Label  HorizontalOptions="FillAndExpand" 
                     Text="Contact Information" 
@@ -65,11 +74,12 @@
                     <local:RoundedButton Margin="20,40,20,0"
                             x:Name="btnSubmit"
                             HeightRequest="50"
-                            Text="Submit"     
+                            Text="Send Message"     
                             Style="{StaticResource MainButton}"
                             HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
 
         </StackLayout>
     </ScrollView>
+    </Grid>
 </ContentPage>

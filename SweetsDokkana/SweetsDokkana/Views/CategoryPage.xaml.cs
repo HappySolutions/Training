@@ -26,5 +26,25 @@ namespace SweetsDokkana.Views
         {
             Navigation.PushAsync(new SearchResultsPage());
         }
+
+        private void btnOriental_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new OrientalProductsPage());
+        }
+
+        private void BtnSweets_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SweetProductsPage());
+        }
+
+        private void BtnCakes_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new CakeProductsPage());
+        }
+
+        private void BtnBastry_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new BastryProductsPage());
+        }
     }
 }

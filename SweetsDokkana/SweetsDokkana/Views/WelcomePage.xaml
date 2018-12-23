@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:SweetsDokkana.Styles"
+              NavigationPage.HasNavigationBar="false"
+             x:Class="SweetsDokkana.WelcomePage">
+
+    <ContentPage>
+        <Grid>
+            <Image Source="cake.jpg" Aspect="AspectFill" />
+            <Label Text="Test"
+                   VerticalTextAlignment="Center"
+                   Style="{StaticResource HeaderLabels}"
+                   VerticalOptions="Fill"
+                   HorizontalTextAlignment="Center">
+                <Label.BackgroundColor>
+                    <Color>
+                        <x:Arguments>
+                            <x:Double>0</x:Double>
+                            <x:Double>0</x:Double>
+                            <x:Double>0</x:Double>
+                            <x:Double>0.6</x:Double>
+                        </x:Arguments>
+                    </Color>
+                </Label.BackgroundColor>
+            </Label>
+
+        </Grid>
+    </ContentPage>
+    <ContentPage>
+        <Grid>
+            <Image Source="stock2.jpg" Aspect="AspectFill" />
+            <Label Text="Test 2" 
+                   VerticalTextAlignment="Center"
+                   Style="{StaticResource HeaderLabels}"
+                   VerticalOptions="Fill"
+                   HorizontalTextAlignment="Center">
+                <Label.BackgroundColor>
+                    <Color>
+                        <x:Arguments>
+                            <x:Double>0</x:Double>
+                            <x:Double>0</x:Double>
+                            <x:Double>0</x:Double>
+                            <x:Double>0.6</x:Double>
+                        </x:Arguments>
+                    </Color>
+                </Label.BackgroundColor>
+            </Label>
+        </Grid>
+    </ContentPage>
+    <ContentPage>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <Image Source="imgGallery4.jpeg" Aspect="Fill" />
+            <Label Text="Test 3" 
+                   VerticalTextAlignment="Center"
+                   Style="{StaticResource HeaderLabels}"
+                   VerticalOptions="Fill"
+                   HorizontalTextAlignment="Center">
+                <Label.BackgroundColor>
+                    <Color>
+                        <x:Arguments>
+                            <x:Double>0</x:Double>
+                            <x:Double>0</x:Double>
+                            <x:Double>0</x:Double>
+                            <x:Double>0.6</x:Double>
+                        </x:Arguments>
+                    </Color>
+                </Label.BackgroundColor>
+            </Label>
+
+            <Grid Grid.Row="1" BackgroundColor="Black">
+                <Label Text="Finish" Style="{StaticResource HeaderLabels}" VerticalTextAlignment="Center">
+                    <Label.BackgroundColor>
+                        <Color>
+                            <x:Arguments>
+                                <x:Double>0</x:Double>
+                                <x:Double>0</x:Double>
+                                <x:Double>0</x:Double>
+                                <x:Double>0.6</x:Double>
+                            </x:Arguments>
+                        </Color>
+                    </Label.BackgroundColor>
+                </Label>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Grid.GestureRecognizers>
+            </Grid>
+        </Grid>
+    </ContentPage>
+    
+</CarouselPage>

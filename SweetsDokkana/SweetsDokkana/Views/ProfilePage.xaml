@@ -3,49 +3,51 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SweetsDokkana.Styles"
              x:Class="SweetsDokkana.Views.ProfilePage">
+    <Grid>
+        <Image Source="patternbackground.jpeg" Aspect="AspectFill" Opacity="0.2" />
+        <ScrollView>
+            <Grid ColumnSpacing="0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="AUTO" />
+                </Grid.RowDefinitions>
 
-    <ScrollView>
-        <Grid ColumnSpacing="0" RowSpacing="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="AUTO" />
-                <RowDefinition Height="AUTO" />
-                <RowDefinition Height="AUTO" />
-            </Grid.RowDefinitions>
+                <!--  header background  -->
+                <Image Aspect="AspectFill" Source="images.jpg" />
+                <Image Aspect="Fill" Margin="0,-1,0,-1" Source="" VerticalOptions="End" />
 
-            <!--  header background  -->
-            <Image Aspect="AspectFill" Source="caramelcake.jpg" />
-            <Image Aspect="Fill" Margin="0,-1,0,-1" Source="CurvedMask.png" VerticalOptions="End" />
+                <!--  profile image  -->
+                <Image HeightRequest="100" HorizontalOptions="Center" Source="personal.png" TranslationY="50" VerticalOptions="End" WidthRequest="100" />
 
-            <!--  profile image  -->
-            <Image HeightRequest="100" HorizontalOptions="Center" Source="personal.png" TranslationY="50" VerticalOptions="End" WidthRequest="100" />
+                <!--  Profile Name  -->
+                <StackLayout Grid.Row="1" Padding="0,50,0,00" HorizontalOptions="Center">
+                    <Label  Text="Happy" Style="{StaticResource MainBodyText}" HorizontalTextAlignment="Center"/>
+                    <Label  Text="Sweets@gmail.com" Style="{StaticResource MainBodyText}" HorizontalTextAlignment="Center" />
+                </StackLayout>
 
-            <!--  Profile Name  -->
-            <StackLayout Grid.Row="1" Padding="0,50,0,00" HorizontalOptions="Center">
-                <Label  Text="Happy" Style="{StaticResource MainBodyText}" HorizontalTextAlignment="Center"/>
-                <Label  Text="Sweets@gmail.com" Style="{StaticResource MainBodyText}" HorizontalTextAlignment="Center" />
-            </StackLayout>
-
-            <!--  Profile buttons  -->
-            <StackLayout Grid.Row="2">
-                <local:RoundedButton Margin="20,20,20,0" 
+                <!--  Profile buttons  -->
+                <StackLayout Grid.Row="2">
+                    <local:RoundedButton Margin="20,20,20,0" 
                          HeightRequest="50" 
                          Text="Edit Profile"
                          Style="{StaticResource MainButton}"
                          HorizontalOptions="FillAndExpand"/>
-                <local:RoundedButton Margin="20,40,20,0" 
+                    <local:RoundedButton Margin="20,40,20,0" 
                          HeightRequest="50" 
                          Text="My Orders"
                          Style="{StaticResource MainButton}"
                          HorizontalOptions="FillAndExpand"/>
-                <local:RoundedButton Margin="20,40,20,0" 
+                    <local:RoundedButton Margin="20,40,20,0" 
                          HeightRequest="50" 
                          Text="Log Out"
                          Style="{StaticResource MainButton}"
                          HorizontalOptions="FillAndExpand"/>
-            </StackLayout>
+                </StackLayout>
 
-        </Grid>
-    </ScrollView>
+            </Grid>
+        </ScrollView>
+    </Grid>
 </ContentPage>
     
 
