@@ -41,6 +41,10 @@ namespace SweetsDokkana.Views
             //then we use this function to end the refreshing loading
             booksListView.EndRefresh();
         }
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            booksListView.ItemsSource = e.NewTextValue;
+        }
         async void OnAdd(object sender, System.EventArgs e)
         {
             var product = new Product { name = "name " };

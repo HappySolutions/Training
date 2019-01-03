@@ -33,7 +33,10 @@ namespace SweetsDokkana.Views
 
             base.OnAppearing();
         }
-
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            booksListView.ItemsSource = e.NewTextValue;
+        }
         private void listView_Refreshing(object sender, EventArgs e)
         {
             booksListView.ItemsSource = _products;

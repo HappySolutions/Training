@@ -21,27 +21,27 @@
                          Placeholder="Name">
                 </local:RoundedEntry>
 
-                <local:RoundedEntry Margin="20,0,20,0" 
+                <local:RoundedEntry Margin="20,10,20,0" 
                         HeightRequest="50" IsPassword="true"
                         Placeholder="Password">
                 </local:RoundedEntry>
 
-                <local:RoundedEntry  Margin="20,0,20,0" 
+                <local:RoundedEntry  Margin="20,10,20,0" 
                          HeightRequest="50" 
                          Placeholder="Repeat Password">
                 </local:RoundedEntry>
 
-                <local:RoundedEntry  Margin="20,0,20,0" 
+                <local:RoundedEntry  Margin="20,10,20,0" 
                          HeightRequest="50" 
                          Placeholder="Email">
                 </local:RoundedEntry>
 
-                <local:RoundedEntry  Margin="20,0,20,0" 
+                <local:RoundedEntry  Margin="20,10,20,0" 
                          HeightRequest="50" 
                          Placeholder="Phone">
                 </local:RoundedEntry>
 
-                <local:RoundedEntry  Margin="20,0,20,0" 
+                <local:RoundedEntry  Margin="20,10,20,0" 
                          HeightRequest="50" 
                          Placeholder="Address">
                 </local:RoundedEntry>

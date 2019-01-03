@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
              x:Class="SweetsDokkana.Views.CakeProductsPage">
     <Grid>
         <Image Source="patternbackground.jpeg" Aspect="AspectFill" Opacity="0.2" />
 
         <StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Button Text="Add" Clicked="OnAdd" />
-                <Button Text="Delete" Clicked="OnDelete" />
-                <SearchBar Placeholder="Search" Grid.Row="1" BackgroundColor="#720e64" Opacity="0.9"/>
-
+            <StackLayout>
+                <Label Text="Cake" 
+                        Style="{StaticResource MainLabel}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <SearchBar Placeholder="Search..." FontAttributes="Bold" TextChanged="SearchBar_TextChanged"/>
             </StackLayout>
             <ListView x:Name="booksListView" HasUnevenRows="True" IsPullToRefreshEnabled="True" Refreshing="listView_Refreshing">
                 <ListView.ItemTemplate>

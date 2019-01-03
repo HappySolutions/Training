@@ -25,7 +25,7 @@
 
                 </local:RoundedEntry>
 
-                <local:RoundedEntry Margin="20,0,20,0" 
+                <local:RoundedEntry Margin="20,20,20,0" 
                         HeightRequest="50" 
                         IsPassword="true"
                         Placeholder="Password"
