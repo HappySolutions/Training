@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Image="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              NavigationPage.HasNavigationBar="False"
              x:Class="SweetsDokkana.Views.OrientalProductsPage">
     <Grid>
@@ -11,23 +12,27 @@
                         Style="{StaticResource MainLabel}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                 <SearchBar Placeholder="Search..." FontAttributes="Bold" TextChanged="SearchBar_TextChanged"/>
             </StackLayout>
-            <ListView x:Name="booksListView" HasUnevenRows="True" IsPullToRefreshEnabled="True" Refreshing="listView_Refreshing">
+            <ListView x:Name="SweetsList" HasUnevenRows="True" IsPullToRefreshEnabled="True" Refreshing="listView_Refreshing" ItemTapped="SweetsList_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
 
                         <ViewCell>
                             <!--We set a little padding to make it more clear-->
-                            <StackLayout Orientation="Horizontal" Padding="5">
-                                <Image Source="{Binding image_link}"/>
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="5" VerticalOptions="Center">
+                                    <Image:CircleImage Source="{Binding image_link}"/>
 
-                                <!--We set its horizontalOption to this because we want the middle content to have all the availble space-->
-                                <StackLayout HorizontalOptions="StartAndExpand">
-                                    <Label Text="{Binding name}"/>
-                                    <Label Text="{Binding brand}" TextColor="Gray"/>
+                                    <!--We set its horizontalOption to this because we want the middle content to have all the availble space-->
+                                    <StackLayout HorizontalOptions="StartAndExpand">
+                                        <Label Text="{Binding name}"/>
+                                        <Label Text="{Binding discreption}" TextColor="Gray"/>
+                                    </StackLayout>
+                                    <StackLayout WidthRequest="100" VerticalOptions="Center">
+                                        <Label Text="{Binding price, StringFormat='{}{0:C}'}"  HorizontalOptions="Center"/>
+                                        <ImageButton Source="Cart1.png" Clicked="AddToCart_Clicked" BackgroundColor="Transparent" HorizontalOptions="Center"/>
+                                    </StackLayout>
                                 </StackLayout>
-
-                                <Button Text="{Binding price}"/>
-
+     
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
