@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
+using SQLite;
 using SweetsDokkana.Models;
+using SweetsDokkana.Presistance;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,26 +18,61 @@ namespace SweetsDokkana.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CartPage : ContentPage
 	{
-        class Item
+
+        private SQLiteAsyncConnection _connection;
+        private ObservableCollection<CartOrder> _cartOrder;
+        private bool _isDataLoaded;
+
+        /*class Item
         {
             public string Name { get; set; }
             public string Discreption { get; set; }
             public string ImageUrl { get; set; }
-        }
+        }*/
 
         public CartPage ()
 		{
 			InitializeComponent ();
-
-            listView.ItemsSource = new List<Item>
-            {
-                new Item { Name = "Cake", ImageUrl ="https://www.fillmurray.com/100/100", Discreption = "3 levels wedding cake"},
-                new Item {Name = "Basbosa", ImageUrl = "http://lorempixel.com/100/100/people/8", Discreption = "Delesious and tasty basbosa"},
-                new Item {Name = "Chocolate", ImageUrl = "http://lorempixel.com/100/100/people/7", Discreption = "Sweet chocolate tasty cake"}
-            };
+            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
+            
         }
 
-       
+        protected override async void OnAppearing()
+        {
+            if (_isDataLoaded)
+                return;
 
+            _isDataLoaded = true;
+
+            await LoadData();
+
+            base.OnAppearing();
+        }
+
+        private async Task LoadData()
+        {
+            await _connection.CreateTableAsync<CartOrder>();
+
+            var cartOrder = await _connection.Table<CartOrder>().ToListAsync();
+
+            _cartOrder = new ObservableCollection<CartOrder>(cartOrder);
+
+            listView.ItemsSource = _cartOrder;
+        }
+
+        async void OnDelete(object sender, System.EventArgs e)
+        {
+            var cartOrder = _cartOrder[0];
+            await _connection.DeleteAsync(cartOrder);
+
+            _cartOrder.Remove(cartOrder);
+        }
+        /*
+       async void OnUpdate(object sender, System.EventArgs e)
+       {
+           var recipe = _recipes[0];
+           recipe.Name += "Updated";
+           await _connection.UpdateAsync(recipe);
+       }*/
     }
 }

@@ -29,7 +29,6 @@
                                     </StackLayout>
                                     <StackLayout WidthRequest="100" VerticalOptions="Center">
                                         <Label Text="{Binding price, StringFormat='{}{0:C}'}"  HorizontalOptions="Center"/>
-                                        <ImageButton Source="Cart1.png" Clicked="AddToCart_Clicked" BackgroundColor="Transparent" HorizontalOptions="Center"/>
                                     </StackLayout>
                                 </StackLayout>
      

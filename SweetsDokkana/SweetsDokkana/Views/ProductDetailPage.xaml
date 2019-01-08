@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Image="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="SweetsDokkana.Views.ProductDetailPage">
+    <StackLayout>
+        <StackLayout Orientation="Horizontal" Padding="5" VerticalOptions="Center">
+            <Image:CircleImage x:Name="proImg" Source="{Binding image_link}"/>
+
+            <!--We set its horizontalOption to this because we want the middle content to have all the availble space-->
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label x:Name="lblName" Text="{Binding name}"/>
+                <Label x:Name="lbldscrption" Text="{Binding discreption}" TextColor="Gray"/>
+            </StackLayout>
+            <StackLayout WidthRequest="100" VerticalOptions="Center">
+                <Label x:Name="lblPrice" Text="{Binding price, StringFormat='{}{0:C}'}"  HorizontalOptions="Center"/>
+            </StackLayout>
+        </StackLayout>
+        <ImageButton Source="Cart1.png" Clicked="ImageButton_Clicked" BackgroundColor="Transparent" HorizontalOptions="Center"/>
+    </StackLayout>
+</ContentPage>

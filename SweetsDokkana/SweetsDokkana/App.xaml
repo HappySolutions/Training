@@ -15,7 +15,7 @@
                 <Color x:Key="ButtonFontColor">#c5d86d</Color>
                 <Color x:Key="MainLabelColor">Black</Color>
                 
-            <!--  font families  -->
+                <!--  font families  -->
                 <OnPlatform x:Key="RegularFontFamily" x:TypeArguments="x:String">
                 <On Platform="iOS">Lobster-Regular</On>
                 <On Platform="Android">Handlee-Regular.ttf#Handlee-Regular</On>

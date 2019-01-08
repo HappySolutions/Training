@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SweetsDokkana.Styles"
+             xmlns:Image="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              x:Class="SweetsDokkana.Views.CartPage">
     <Grid>
         <Image Source="patternbackground.jpeg" Aspect="AspectFill" Opacity="0.2" />
@@ -32,17 +33,19 @@
                             <ViewCell>
                                 <!--We set a little padding to make it more clear-->
                                 <StackLayout Orientation="Horizontal" Padding="5">
-                                    <Image Source="{Binding ImageUrl}"/>
+                                    <Image:CircleImage Source="{Binding ProdImage}"/>
 
                                     <!--We set its horizontalOption to this because we want the middle content to have all the availble space-->
                                     <StackLayout HorizontalOptions="StartAndExpand">
-                                        <Label Text="{Binding Name}"/>
-                                        <Label Text="{Binding Discreption}" TextColor="Gray"/>
+                                        <Label Text="{Binding ProdName}"/>
+                                        <Label Text="{Binding ProdPrice}" TextColor="Gray"/>
                                     </StackLayout>
-                                    <StackLayout>
-                                        <Label x:Name="Labeltxt" HorizontalTextAlignment="Center"
+                                    
+                                    <StackLayout WidthRequest="100">
+                                        <!--<Label x:Name="Labeltxt" HorizontalTextAlignment="Center"
                                            Text="{Binding Source={x:Reference _stepper}, Path=Value, StringFormat='Items No is {0:F0}'}"/>
-                                        <Stepper x:Name="_stepper" Maximum="5" Minimum="0" />
+                                        <Stepper x:Name="_stepper" Maximum="5" Minimum="0" />-->
+                                        <Button Text="delete" Clicked="OnDelete"/>
                                     </StackLayout>
                                 </StackLayout>
                             </ViewCell>
