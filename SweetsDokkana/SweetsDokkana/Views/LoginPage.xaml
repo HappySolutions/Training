@@ -10,7 +10,6 @@
     </ContentPage.Resources>
     <ScrollView>
         <Grid>
-            <Image Source="patternbackground.jpeg" Aspect="AspectFill" Opacity="0.2" />
             <StackLayout>
                 <Label  HorizontalOptions="FillAndExpand" 
                 Text="Sweet Dokkana" 

@@ -28,17 +28,23 @@
 
                 <!--  Profile buttons  -->
                 <StackLayout Grid.Row="2">
-                    <local:RoundedButton Margin="20,20,20,0" 
+                    <local:RoundedButton Margin="20,20,20,0"
+                         x:Name="edtProfile"
+                         Clicked="EdtProfile_Clicked"
                          HeightRequest="50" 
                          Text="Edit Profile"
                          Style="{StaticResource MainButton}"
                          HorizontalOptions="FillAndExpand"/>
-                    <local:RoundedButton Margin="20,40,20,0" 
+                    <local:RoundedButton Margin="20,40,20,0"
+                         x:Name="btnMyOrders"
+                         Clicked="BtnMyOrders_Clicked"
                          HeightRequest="50" 
                          Text="My Orders"
                          Style="{StaticResource MainButton}"
                          HorizontalOptions="FillAndExpand"/>
-                    <local:RoundedButton Margin="20,40,20,0" 
+                    <local:RoundedButton Margin="20,40,20,0"
+                         x:Name="btnLogout"
+                         Clicked="BtnLogout_Clicked"
                          HeightRequest="50" 
                          Text="Log Out"
                          Style="{StaticResource MainButton}"

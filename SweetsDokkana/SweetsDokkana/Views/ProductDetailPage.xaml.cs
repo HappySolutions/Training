@@ -17,7 +17,6 @@ namespace SweetsDokkana.Views
     {
 
         private SQLiteAsyncConnection _connection;
-        private ObservableCollection<CartOrder> _Cartorder;
 
 
         public ProductDetailPage(Product product)
@@ -29,7 +28,6 @@ namespace SweetsDokkana.Views
 
             InitializeComponent();
             _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
-
 
             BindingContext = new Product
             {
@@ -45,21 +43,22 @@ namespace SweetsDokkana.Views
         {
             var cartOrder = new CartOrder();
             cartOrder.ProdName = lblName.Text;
-            //cartOrder.ProdPrice = float.Parse (lbldscrption.Text);
-            //cartOrder.ProdImage = proImg.Source.ToString();
-        
+            cartOrder.ProdDescreption = lbldscrption.Text;
+            cartOrder.ProdPrice = double.Parse (lblPrice.Text);
+            cartOrder.SelectedQuantity = double.Parse (quantity.SelectedItem.ToString());
+            cartOrder.SumPrice = cartOrder.ProdPrice * cartOrder.SelectedQuantity;
+
 
             await _connection.CreateTableAsync<CartOrder>();
-
+            
             int rows = await _connection.InsertAsync(cartOrder);
+
             if (rows > 0)
-                await DisplayAlert("Success", "Experience succesfully inserter", "Ok");
+                await DisplayAlert("Success", "Order succesfully Added", "Ok");
             else
-                await DisplayAlert("Failure", "Experience failed to be inserted", "Ok");
+                await DisplayAlert("Failure", "Order failed to be Added", "Ok");
             await Navigation.PopAsync();
 
         }
-
-
     }
 }

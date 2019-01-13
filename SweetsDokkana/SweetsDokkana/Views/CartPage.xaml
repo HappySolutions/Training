@@ -33,19 +33,17 @@
                             <ViewCell>
                                 <!--We set a little padding to make it more clear-->
                                 <StackLayout Orientation="Horizontal" Padding="5">
-                                    <Image:CircleImage Source="{Binding ProdImage}"/>
-
                                     <!--We set its horizontalOption to this because we want the middle content to have all the availble space-->
                                     <StackLayout HorizontalOptions="StartAndExpand">
-                                        <Label Text="{Binding ProdName}"/>
-                                        <Label Text="{Binding ProdPrice}" TextColor="Gray"/>
+                                        <Label Text="{Binding ProdName}" Style="{StaticResource Miniheader}"/>
+                                        <Label Text="{Binding ProdDescreption}" TextColor="Gray" Style="{StaticResource MainBodyText}"/>
                                     </StackLayout>
-                                    
-                                    <StackLayout WidthRequest="100">
-                                        <!--<Label x:Name="Labeltxt" HorizontalTextAlignment="Center"
-                                           Text="{Binding Source={x:Reference _stepper}, Path=Value, StringFormat='Items No is {0:F0}'}"/>
-                                        <Stepper x:Name="_stepper" Maximum="5" Minimum="0" />-->
-                                        <Button Text="delete" Clicked="OnDelete"/>
+                                    <StackLayout WidthRequest="150" VerticalOptions="Center">
+                                        <StackLayout Orientation="Horizontal"  HorizontalOptions="Center">
+                                            <Label x:Name="lblPrice" Text="{Binding SumPrice}" Style="{StaticResource MainBodyText}" VerticalTextAlignment="Center" />
+                                            <Label Text="Pounds" Style="{StaticResource MainBodyText}"/>
+                                        </StackLayout>
+                                        <local:RoundedButton Text="delete" Clicked="OnDelete" Style="{StaticResource MainButton}" />
                                     </StackLayout>
                                 </StackLayout>
                             </ViewCell>
@@ -63,14 +61,15 @@
                         Text="Total:"  
                         Style="{StaticResource MainLabel}" FontSize="30" />
                     <Label  
-                        Text="200" 
+                        x:Name="total" 
                         Style="{StaticResource MainLabel}" FontSize="30" />
-                </StackLayout>
+                    </StackLayout>
                 <local:RoundedButton Margin="20,40,20,0" 
                          HeightRequest="50" 
                          Text="Check Out"
                          Style="{StaticResource MainButton}"
-                         HorizontalOptions="FillAndExpand"/>
+                         HorizontalOptions="FillAndExpand"
+                         Clicked="RoundedButton_Clicked"/>
                 </StackLayout>
             </StackLayout>
         </Grid>

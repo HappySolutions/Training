@@ -24,5 +24,20 @@ namespace SweetsDokkana.Views
         {
             Navigation.PushAsync(new SearchResultsPage());
         }
+
+        private void BtnLogout_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopToRootAsync();
+        }
+
+        private void BtnMyOrders_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MyOrders());
+        }
+
+        private void EdtProfile_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

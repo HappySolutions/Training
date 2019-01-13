@@ -1,15 +1,9 @@
-﻿using Newtonsoft.Json;
-using SQLite;
+﻿using SQLite;
 using SweetsDokkana.Models;
 using SweetsDokkana.Presistance;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -23,18 +17,10 @@ namespace SweetsDokkana.Views
         private ObservableCollection<CartOrder> _cartOrder;
         private bool _isDataLoaded;
 
-        /*class Item
-        {
-            public string Name { get; set; }
-            public string Discreption { get; set; }
-            public string ImageUrl { get; set; }
-        }*/
-
         public CartPage ()
 		{
 			InitializeComponent ();
             _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
-            
         }
 
         protected override async void OnAppearing()
@@ -47,6 +33,7 @@ namespace SweetsDokkana.Views
             await LoadData();
 
             base.OnAppearing();
+            
         }
 
         private async Task LoadData()
@@ -56,8 +43,12 @@ namespace SweetsDokkana.Views
             var cartOrder = await _connection.Table<CartOrder>().ToListAsync();
 
             _cartOrder = new ObservableCollection<CartOrder>(cartOrder);
-
+            
             listView.ItemsSource = _cartOrder;
+
+            var ent = await _connection.ExecuteScalarAsync<double>("SELECT SUM(SumPrice) FROM CartOrders");
+            var result = ent.ToString();
+            total.Text = result;
         }
 
         async void OnDelete(object sender, System.EventArgs e)
@@ -66,13 +57,15 @@ namespace SweetsDokkana.Views
             await _connection.DeleteAsync(cartOrder);
 
             _cartOrder.Remove(cartOrder);
+
         }
-        /*
-       async void OnUpdate(object sender, System.EventArgs e)
-       {
-           var recipe = _recipes[0];
-           recipe.Name += "Updated";
-           await _connection.UpdateAsync(recipe);
-       }*/
+
+        async void RoundedButton_Clicked(object sender, EventArgs e)
+        {
+            var ent = await _connection.ExecuteScalarAsync<double>("SELECT SUM(SumPrice) FROM CartOrders");
+            var result = ent.ToString();
+
+            await Navigation.PushAsync(new OrderPage(result));
+        }
     }
 }

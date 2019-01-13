@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 
 namespace SweetsDokkana.Models
 {
-    [Table("Orders")]
+    [Table("CartOrders")]
     public class CartOrder : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        [PrimaryKey, AutoIncrement, Column("OrderId")]
+        [PrimaryKey, AutoIncrement, Column("CartOrderId")]
         public int Id { get; set; }
 
         private string _prodName;
@@ -29,25 +29,25 @@ namespace SweetsDokkana.Models
             }
         }
 
-        private string _prodImage;
+        private string _prodDescreption;
 
         [MaxLength(225)]
-        public string ProdImage
+        public string ProdDescreption
         {
-            get { return _prodImage; }
+            get { return _prodDescreption; }
             set
             {
-                if (_prodImage == value)
+                if (_prodDescreption == value)
                     return;
-                _prodImage = value;
+                _prodDescreption = value;
 
                 OnPropertyChanged();
             }
         }
 
-        private float _prodPrice;
+        private double _prodPrice;
 
-        public float ProdPrice
+        public double ProdPrice
         {
             get { return _prodPrice; }
             set
@@ -55,6 +55,40 @@ namespace SweetsDokkana.Models
                 if (_prodPrice == value)
                     return;
                 _prodPrice = value;
+
+                OnPropertyChanged();
+            }
+        }
+
+        double selectedQuantity;
+        public double SelectedQuantity
+        {
+            get
+            {
+                return selectedQuantity;
+            }
+            set
+            {
+                if (selectedQuantity == value)
+                    return;
+                selectedQuantity = value;
+
+                OnPropertyChanged();
+            }
+        }
+
+        double sumPrice;
+        public double SumPrice
+        {
+            get
+            {
+                return sumPrice;
+            }
+            set
+            {
+                if (sumPrice == value)
+                    return;
+                sumPrice = value;
 
                 OnPropertyChanged();
             }

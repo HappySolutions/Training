@@ -1,13 +1,98 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SweetsDokkana.Styles"
+             xmlns:controls="clr-namespace:SweetsDokkana.Controls"
+             NavigationPage.HasNavigationBar="false"             
              x:Class="SweetsDokkana.Views.OrderPage">
-    <StackLayout BackgroundColor="#FFFFFF">
-        <Label  HorizontalOptions="FillAndExpand" 
+    <Grid>
+        <Image Source="GoogleMapTA.jpg" Aspect="AspectFill" Opacity="0.2" />
+
+        <ScrollView>
+            <StackLayout>
+                <Label  HorizontalOptions="FillAndExpand" 
                 Text="Sweet Dokkana" 
                 HorizontalTextAlignment="Center"
                 VerticalTextAlignment="Center"
                 Style="{StaticResource MainLabel}"/>
-        <Label Text="Report Page" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+                <StackLayout>
+                    <Label  
+                        HorizontalOptions="FillAndExpand" 
+                        Text="Order Form" 
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        Style="{StaticResource MainLabel}"/>
+                    <BoxView 
+                        HeightRequest="1" 
+                        BackgroundColor="Black" 
+                        HorizontalOptions="FillAndExpand"
+                        Margin="20,0,20,0"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label Style="{StaticResource MainBodyText}" Text="Your Order value is: "/>
+                        <Label x:Name="total" Style="{StaticResource MainBodyText}" TextColor="Gray"/>
+                        <Label Text="Pounds" Style="{StaticResource MainBodyText}"/>
+                    </StackLayout>
+                    <Label Margin="20,20,20,0" Style="{StaticResource MainBodyText}" Text=" Please fill in the requeired shipping info below "/>
+
+                    <local:RoundedEntry  
+                        Margin="20,20,20,0" 
+                        HeightRequest="50" 
+                        Placeholder="Name"
+                        x:Name="NameEntry">
+                    </local:RoundedEntry>
+                    
+                    <local:RoundedEntry  
+                        Margin="20,20,20,0"
+                        HeightRequest="50"
+                        Placeholder="Address line 1"
+                        x:Name="AddressEntry1">
+                    </local:RoundedEntry>
+                    
+                    <local:RoundedEntry 
+                        Margin="20,20,20,0"
+                        HeightRequest="50"
+                        Placeholder="Address line 2"
+                        x:Name="AddressEntry2">
+                    </local:RoundedEntry>
+
+                    <local:RoundedEntry  
+                        Margin="20,20,20,0"
+                        HeightRequest="50"
+                        Placeholder="Phone number"
+                        x:Name="Phone">
+                    </local:RoundedEntry>
+
+                    <Picker x:Name="City" Title="Ctiy"  Margin="20,20,20,0">
+                        <Picker.Items>
+                            <x:String>"Cairo"</x:String>
+                            <x:String>"Giza"</x:String>
+                            <x:String>"October"</x:String>
+                            <x:String>"Helwan"</x:String>
+                            <x:String>"Delta"</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Label x:Name="lblCity" IsVisible="False" Text="{Binding Source={x:Reference City}, Path=SelectedItem}"/>
+
+                    <Picker x:Name="Payment" Title="Choose Payment Method" Margin="20,20,20,0">
+                        <Picker.Items>
+                            <x:String>"Cash On Delevery"</x:String>
+                            <x:String>"Creidet On Delevery"</x:String>
+                            <x:String>"Creidet Upfront"</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label x:Name="lblPayment" IsVisible="False" Text="{Binding Source={x:Reference Payment}, Path=SelectedItem}"/>
+
+                    <local:RoundedButton Margin="20,40,20,0"
+                            x:Name="btnSubmit"
+                            HeightRequest="50"
+                            Text="Confirm"     
+                            Style="{StaticResource MainButton}"
+                            HorizontalOptions="FillAndExpand"
+                            Clicked="BtnSubmit_Clicked"/>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

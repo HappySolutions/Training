@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SweetsDokkana.Styles"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="SweetsDokkana.Views.MyOrders">
+    <Grid>
+        <Image Source="patternbackground.jpeg" Aspect="AspectFill" Opacity="0.2" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" 
+                        Text="Sweet Dokkana" 
+                        Style="{StaticResource MainLabel}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <StackLayout Grid.Row="1">
+                <StackLayout>
+                    <Label  
+                        Text="Your Orders" 
+                        Style="{StaticResource MainLabel}" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </StackLayout>
+
+                <BoxView 
+                        HeightRequest="1" 
+                        BackgroundColor="Black" 
+                        HorizontalOptions="FillAndExpand"
+                        Margin="20,0,20,0"/>
+
+                <ListView x:Name="OrderlistView" HasUnevenRows="True" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                    <StackLayout Padding="5">
+                                        <StackLayout HorizontalOptions="Center">
+                                            <Label Text="Order Data" Style="{StaticResource MainBodyText}"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Total Price: " Style="{StaticResource MainBodyText}"/>
+                                            <Label Text="{Binding OrderPrice}" Style="{StaticResource MainBodyText}" TextColor="Gray"/>
+                                        </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Delivered To: " Style="{StaticResource MainBodyText}"/>
+                                        <Label Text="{Binding Name}" TextColor="Gray"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Shipping Address: " Style="{StaticResource MainBodyText}"/>
+                                        <Label Text="{Binding Address1}" TextColor="Gray" Style="{StaticResource MainBodyText}"/>
+                                        <Label Text="{Binding Address2}" TextColor="Gray" Style="{StaticResource MainBodyText}"/>
+                                        <Label Text="{Binding City}" TextColor="Gray" Style="{StaticResource MainBodyText}"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Phone Number: " Style="{StaticResource MainBodyText}"/>
+                                        <Label Text="{Binding Phone}" TextColor="Gray" Style="{StaticResource MainBodyText}"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Payment Method: " Style="{StaticResource MainBodyText}"/>
+                                        <Label Text="{Binding Payment}" TextColor="Gray" Style="{StaticResource MainBodyText}"/>
+                                    </StackLayout>
+                                    <local:RoundedButton Text="delete" Clicked="OnDelete" Style="{StaticResource MainButton}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <BoxView 
+                        HeightRequest="1" 
+                        BackgroundColor="Black" 
+                        HorizontalOptions="FillAndExpand"
+                        Margin="20,0,20,0"/>
+                <StackLayout>
+                    <local:RoundedButton Margin="20,40,20,0" 
+                         HeightRequest="50" 
+                         Text="Check Out"
+                         Style="{StaticResource MainButton}"
+                         HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>
