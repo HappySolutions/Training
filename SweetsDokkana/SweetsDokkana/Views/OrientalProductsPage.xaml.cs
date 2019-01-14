@@ -16,12 +16,9 @@ namespace SweetsDokkana.Views
 	public partial class OrientalProductsPage : ContentPage
 	{
 
-        private SQLiteAsyncConnection _connection;
-
         public OrientalProductsPage ()
 		{
 			InitializeComponent ();
-            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
 
             SweetsList.ItemsSource = new List<Product>
             {

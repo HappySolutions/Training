@@ -11,12 +11,10 @@ namespace SweetsDokkana.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BastryProductsPage : ContentPage
 	{
-        private SQLiteAsyncConnection _connection;
 
         public BastryProductsPage ()
 		{
 			InitializeComponent ();
-            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
 
             SweetsList.ItemsSource = new List<Product>
             {

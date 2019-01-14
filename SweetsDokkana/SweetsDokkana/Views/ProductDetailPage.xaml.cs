@@ -24,7 +24,6 @@ namespace SweetsDokkana.Views
             if (product == null)
                 throw new ArgumentNullException();
 
-            BindingContext = product;
 
             InitializeComponent();
             _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
@@ -41,23 +40,27 @@ namespace SweetsDokkana.Views
 
         async void ImageButton_Clicked(object sender, EventArgs e)
         {
-            var cartOrder = new CartOrder();
-            cartOrder.ProdName = lblName.Text;
-            cartOrder.ProdDescreption = lbldscrption.Text;
-            cartOrder.ProdPrice = double.Parse (lblPrice.Text);
-            cartOrder.SelectedQuantity = double.Parse (quantity.SelectedItem.ToString());
-            cartOrder.SumPrice = cartOrder.ProdPrice * cartOrder.SelectedQuantity;
+            if (quantity.SelectedItem != null)
+            {
+                var cartOrder = new CartOrder();
+                cartOrder.ProdName = lblName.Text;
+                cartOrder.ProdDescreption = lbldscrption.Text;
+                cartOrder.ProdPrice = double.Parse(lblPrice.Text);
+                cartOrder.SelectedQuantity = double.Parse(quantity.SelectedItem.ToString());
+                cartOrder.SumPrice = cartOrder.ProdPrice * cartOrder.SelectedQuantity;
 
-
-            await _connection.CreateTableAsync<CartOrder>();
+                await _connection.CreateTableAsync<CartOrder>();
             
-            int rows = await _connection.InsertAsync(cartOrder);
+                int rows = await _connection.InsertAsync(cartOrder);
 
-            if (rows > 0)
-                await DisplayAlert("Success", "Order succesfully Added", "Ok");
-            else
-                await DisplayAlert("Failure", "Order failed to be Added", "Ok");
-            await Navigation.PopAsync();
+                if (rows > 0)
+                    await DisplayAlert("Success", "Order succesfully Added", "Ok");
+                else
+                    await DisplayAlert("Failure", "Order failed to be Added", "Ok");
+                await Navigation.PopAsync();
+            }
+
+            else await DisplayAlert("Failure", "Please Select Quantity first", "Ok");
 
         }
     }
