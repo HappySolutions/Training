@@ -15,7 +15,6 @@
 
                 <!--  header background  -->
                 <Image Aspect="AspectFill" Source="hhh.png"/>
-                <Image Aspect="Fill" Margin="0,-1,0,-1" Source="" VerticalOptions="End" />
 
                 <!--  profile image  -->
                 <Image HeightRequest="100" HorizontalOptions="Center" Source="personal.png" TranslationY="50" VerticalOptions="End" WidthRequest="100" />

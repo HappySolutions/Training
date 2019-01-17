@@ -11,9 +11,20 @@
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" 
-                        Text="Sweet Dokkana" 
-                        Style="{StaticResource MainLabel}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Grid Grid.Row="0" ColumnSpacing="0" Margin="5,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="left.png"/>
+                <Label Grid.Column="1"
+                           Text="Sweet Dokkana" 
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           Style="{StaticResource MainLabel}"/>
+                <Image Source="right.png" Grid.Column="2"/>
+            </Grid>
             <StackLayout Grid.Row="1">
                 <StackLayout>
                     <Label  
@@ -27,13 +38,12 @@
                         HorizontalOptions="FillAndExpand"
                         Margin="20,0,20,0"/>
 
-                <ListView x:Name="listView" HasUnevenRows="True" >
+                <ListView x:Name="listView" HasUnevenRows="True" IsPullToRefreshEnabled="True" Refreshing="listView_Refreshing">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <!--We set a little padding to make it more clear-->
                                 <StackLayout Orientation="Horizontal" Padding="5">
-                                    <!--We set its horizontalOption to this because we want the middle content to have all the availble space-->
                                     <StackLayout HorizontalOptions="StartAndExpand">
                                         <Label Text="{Binding ProdName}" Style="{StaticResource Miniheader}"/>
                                         <Label Text="{Binding ProdDescreption}" TextColor="Gray" Style="{StaticResource MainBodyText}"/>
@@ -56,7 +66,7 @@
                         HorizontalOptions="FillAndExpand"
                         Margin="20,0,20,0"/>
                 <StackLayout>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10, 20">
                     <Label  
                         Text="Total:"  
                         Style="{StaticResource MainLabel}" FontSize="30" />
@@ -64,12 +74,13 @@
                         x:Name="total" 
                         Style="{StaticResource MainLabel}" FontSize="30" />
                     </StackLayout>
-                <local:RoundedButton Margin="20,40,20,0" 
+                <local:RoundedButton Margin="20,40,20,0"
+                         x:Name="btnCheck"
                          HeightRequest="50" 
                          Text="Check Out"
                          Style="{StaticResource MainButton}"
                          HorizontalOptions="FillAndExpand"
-                         Clicked="RoundedButton_Clicked"/>
+                         Clicked="btnCheck_Clicked"/>
                 </StackLayout>
             </StackLayout>
         </Grid>

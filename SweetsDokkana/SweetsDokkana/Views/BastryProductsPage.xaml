@@ -8,8 +8,20 @@
         <Image Source="patternbackground.jpeg" Aspect="AspectFill" Opacity="0.2" />
         <StackLayout>
             <StackLayout>
-                <Label Text="Bastry" 
-                        Style="{StaticResource MainLabel}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Grid ColumnSpacing="0" Margin="5,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="left.png"/>
+                    <Label Grid.Column="1"
+                           Text="Bastry" 
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           Style="{StaticResource MainLabel}"/>
+                    <Image Source="right.png" Grid.Column="2"/>
+                </Grid>
                 <SearchBar Placeholder="Search..." FontAttributes="Bold" TextChanged="SearchBar_TextChanged"/>
             </StackLayout>
             <ListView x:Name="SweetsList" HasUnevenRows="True" IsPullToRefreshEnabled="True" Refreshing="listView_Refreshing" ItemTapped="SweetsList_ItemTapped">

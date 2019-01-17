@@ -11,9 +11,21 @@
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" 
-                        Text="Sweet Dokkana" 
-                        Style="{StaticResource MainLabel}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Grid Grid.Row="0" ColumnSpacing="0" Margin="5,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="left.png"/>
+                <Label Grid.Column="1"
+                           Text="Sweet Dokkana" 
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           Style="{StaticResource MainLabel}"/>
+                <Image Source="right.png" Grid.Column="2"/>
+            </Grid>
+            
             <StackLayout Grid.Row="1">
                 <StackLayout>
                     <Label  
@@ -69,11 +81,13 @@
                         HorizontalOptions="FillAndExpand"
                         Margin="20,0,20,0"/>
                 <StackLayout>
-                    <local:RoundedButton Margin="20,40,20,0" 
+                    <local:RoundedButton Margin="20,40,20,0"
+                         x:Name="btnSubmit"
                          HeightRequest="50" 
                          Text="Check Out"
                          Style="{StaticResource MainButton}"
-                         HorizontalOptions="FillAndExpand"/>
+                         HorizontalOptions="FillAndExpand"
+                         Clicked="BtnSubmit_Clicked"/>
                 </StackLayout>
             </StackLayout>
         </Grid>

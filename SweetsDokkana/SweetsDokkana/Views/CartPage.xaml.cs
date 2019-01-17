@@ -3,6 +3,7 @@ using SweetsDokkana.Models;
 using SweetsDokkana.Presistance;
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -21,6 +22,7 @@ namespace SweetsDokkana.Views
 		{
 			InitializeComponent ();
             _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
+            
         }
 
         protected override async void OnAppearing()
@@ -38,19 +40,40 @@ namespace SweetsDokkana.Views
 
         private async Task LoadData()
         {
-            await _connection.CreateTableAsync<CartOrder>();
+            try
+            {
+                IsBusy = true;
 
-            var cartOrder = await _connection.Table<CartOrder>().ToListAsync();
+                await _connection.CreateTableAsync<CartOrder>();
 
-            _cartOrder = new ObservableCollection<CartOrder>(cartOrder);
-            
-            listView.ItemsSource = _cartOrder;
+                var cartOrder = await _connection.Table<CartOrder>().ToListAsync();
 
-            var ent = await _connection.ExecuteScalarAsync<double>("SELECT SUM(SumPrice) FROM CartOrders");
-            var result = ent.ToString();
-            total.Text = result;
+                _cartOrder = new ObservableCollection<CartOrder>(cartOrder);
+
+                listView.ItemsSource = _cartOrder;
+
+                var ent = await _connection.ExecuteScalarAsync<double>("SELECT SUM(SumPrice) FROM CartOrders");
+                var result = ent.ToString();
+                total.Text = result;
+            }
+            catch (NullReferenceException ex)
+            {
+                await DisplayAlert("Fail", "Your Cart is empty Please Add Some Products", "OK");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
+        private void listView_Refreshing(object sender, EventArgs e)
+        {
+
+            listView.ItemsSource = _cartOrder;
+
+            //then we use this function to end the refreshing loading
+            listView.EndRefresh();
+        }
         async void OnDelete(object sender, System.EventArgs e)
         {
             var cartOrder = _cartOrder[0];
@@ -60,7 +83,7 @@ namespace SweetsDokkana.Views
 
         }
 
-        async void RoundedButton_Clicked(object sender, EventArgs e)
+        async void btnCheck_Clicked(object sender, EventArgs e)
         {
             var ent = await _connection.ExecuteScalarAsync<double>("SELECT SUM(SumPrice) FROM CartOrders");
             var result = ent.ToString();

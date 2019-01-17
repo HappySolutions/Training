@@ -10,11 +10,20 @@
 
         <ScrollView>
             <StackLayout>
-                <Label  HorizontalOptions="FillAndExpand" 
-                Text="Sweet Dokkana" 
-                HorizontalTextAlignment="Center"
-                VerticalTextAlignment="Center"
-                Style="{StaticResource MainLabel}"/>
+                <Grid ColumnSpacing="0" Margin="5,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="left.png"/>
+                    <Label Grid.Column="1"
+                           Text="Sweet Dokkana" 
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           Style="{StaticResource MainLabel}"/>
+                    <Image Source="right.png" Grid.Column="2"/>
+                </Grid>
                 <StackLayout>
                     <Label  
                         HorizontalOptions="FillAndExpand" 

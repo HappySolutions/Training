@@ -18,7 +18,7 @@ namespace SweetsDokkana.Views
 	{
         private SQLiteAsyncConnection _connection;
         private ObservableCollection<Order> _myOrder;
-        private bool _isDataLoaded;
+        private bool _isDataLoaded = false;
 
         public MyOrders ()
 		{
@@ -30,8 +30,6 @@ namespace SweetsDokkana.Views
         {
             if (_isDataLoaded)
                 return;
-
-            _isDataLoaded = true;
 
             await LoadData();
 
@@ -47,6 +45,7 @@ namespace SweetsDokkana.Views
             _myOrder = new ObservableCollection<Order>(myOrder);
 
             OrderlistView.ItemsSource = _myOrder;
+            _isDataLoaded = true;
 
         }
 
@@ -57,6 +56,13 @@ namespace SweetsDokkana.Views
 
             _myOrder.Remove(myOrder);
 
+        }
+
+        async void BtnSubmit_Clicked(object sender, EventArgs e)
+        {
+            if (_isDataLoaded)
+                await DisplayAlert("Success", "Your Orders Have Been Saved", "OK");
+            await Navigation.PushAsync(new MainPage());
         }
     }
 }
