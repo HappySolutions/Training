@@ -43,7 +43,7 @@
                         <DataTemplate>
                             <ViewCell>
                                 <!--We set a little padding to make it more clear-->
-                                <StackLayout Orientation="Horizontal" Padding="5">
+                                <StackLayout x:Name="YourView" Orientation="Horizontal" Padding="5" >
                                     <StackLayout HorizontalOptions="StartAndExpand">
                                         <Label Text="{Binding ProdName}" Style="{StaticResource Miniheader}"/>
                                         <Label Text="{Binding ProdDescreption}" TextColor="Gray" Style="{StaticResource MainBodyText}"/>

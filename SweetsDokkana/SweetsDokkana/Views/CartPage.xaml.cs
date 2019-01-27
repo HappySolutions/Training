@@ -69,12 +69,15 @@ namespace SweetsDokkana.Views
             //then we use this function to end the refreshing loading
             listView.EndRefresh();
         }
+
+        
         async void OnDelete(object sender, System.EventArgs e)
         {
-            var cartOrder = _cartOrder[0];
-            await _connection.DeleteAsync(cartOrder);
+            var item = (CartOrder)((Button)sender).BindingContext;
 
-            _cartOrder.Remove(cartOrder);
+            await _connection.DeleteAsync(item);
+
+            _cartOrder.Remove(item);
 
         }
 
