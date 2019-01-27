@@ -31,7 +31,6 @@ namespace SweetsDokkana.Views
                 }
                 else
                 {
-                    await DisplayAlert("Registrtion", "Login Success ... Now Enjoy our Sweets Journy ", "OK");
                     await Navigation.PushAsync(new MainPage());
                 }
             }

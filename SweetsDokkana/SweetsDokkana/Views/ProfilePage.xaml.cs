@@ -1,5 +1,9 @@
-﻿using System;
+﻿using SQLite;
+using SweetsDokkana.Models;
+using SweetsDokkana.Presistance;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,17 +16,44 @@ namespace SweetsDokkana.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ProfilePage : ContentPage
 	{
-		public ProfilePage ()
+        private SQLiteAsyncConnection _connection;
+        private bool _isDataLoaded;
+
+
+        public ProfilePage ()
 		{
 			InitializeComponent ();
-		}
-        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
-        {
+            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
 
         }
-        private void BtnSearch_Clicked(object sender, EventArgs e)
+
+        protected override async void OnAppearing()
         {
-            Navigation.PushAsync(new SearchResultsPage());
+            if (_isDataLoaded)
+                return;
+            await loadData();
+           
+            _isDataLoaded = false;
+
+            base.OnAppearing();
+        }
+
+        async Task loadData()
+        {
+            await _connection.CreateTableAsync<RegEntity>();
+
+            var regEntity = await _connection.Table<RegEntity>().ToListAsync();
+
+            var test = regEntity.FirstOrDefault<RegEntity>() as RegEntity;
+            
+            var usename = test.UserName;
+            var mail = test.Email;
+            var address = test.Address;
+            var phone = test.Phone;
+            lblEmail.Text = mail;
+            lblName.Text = usename;
+            lblPhone.Text = phone;
+            lblAddress.Text = address;
         }
 
         private void BtnLogout_Clicked(object sender, EventArgs e)
@@ -33,11 +64,6 @@ namespace SweetsDokkana.Views
         private void BtnMyOrders_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new MyOrders());
-        }
-
-        private void EdtProfile_Clicked(object sender, EventArgs e)
-        {
-
         }
     }
 }
