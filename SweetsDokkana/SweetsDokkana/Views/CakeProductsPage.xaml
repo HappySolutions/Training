@@ -8,7 +8,7 @@
         <Image Source="patternbackground.jpeg" Aspect="AspectFill" Opacity="0.2" />
         <StackLayout>
             <StackLayout>
-                <Grid ColumnSpacing="0" Margin="5,10">
+                <Grid ColumnSpacing="0" Margin="0" HeightRequest="100">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
@@ -23,7 +23,7 @@
                     <Image Source="right.png" Grid.Column="2"/>
                 </Grid>
                 
-                <SearchBar Placeholder="Search..." FontAttributes="Bold" TextChanged="SearchBar_TextChanged"/>
+                <SearchBar Margin="0" Placeholder="Search..." FontAttributes="Bold" TextChanged="SearchBar_TextChanged"/>
             </StackLayout>
             <ListView x:Name="SweetsList" HasUnevenRows="True" IsPullToRefreshEnabled="True" Refreshing="listView_Refreshing" ItemTapped="SweetsList_ItemTapped">
                 <ListView.ItemTemplate>

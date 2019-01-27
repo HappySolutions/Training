@@ -2,15 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SweetsDokkana.Styles"
-             xmlns:Image="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              x:Class="SweetsDokkana.Views.CartPage">
+    <ScrollView>
     <Grid>
-        <Image Source="patternbackground.jpeg" Aspect="AspectFill" Opacity="0.2" />
-        <Grid>
+        
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+        
+            <Image Source="patternbackground.jpeg" Aspect="AspectFill" Opacity="0.2" />
+
             <Grid Grid.Row="0" ColumnSpacing="0" Margin="5,10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -26,11 +28,11 @@
                 <Image Source="right.png" Grid.Column="2"/>
             </Grid>
             <StackLayout Grid.Row="1">
-                <StackLayout>
-                    <Label  
+                    <StackLayout>
+                        <Label  
                         Text="Your Shopping Items" 
                         Style="{StaticResource MainLabel}" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                </StackLayout>
+                    </StackLayout>
 
                 <BoxView 
                         HeightRequest="1" 
@@ -38,7 +40,7 @@
                         HorizontalOptions="FillAndExpand"
                         Margin="20,0,20,0"/>
 
-                <ListView x:Name="listView" HasUnevenRows="True" IsPullToRefreshEnabled="True" Refreshing="listView_Refreshing">
+                <ListView x:Name="listView" HasUnevenRows="True" IsPullToRefreshEnabled="True" Refreshing="listView_Refreshing" HeightRequest="300">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -74,7 +76,7 @@
                         x:Name="total" 
                         Style="{StaticResource MainLabel}" FontSize="30" />
                     </StackLayout>
-                <local:RoundedButton Margin="20,40,20,0"
+                <local:RoundedButton Margin="20,20,20,0"
                          x:Name="btnCheck"
                          HeightRequest="50" 
                          Text="Check Out"
@@ -84,5 +86,5 @@
                 </StackLayout>
             </StackLayout>
         </Grid>
-    </Grid>
+    </ScrollView>
 </ContentPage>
