@@ -85,7 +85,8 @@
                             HeightRequest="50"
                             Text="Send Message"     
                             Style="{StaticResource MainButton}"
-                            HorizontalOptions="FillAndExpand"/>
+                            HorizontalOptions="FillAndExpand"
+                            Clicked="BtnSubmit_Clicked"/>
                 </StackLayout>
 
         </StackLayout>

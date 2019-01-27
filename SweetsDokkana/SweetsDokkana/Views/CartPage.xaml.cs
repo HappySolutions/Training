@@ -78,12 +78,22 @@ namespace SweetsDokkana.Views
         
         async void OnDelete(object sender, System.EventArgs e)
         {
-            var itemm = (CartOrder)((Button)sender).BindingContext;
+            var item = (CartOrder)((Button)sender).BindingContext;
 
-            await _connection.DeleteAsync(itemm);
+            await _connection.DeleteAsync(item);
 
-            _cartOrder.Remove(itemm);
-
+            _cartOrder.Remove(item);
+            try
+            { 
+            var ent = await _connection.ExecuteScalarAsync<double>("SELECT SUM(SumPrice) FROM CartOrders");
+            var result = ent.ToString();
+            total.Text = result;
+            }
+            catch (NullReferenceException ex)
+            {
+                total.Text = "0";
+                await DisplayAlert("Fail", "Your Cart is empty Please Add Some Products", "OK");
+            }
         }
 
         async void btnCheck_Clicked(object sender, EventArgs e)

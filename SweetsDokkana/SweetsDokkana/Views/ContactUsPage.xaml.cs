@@ -16,5 +16,10 @@ namespace SweetsDokkana.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void BtnSubmit_Clicked(object sender, EventArgs e)
+        {
+            DisplayAlert("Sent", "Your Message Has been sent", "OK");
+        }
+    }
 }
