@@ -17,6 +17,7 @@ namespace SweetsDokkana.Views
         private SQLiteAsyncConnection _connection;
         private ObservableCollection<CartOrder> _cartOrder;
         private bool _isDataLoaded;
+        string result;
 
         public CartPage ()
 		{
@@ -48,11 +49,12 @@ namespace SweetsDokkana.Views
                 _cartOrder = new ObservableCollection<CartOrder>(cartOrder);
 
                 listView.ItemsSource = _cartOrder;
-                _isDataLoaded = true;
 
                 var ent = await _connection.ExecuteScalarAsync<double>("SELECT SUM(SumPrice) FROM CartOrders");
-                var result = ent.ToString();
+                result = ent.ToString();
                 total.Text = result;
+                _isDataLoaded = false;
+
             }
             catch (NullReferenceException ex)
             {
@@ -61,10 +63,13 @@ namespace SweetsDokkana.Views
             
         }
 
-        private void listView_Refreshing(object sender, EventArgs e)
+        private async void listView_Refreshing(object sender, EventArgs e)
         {
 
             listView.ItemsSource = _cartOrder;
+            var ent = await _connection.ExecuteScalarAsync<double>("SELECT SUM(SumPrice) FROM CartOrders");
+            var result = ent.ToString();
+            total.Text = result;
 
             //then we use this function to end the refreshing loading
             listView.EndRefresh();
@@ -73,20 +78,19 @@ namespace SweetsDokkana.Views
         
         async void OnDelete(object sender, System.EventArgs e)
         {
-            var item = (CartOrder)((Button)sender).BindingContext;
+            var itemm = (CartOrder)((Button)sender).BindingContext;
 
-            await _connection.DeleteAsync(item);
+            await _connection.DeleteAsync(itemm);
 
-            _cartOrder.Remove(item);
+            _cartOrder.Remove(itemm);
 
         }
 
         async void btnCheck_Clicked(object sender, EventArgs e)
         {
-            var ent = await _connection.ExecuteScalarAsync<double>("SELECT SUM(SumPrice) FROM CartOrders");
-            var result = ent.ToString();
+            total.Text = result;
 
             await Navigation.PushAsync(new OrderPage(result));
-        }
+        }             
     }
 }
