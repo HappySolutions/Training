@@ -26,36 +26,38 @@
 
                 <local:RoundedEntry  Margin="20,20,20,0" 
                          HeightRequest="50" 
-                         Placeholder="Name">
+                         Placeholder="UserName"
+                         x:Name="lblUsername">
                 </local:RoundedEntry>
 
                 <local:RoundedEntry Margin="20,10,20,0" 
                         HeightRequest="50" IsPassword="true"
-                        Placeholder="Password">
+                        Placeholder="Password" x:Name="lblPassword">
                 </local:RoundedEntry>
 
                 <local:RoundedEntry  Margin="20,10,20,0" 
-                         HeightRequest="50" 
+                         HeightRequest="50"
+                         IsPassword="true"
                          Placeholder="Repeat Password">
                 </local:RoundedEntry>
 
                 <local:RoundedEntry  Margin="20,10,20,0" 
-                         HeightRequest="50" 
+                         HeightRequest="50" x:Name="lblMail" 
                          Placeholder="Email">
                 </local:RoundedEntry>
 
                 <local:RoundedEntry  Margin="20,10,20,0" 
-                         HeightRequest="50" 
+                         HeightRequest="50" x:Name="lblPhone"
                          Placeholder="Phone">
                 </local:RoundedEntry>
 
                 <local:RoundedEntry  Margin="20,10,20,0" 
-                         HeightRequest="50" 
+                         HeightRequest="50" x:Name="lblAddress"
                          Placeholder="Address">
                 </local:RoundedEntry>
 
                 <local:RoundedButton Margin="20,20,20,0" 
-                         HeightRequest="50" 
+                         HeightRequest="50"
                          Text="SignUp"
                          Style="{StaticResource MainButton}"
                          HorizontalOptions="FillAndExpand"

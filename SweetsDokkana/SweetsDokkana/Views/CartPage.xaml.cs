@@ -30,8 +30,6 @@ namespace SweetsDokkana.Views
             if (_isDataLoaded)
                 return;
 
-            _isDataLoaded = true;
-
             await LoadData();
 
             base.OnAppearing();
@@ -42,7 +40,6 @@ namespace SweetsDokkana.Views
         {
             try
             {
-                IsBusy = true;
 
                 await _connection.CreateTableAsync<CartOrder>();
 
@@ -51,6 +48,7 @@ namespace SweetsDokkana.Views
                 _cartOrder = new ObservableCollection<CartOrder>(cartOrder);
 
                 listView.ItemsSource = _cartOrder;
+                _isDataLoaded = true;
 
                 var ent = await _connection.ExecuteScalarAsync<double>("SELECT SUM(SumPrice) FROM CartOrders");
                 var result = ent.ToString();
@@ -60,10 +58,7 @@ namespace SweetsDokkana.Views
             {
                 await DisplayAlert("Fail", "Your Cart is empty Please Add Some Products", "OK");
             }
-            finally
-            {
-                IsBusy = false;
-            }
+            
         }
 
         private void listView_Refreshing(object sender, EventArgs e)

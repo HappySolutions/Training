@@ -1,4 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8" ?><ContentPage xmlns="http://xamarin.com/schemas/2014/forms"             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             NavigationPage.HasNavigationBar="false"             x:Class="SweetsDokkana.Views.CategoryPage">        <ScrollView>        <Grid ColumnSpacing="0" RowSpacing="0">            <Grid.RowDefinitions>                <RowDefinition Height="100" />                <RowDefinition Height="250" />                <RowDefinition Height="250" />                <RowDefinition Height="250" />                <RowDefinition Height="250" />            </Grid.RowDefinitions>            <Grid Grid.Row="0" ColumnSpacing="0" Margin="5,10">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="SweetsDokkana.Views.CategoryPage">
+        <ScrollView>
+
+        <Grid ColumnSpacing="0" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="250" />
+                <RowDefinition Height="250" />
+                <RowDefinition Height="250" />
+                <RowDefinition Height="250" />
+            </Grid.RowDefinitions>
+
+
+            <Grid Grid.Row="0" ColumnSpacing="0" Margin="5,10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
@@ -11,4 +28,84 @@
                            VerticalTextAlignment="Center"
                            Style="{StaticResource MainLabel}"/>
                 <Image Source="right.png" Grid.Column="2"/>
-            </Grid>            <Grid Grid.Row="1">                <ImageButton x:Name="btnOriental" Aspect="AspectFill" Source="gf.jpg" Clicked="btnOriental_Clicked" />                <Label Text="Oriental"                       Style="{StaticResource HeaderLabels}"                       Margin="0,-1,0,-1"                          VerticalOptions="End"                       HorizontalTextAlignment="Center">                    <Label.BackgroundColor>                        <Color>                            <x:Arguments>                                <x:Double>0</x:Double>                                <x:Double>0</x:Double>                                <x:Double>0</x:Double>                                <x:Double>0.6</x:Double>                            </x:Arguments>                        </Color>                    </Label.BackgroundColor>                </Label>            </Grid>            <Grid Grid.Row="2">                <ImageButton x:Name="btnSweets" Aspect="AspectFill" Source="bg2.jpeg" Clicked="BtnSweets_Clicked" />                <Label Text="Western Sweets"                         Style="{StaticResource HeaderLabels}"                       Margin="0,-1,0,-1"                          VerticalOptions="End"                       HorizontalTextAlignment="Center">                    <Label.BackgroundColor>                        <Color>                            <x:Arguments>                                <x:Double>0</x:Double>                                <x:Double>0</x:Double>                                <x:Double>0</x:Double>                                <x:Double>0.6</x:Double>                            </x:Arguments>                        </Color>                    </Label.BackgroundColor>                </Label>            </Grid>            <Grid Grid.Row="3">                <ImageButton x:Name="btnCakes" Aspect="AspectFill" Source="bg1.jpg" Clicked="BtnCakes_Clicked" />                <Label Text="Cakes"                         Style="{StaticResource HeaderLabels}"                       Margin="0,-1,0,-1"                          VerticalOptions="End"                       HorizontalTextAlignment="Center">                    <Label.BackgroundColor>                        <Color>                            <x:Arguments>                                <x:Double>0</x:Double>                                <x:Double>0</x:Double>                                <x:Double>0</x:Double>                                <x:Double>0.6</x:Double>                            </x:Arguments>                        </Color>                    </Label.BackgroundColor>                </Label>            </Grid>            <Grid Grid.Row="4">                <ImageButton x:Name="btnBastry" Aspect="AspectFill" Source="bastry.jpg" Clicked="BtnBastry_Clicked" />                <Label Text="Bastry"                         Style="{StaticResource HeaderLabels}"                       Margin="0,-1,0,-1"                          VerticalOptions="End"                       HorizontalTextAlignment="Center">                    <Label.BackgroundColor>                        <Color>                            <x:Arguments>                                <x:Double>0</x:Double>                                <x:Double>0</x:Double>                                <x:Double>0</x:Double>                                <x:Double>0.6</x:Double>                            </x:Arguments>                        </Color>                    </Label.BackgroundColor>                </Label>            </Grid>        </Grid>    </ScrollView></ContentPage>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <ImageButton x:Name="btnOriental" Aspect="AspectFill" Source="gf.jpg" Clicked="btnOriental_Clicked" />
+                <Label Text="Oriental"
+                       Style="{StaticResource HeaderLabels}"
+                       Margin="0,-1,0,-1"   
+                       VerticalOptions="End"
+                       HorizontalTextAlignment="Center">
+                    <Label.BackgroundColor>
+                        <Color>
+                            <x:Arguments>
+                                <x:Double>0</x:Double>
+                                <x:Double>0</x:Double>
+                                <x:Double>0</x:Double>
+                                <x:Double>0.6</x:Double>
+                            </x:Arguments>
+                        </Color>
+                    </Label.BackgroundColor>
+                </Label>
+            </Grid>
+            <Grid Grid.Row="2">
+                <ImageButton x:Name="btnSweets" Aspect="AspectFill" Source="bg2.jpeg" Clicked="BtnSweets_Clicked" />
+                <Label Text="Western Sweets"  
+                       Style="{StaticResource HeaderLabels}"
+                       Margin="0,-1,0,-1"   
+                       VerticalOptions="End"
+                       HorizontalTextAlignment="Center">
+                    <Label.BackgroundColor>
+                        <Color>
+                            <x:Arguments>
+                                <x:Double>0</x:Double>
+                                <x:Double>0</x:Double>
+                                <x:Double>0</x:Double>
+                                <x:Double>0.6</x:Double>
+                            </x:Arguments>
+                        </Color>
+                    </Label.BackgroundColor>
+                </Label>
+            </Grid>
+            <Grid Grid.Row="3">
+                <ImageButton x:Name="btnCakes" Aspect="AspectFill" Source="bg1.jpg" Clicked="BtnCakes_Clicked" />
+                <Label Text="Cakes"  
+                       Style="{StaticResource HeaderLabels}"
+                       Margin="0,-1,0,-1"   
+                       VerticalOptions="End"
+                       HorizontalTextAlignment="Center">
+                    <Label.BackgroundColor>
+                        <Color>
+                            <x:Arguments>
+                                <x:Double>0</x:Double>
+                                <x:Double>0</x:Double>
+                                <x:Double>0</x:Double>
+                                <x:Double>0.6</x:Double>
+                            </x:Arguments>
+                        </Color>
+                    </Label.BackgroundColor>
+                </Label>
+            </Grid>
+            <Grid Grid.Row="4">
+                <ImageButton x:Name="btnBastry" Aspect="AspectFill" Source="bastry.jpg" Clicked="BtnBastry_Clicked" />
+                <Label Text="Bastry"  
+                       Style="{StaticResource HeaderLabels}"
+                       Margin="0,-1,0,-1"   
+                       VerticalOptions="End"
+                       HorizontalTextAlignment="Center">
+                    <Label.BackgroundColor>
+                        <Color>
+                            <x:Arguments>
+                                <x:Double>0</x:Double>
+                                <x:Double>0</x:Double>
+                                <x:Double>0</x:Double>
+                                <x:Double>0.6</x:Double>
+                            </x:Arguments>
+                        </Color>
+                    </Label.BackgroundColor>
+                </Label>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

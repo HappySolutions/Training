@@ -69,7 +69,7 @@
                                         <Label Text="Payment Method: " Style="{StaticResource MainBodyText}"/>
                                         <Label Text="{Binding Payment}" TextColor="Gray" Style="{StaticResource MainBodyText}"/>
                                     </StackLayout>
-                                    <local:RoundedButton Text="delete" Clicked="OnDelete" Style="{StaticResource MainButton}" />
+                                    <local:RoundedButton Text="Cancel" Clicked="OnDelete" Style="{StaticResource MainButton}" />
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>

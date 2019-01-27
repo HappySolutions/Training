@@ -61,7 +61,7 @@ namespace SweetsDokkana.Views
         async void BtnSubmit_Clicked(object sender, EventArgs e)
         {
             if (_isDataLoaded)
-                await DisplayAlert("Success", "Your Orders Have Been Saved", "OK");
+                await DisplayAlert("Success", "Your Orders Have Been Submitted", "OK");
             await Navigation.PushAsync(new MainPage());
         }
     }

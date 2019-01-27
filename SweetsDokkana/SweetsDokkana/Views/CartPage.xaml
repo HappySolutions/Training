@@ -53,7 +53,7 @@
                                             <Label x:Name="lblPrice" Text="{Binding SumPrice}" Style="{StaticResource MainBodyText}" VerticalTextAlignment="Center" />
                                             <Label Text="Pounds" Style="{StaticResource MainBodyText}"/>
                                         </StackLayout>
-                                        <local:RoundedButton Text="delete" Clicked="OnDelete" Style="{StaticResource MainButton}" />
+                                        <local:RoundedButton Text="Cancel" Clicked="OnDelete" Style="{StaticResource MainButton}" />
                                     </StackLayout>
                                 </StackLayout>
                             </ViewCell>
