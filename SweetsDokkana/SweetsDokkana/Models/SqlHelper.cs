@@ -24,7 +24,7 @@ namespace SweetsDokkana.Models
         {
             lock (locker)
             {
-                return _connection.Table<RegEntity>().FirstOrDefaultAsync(x => (x.Email == email && x.Password == password ));
+                return _connection.Table<RegEntity>().FirstAsync(x => (x.Email == email && x.Password == password ));
             }
         }
 
