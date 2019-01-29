@@ -13,6 +13,9 @@ namespace SweetsDokkana.Models
         static object locker = new object();
         private SQLiteAsyncConnection _connection;
 
+        private static readonly AsyncLock AsyncLock = new AsyncLock();
+
+
         public SqlHelper()
         {
             _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
@@ -36,11 +39,26 @@ namespace SweetsDokkana.Models
             }
         }
 
-       /* public int AddItem(RegEntity reg)
+        public async Task<int> InsertAsync<T>(T entity)
         {
-            var AddedItem =  _connection.InsertAsync(reg);
-            return AddedItem;
-        }*/
+            try
+            {
+                using (await AsyncLock.LockAsync())
+                {
+                    if (entity != null) await _connection.InsertAsync(entity);
+                   
+                    return 1;
+                }
+            }
+            catch (SQLiteException sqliteException)
+            {
+                {
+                    return await InsertAsync(entity);
+                }
+                throw;
+            }
+
+        }
 
 
     }

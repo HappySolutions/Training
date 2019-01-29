@@ -13,6 +13,7 @@ namespace SweetsDokkana.Views
 	public partial class SignUpPage : ContentPage
 	{
         private SQLiteAsyncConnection _connection;
+        SqlHelper sqlHelper = new SqlHelper();
 
         public SignUpPage ()
 		{
@@ -23,20 +24,30 @@ namespace SweetsDokkana.Views
 
         async void BtnSignUp_Clicked(object sender, EventArgs e)
         {
-            var RegEntity = new RegEntity();
-            RegEntity.UserName = lblUsername.Text;
-            RegEntity.Password = lblPassword.Text;
-            RegEntity.Email = lblMail.Text;
-            RegEntity.Phone = lblPhone.Text;
-            RegEntity.Address = lblAddress.Text;
+            var Reg = new RegEntity();
+            Reg.UserName = lblUsername.Text;
+            Reg.Password = lblPassword.Text;
+            Reg.Email = lblMail.Text;
+            Reg.Phone = lblPhone.Text;
+            Reg.Address = lblAddress.Text;
 
-            await _connection.CreateTableAsync<RegEntity>();
+            var regtest = await sqlHelper.InsertAsync<RegEntity>(Reg);
+            if(regtest > 0)
+            {
+                await DisplayAlert("Success", "Account registerd", "OK");
+            }
+            else
+            {
+                await DisplayAlert("Success", "Account not registerd", "OK");
+            }
+
+            /*await _connection.CreateTableAsync<RegEntity>();
 
             int rows = await _connection.InsertAsync(RegEntity);
             if (rows != 0)
                 await DisplayAlert("Success", "You have been regiesterd succesfully please Login Using your Data...", "Ok");
             else
-                await DisplayAlert("Failure", "Register Failed", "Ok");
+                await DisplayAlert("Failure", "Register Failed", "Ok");*/
             await Navigation.PushAsync(new LoginPage());
         }
 
