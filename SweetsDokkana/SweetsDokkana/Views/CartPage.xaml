@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SweetsDokkana.Styles"
              x:Class="SweetsDokkana.Views.CartPage">
-    <ScrollView>
     <Grid>
         
             <Grid.RowDefinitions>
@@ -86,5 +85,4 @@
                 </StackLayout>
             </StackLayout>
         </Grid>
-    </ScrollView>
 </ContentPage>
