@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SweetsDokkana.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,15 +13,28 @@ namespace SweetsDokkana.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ForgotPasswordPage : ContentPage
 	{
-		public ForgotPasswordPage ()
+        SqlHelper sqlHelper = new SqlHelper();
+
+        public ForgotPasswordPage ()
 		{
 			InitializeComponent ();
 		}
 
         private async void BtnSubmit_Clicked(object sender, EventArgs e)
         {
-           await DisplayAlert("Done", "Recover Password Email Has Been Sent", "OK");
-           await Navigation.PushAsync(new LoginPage());
+            RegEntity userDetail = await sqlHelper.CheckMail(mailEntry.Text);
+
+            if(userDetail == null)
+            {
+                await DisplayAlert("Wrong Email", "This email is not registered", "OK");
+            }
+            
+            else
+            {
+                await DisplayAlert("Done", "Recover Password Email Has Been Sent", "OK");
+                await Navigation.PushAsync(new LoginPage());
+            }
+
         }
     }
 }

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SweetsDokkana.Styles"
+             x:Class="SweetsDokkana.Views.EditProfilePage">
+    <Grid>
+        <ScrollView>
+            <StackLayout>
+
+                <Grid ColumnSpacing="0" Margin="5,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="left.png"/>
+                    <Label Grid.Column="1"
+                           Text="Sweet Dokkana" 
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           Style="{StaticResource MainLabel}"/>
+                    <Image Source="right.png" Grid.Column="2"/>
+                </Grid>
+
+                <local:RoundedEntry  Margin="20,20,20,0" 
+                         HeightRequest="50" 
+                         Placeholder="UserName"
+                         x:Name="lblUsername">
+                </local:RoundedEntry>
+
+                <local:RoundedEntry  Margin="20,10,20,0" 
+                         HeightRequest="50"
+                         IsPassword="true"
+                         Placeholder="Old Password">
+                </local:RoundedEntry>
+
+                <local:RoundedEntry Margin="20,10,20,0" 
+                        HeightRequest="50" IsPassword="true"
+                        Placeholder="New Password" x:Name="lblPassword">
+                </local:RoundedEntry>
+
+                <local:RoundedEntry  Margin="20,10,20,0" 
+                         HeightRequest="50" x:Name="lblMail" 
+                         Placeholder="Email">
+                </local:RoundedEntry>
+
+                <local:RoundedEntry  Margin="20,10,20,0" 
+                         HeightRequest="50" x:Name="lblPhone"
+                         Placeholder="Phone">
+                </local:RoundedEntry>
+
+                <local:RoundedEntry  Margin="20,10,20,0" 
+                         HeightRequest="50" x:Name="lblAddress"
+                         Placeholder="Address">
+                </local:RoundedEntry>
+
+                <local:RoundedButton Margin="20,20,20,0" 
+                         HeightRequest="50"
+                         Text="Update"
+                         Style="{StaticResource MainButton}"
+                         HorizontalOptions="FillAndExpand"
+                         x:Name="btnUpdate"
+                         />
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

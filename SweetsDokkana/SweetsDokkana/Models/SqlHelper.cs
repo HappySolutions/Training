@@ -28,7 +28,21 @@ namespace SweetsDokkana.Models
             }
         }
 
-       
+        public Task<RegEntity> CheckMail(string email)
+        {
+            lock (locker)
+            {
+                return _connection.Table<RegEntity>().FirstOrDefaultAsync(x => (x.Email == email));
+            }
         }
+
+       /* public int AddItem(RegEntity reg)
+        {
+            var AddedItem =  _connection.InsertAsync(reg);
+            return AddedItem;
+        }*/
+
+
+    }
     }
 
