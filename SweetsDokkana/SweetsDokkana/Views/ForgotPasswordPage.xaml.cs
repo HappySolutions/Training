@@ -1,4 +1,6 @@
-﻿using SweetsDokkana.Models;
+﻿using SQLite;
+using SweetsDokkana.Models;
+using SweetsDokkana.Presistance;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,16 +15,20 @@ namespace SweetsDokkana.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ForgotPasswordPage : ContentPage
 	{
-        SqlHelper sqlHelper = new SqlHelper();
+        SQLiteAsyncConnection _connection;
+        IEntityController<RegEntity> _connectToEntity;
 
         public ForgotPasswordPage ()
 		{
 			InitializeComponent ();
-		}
+            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
+            _connectToEntity = new EntityController<RegEntity>(_connection);
+
+        }
 
         private async void BtnSubmit_Clicked(object sender, EventArgs e)
         {
-            RegEntity userDetail = await sqlHelper.CheckMail(mailEntry.Text);
+            RegEntity userDetail = await _connectToEntity.CheckMail(mailEntry.Text);
 
             if(userDetail == null)
             {

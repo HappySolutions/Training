@@ -15,9 +15,8 @@ namespace SweetsDokkana.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProductDetailPage : ContentPage
     {
-
         private SQLiteAsyncConnection _connection;
-
+        IEntityController<CartOrder> _connectToEntity;
 
         public ProductDetailPage(Product product)
         {
@@ -27,6 +26,7 @@ namespace SweetsDokkana.Views
 
             InitializeComponent();
             _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
+            _connectToEntity = new EntityController<CartOrder>(_connection);
 
             BindingContext = new Product
             {
@@ -51,7 +51,7 @@ namespace SweetsDokkana.Views
 
                 await _connection.CreateTableAsync<CartOrder>();
             
-                int rows = await _connection.InsertAsync(cartOrder);
+                int rows = await _connectToEntity.Insert(cartOrder);
 
                 if (rows > 0)
                     await DisplayAlert("Success", "Order succesfully Added", "Ok");

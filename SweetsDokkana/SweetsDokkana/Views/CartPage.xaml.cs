@@ -18,12 +18,15 @@ namespace SweetsDokkana.Views
         private ObservableCollection<CartOrder> _cartOrder;
         private bool _isDataLoaded;
         string result;
+        IEntityController<CartOrder> _connectToEntity;
+
 
         public CartPage ()
 		{
 			InitializeComponent ();
             _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
-            
+            _connectToEntity = new EntityController<CartOrder>(_connection);
+
         }
 
         protected override async void OnAppearing()

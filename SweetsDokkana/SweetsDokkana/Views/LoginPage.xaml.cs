@@ -1,4 +1,6 @@
-﻿using SweetsDokkana.Models;
+﻿using SQLite;
+using SweetsDokkana.Models;
+using SweetsDokkana.Presistance;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,15 +15,20 @@ namespace SweetsDokkana.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : ContentPage
 	{
-        SqlHelper sqlHelper = new SqlHelper();
+        SQLiteAsyncConnection _connection;
+        IEntityController<RegEntity> _connectToEntity;
 
-		public LoginPage ()
+
+        public LoginPage ()
 		{
 			InitializeComponent ();
-		}
+            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
+            _connectToEntity = new EntityController<RegEntity>(_connection);
+
+        }
         async void BtnLogin_Clicked(object sender, EventArgs e)
         {
-            RegEntity userDetail = await sqlHelper.GetItem(emailEntry.Text, passwordEntry.Text);
+            RegEntity userDetail = await _connectToEntity.GetReg(emailEntry.Text, passwordEntry.Text);
 
             if (userDetail != null)
             {

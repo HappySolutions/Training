@@ -17,13 +17,16 @@ namespace SweetsDokkana.Views
 	public partial class ProfilePage : ContentPage
 	{
         private SQLiteAsyncConnection _connection;
-        private bool _isDataLoaded;
+        IEntityController<RegEntity> _connectToEntity;
 
+        private bool _isDataLoaded;
+        public int id { get; set; }
 
         public ProfilePage ()
 		{
 			InitializeComponent ();
             _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
+            _connectToEntity = new EntityController<RegEntity>(_connection);
 
         }
 
@@ -40,25 +43,27 @@ namespace SweetsDokkana.Views
 
         async Task loadData()
         {
-            await _connection.CreateTableAsync<RegEntity>();
+             _connectToEntity.CreateTableRegAsync();
 
             var regEntity = await _connection.Table<RegEntity>().ToListAsync();
 
             var test = regEntity.FirstOrDefault<RegEntity>() as RegEntity;
-            
+
+            id = test.ID;
             var usename = test.UserName;
             var mail = test.Email;
             var address = test.Address;
             var phone = test.Phone;
+
             lblEmail.Text = mail;
             lblName.Text = usename;
             lblPhone.Text = phone;
             lblAddress.Text = address;
         }
 
-        private void BtnLogout_Clicked(object sender, EventArgs e)
+        private void BtnProfile_Clicked(object sender, EventArgs e)
         {
-            Navigation.PopToRootAsync();
+            Navigation.PushAsync(new EditProfilePage(id));
         }
 
         private void BtnMyOrders_Clicked(object sender, EventArgs e)
@@ -66,9 +71,13 @@ namespace SweetsDokkana.Views
             Navigation.PushAsync(new MyOrders());
         }
 
-        private void BtnProfile_Clicked(object sender, EventArgs e)
+        private void BtnLogout_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new EditProfilePage());
+            Navigation.PopToRootAsync();
         }
+
+        
+
+        
     }
 }

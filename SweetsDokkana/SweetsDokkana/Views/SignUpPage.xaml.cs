@@ -13,12 +13,13 @@ namespace SweetsDokkana.Views
 	public partial class SignUpPage : ContentPage
 	{
         private SQLiteAsyncConnection _connection;
-        SqlHelper sqlHelper = new SqlHelper();
+        IEntityController<RegEntity> _connectToEntity;
 
         public SignUpPage ()
 		{
 			InitializeComponent ();
             _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
+            _connectToEntity = new EntityController<RegEntity>(_connection);
 
         }
 
@@ -31,8 +32,10 @@ namespace SweetsDokkana.Views
             Reg.Phone = lblPhone.Text;
             Reg.Address = lblAddress.Text;
 
-            var regtest = await sqlHelper.InsertAsync<RegEntity>(Reg);
-            if(regtest > 0)
+             _connectToEntity.CreateTableRegAsync();
+            var test = await _connectToEntity.Insert(Reg);
+
+            if(test > 0)
             {
                 await DisplayAlert("Success", "Account registerd", "OK");
             }

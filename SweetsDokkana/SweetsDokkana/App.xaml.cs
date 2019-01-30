@@ -1,3 +1,4 @@
+using SQLite;
 using SweetsDokkana.Views;
 using System;
 using Xamarin.Forms;
@@ -9,7 +10,7 @@ namespace SweetsDokkana
 {
 	public partial class App : Application
 	{
-		public App ()
+        public App ()
 		{
 			InitializeComponent();
 
