@@ -43,7 +43,7 @@ namespace SweetsDokkana.Views
 
         async Task loadData()
         {
-             _connectToEntity.CreateTableRegAsync();
+            await _connectToEntity.CreateTableAsync<RegEntity>();
 
             var regEntity = await _connection.Table<RegEntity>().ToListAsync();
 

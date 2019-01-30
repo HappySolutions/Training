@@ -11,7 +11,7 @@ namespace SweetsDokkana.Presistance
 {
     public interface IEntityController<T> where T : class, new()
     {
-        void CreateTableRegAsync();
+        Task<CreateTableResult> CreateTableAsync<T>(CreateFlags createFlags = CreateFlags.None) where T : new();
 
         Task<List<T>> GetAllAsync();
 

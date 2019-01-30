@@ -32,7 +32,7 @@ namespace SweetsDokkana.Views
             Reg.Phone = lblPhone.Text;
             Reg.Address = lblAddress.Text;
 
-             _connectToEntity.CreateTableRegAsync();
+            await _connectToEntity.CreateTableAsync<RegEntity>();
             var test = await _connectToEntity.Insert(Reg);
 
             if(test > 0)

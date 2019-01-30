@@ -18,11 +18,11 @@ namespace SweetsDokkana.Presistance
             this._db = db;
         }
         //Function To create table
-        public async void CreateTableRegAsync()
+        public Task<CreateTableResult> CreateTableAsync<T>(CreateFlags createFlags = CreateFlags.None) where T : new()
         {
-            await  _db.CreateTableAsync<RegEntity>();
+            return _db.CreateTableAsync<T>();
         }
-                
+                       
         //Function to get all the data in a list
         public async Task<List<T>> GetAllAsync()
         {
@@ -38,7 +38,8 @@ namespace SweetsDokkana.Presistance
         //Function to Get the data of an item using 2 variables
         public async Task<RegEntity> GetReg(string email, string password)
         {
-            return await _db.Table<RegEntity>().FirstAsync(x => (x.Email == email && x.Password == password));
+            Expression<Func<RegEntity, bool>> predExpr = x => (x.Email == email && x.Password == password);
+            return await _db.Table<RegEntity>().FirstAsync(predExpr);
         }
 
         //overload for the previuos function using one variable
