@@ -60,7 +60,7 @@
                          Style="{StaticResource MainButton}"
                          HorizontalOptions="FillAndExpand"
                          x:Name="btnUpdate"
-                         />
+                         Clicked="BtnUpdate_Clicked"/>
             </StackLayout>
         </ScrollView>
     </Grid>

@@ -40,14 +40,6 @@ namespace SweetsDokkana.Views
             {
                 await DisplayAlert("Success", "Account not registerd", "OK");
             }
-
-            /*await _connection.CreateTableAsync<RegEntity>();
-
-            int rows = await _connection.InsertAsync(RegEntity);
-            if (rows != 0)
-                await DisplayAlert("Success", "You have been regiesterd succesfully please Login Using your Data...", "Ok");
-            else
-                await DisplayAlert("Failure", "Register Failed", "Ok");*/
             await Navigation.PushAsync(new LoginPage());
         }
 

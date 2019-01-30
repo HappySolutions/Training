@@ -23,6 +23,9 @@ namespace SweetsDokkana.Views
 			InitializeComponent ();
 		}
 
+        private void BtnUpdate_Clicked(object sender, EventArgs e)
+        {
 
-	}
+        }
+    }
 }

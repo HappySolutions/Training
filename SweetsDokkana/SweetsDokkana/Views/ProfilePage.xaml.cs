@@ -65,5 +65,10 @@ namespace SweetsDokkana.Views
         {
             Navigation.PushAsync(new MyOrders());
         }
+
+        private void BtnProfile_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new EditProfilePage());
+        }
     }
 }

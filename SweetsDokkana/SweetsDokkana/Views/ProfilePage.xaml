@@ -41,7 +41,13 @@
 
                 <!--  Profile buttons  -->
                 <StackLayout Grid.Row="2">
-
+                    <local:RoundedButton Margin="20,40,20,0"
+                         x:Name="btnProfile"
+                         Clicked="BtnProfile_Clicked"
+                         HeightRequest="50" 
+                         Text="Edite Profile"
+                         Style="{StaticResource MainButton}"
+                         HorizontalOptions="FillAndExpand"/>
                     <local:RoundedButton Margin="20,40,20,0"
                          x:Name="btnMyOrders"
                          Clicked="BtnMyOrders_Clicked"

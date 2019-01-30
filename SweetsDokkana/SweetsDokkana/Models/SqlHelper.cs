@@ -23,6 +23,7 @@ namespace SweetsDokkana.Models
             _connection.CreateTableAsync<RegEntity>();
         }
 
+        //Function to Get the data of an item using 2 variables
         public Task<RegEntity> GetItem(string email, string password)
         {
             lock (locker)
@@ -31,6 +32,7 @@ namespace SweetsDokkana.Models
             }
         }
 
+        //overload for the previuos function using one variable
         public Task<RegEntity> CheckMail(string email)
         {
             lock (locker)
@@ -39,6 +41,7 @@ namespace SweetsDokkana.Models
             }
         }
 
+        //Function to Insert new Item
         public async Task<int> InsertAsync<T>(T entity)
         {
             try
@@ -60,7 +63,11 @@ namespace SweetsDokkana.Models
 
         }
 
-
+        //Function for updating an Item
+        public async Task<int> Update(RegEntity entity)
+        {
+            return await _connection.UpdateAsync(entity);
+        }
     }
-    }
+}
 
