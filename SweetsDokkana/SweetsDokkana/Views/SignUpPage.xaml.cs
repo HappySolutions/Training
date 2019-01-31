@@ -32,18 +32,30 @@ namespace SweetsDokkana.Views
             Reg.Phone = lblPhone.Text;
             Reg.Address = lblAddress.Text;
 
-            await _connectToEntity.CreateTableAsync<RegEntity>();
-            var test = await _connectToEntity.Insert(Reg);
 
-            if(test > 0)
+            if (string.IsNullOrWhiteSpace(Reg.UserName) && string.IsNullOrWhiteSpace(Reg.Password)
+                && string.IsNullOrWhiteSpace(Reg.Email) && string.IsNullOrWhiteSpace(Reg.Phone)
+                && string.IsNullOrWhiteSpace(Reg.Address))
             {
-                await DisplayAlert("Success", "Account registerd", "OK");
+                await DisplayAlert("Error", "Please complete all the feilds", "OK");
+                return;
             }
             else
             {
-                await DisplayAlert("Success", "Account not registerd", "OK");
+                await _connectToEntity.CreateTableAsync<RegEntity>();
+
+                var test = await _connectToEntity.Insert(Reg);
+
+                if (test > 0)
+                {
+                    await DisplayAlert("Success", "Account registerd", "OK");
+                }
+                else
+                {
+                    await DisplayAlert("Success", "Account not registerd", "OK");
+                }
+                await Navigation.PushAsync(new LoginPage());
             }
-            await Navigation.PushAsync(new LoginPage());
         }
 
         private void BtnForgotPW_Clicked(object sender, EventArgs e)

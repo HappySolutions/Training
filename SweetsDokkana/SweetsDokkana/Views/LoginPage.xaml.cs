@@ -27,37 +27,31 @@ namespace SweetsDokkana.Views
 
         }
         async void BtnLogin_Clicked(object sender, EventArgs e)
-        {
-            RegEntity userDetail = await _connectToEntity.GetReg(emailEntry.Text, passwordEntry.Text);
+        {            
+             try
+             {
+                 RegEntity userDetail = await _connectToEntity.GetReg(emailEntry.Text, passwordEntry.Text);
 
-            if (userDetail != null)
-            {
-                if (emailEntry.Text != userDetail.Email && passwordEntry.Text != userDetail.Password)
-                {
-                    await DisplayAlert("Login", "Login failed .. Please try again ", "OK");
-                }
-                else
-                {
-                    await Navigation.PushAsync(new MainPage());
-                }
-            }
-            else
-            {
-                await DisplayAlert("Login", "Login failed .. Please try again ", "OK");
-            }
-
-            //bool isEmailEmpty = string.IsNullOrEmpty(emailEntry.Text);
-            //bool isPasswordEmpty = string.IsNullOrEmpty(passwordEntry.Text);
-
-        /*    if (isEmailEmpty || isPasswordEmpty)
-            {
-                DisplayAlert("Fail", "Please enter valid email and password", "Cancel");
-            }
-            else
-            {
-                Navigation.PushAsync(new MainPage());
-            }*/
-
+                 if (userDetail != null)
+                 {
+                     if (emailEntry.Text != userDetail.Email && passwordEntry.Text != userDetail.Password)
+                     {
+                         await DisplayAlert("Login", "Login failed .. Please try again ", "OK");
+                     }
+                     else
+                     {
+                         await Navigation.PushAsync(new MainPage());
+                     }
+                 }
+                 else
+                 {
+                     await DisplayAlert("Login", "Login failed .. Please try again ", "OK");
+                 }
+             }
+             catch(Exception)
+             {
+                 await DisplayAlert("Login", "Login failed .. Please try again ", "OK");
+             }
         }
 
         private void BtnSignUp_Clicked(object sender, EventArgs e)

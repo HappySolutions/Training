@@ -51,18 +51,28 @@ namespace SweetsDokkana.Views
 
         async void OnDelete(object sender, System.EventArgs e)
         {
-            var myOrder = _myOrder[0];
+            var myOrder = (Order)((Button)sender).BindingContext;
+
             await _connection.DeleteAsync(myOrder);
 
             _myOrder.Remove(myOrder);
-
+            
         }
 
         async void BtnSubmit_Clicked(object sender, EventArgs e)
         {
-            if (_isDataLoaded)
+            if (_myOrder.Count > 0)
+            {
                 await DisplayAlert("Success", "Your Orders Have Been Submitted", "OK");
-            await Navigation.PushAsync(new MainPage());
+
+                await Navigation.PushAsync(new MainPage());
+            }
+            else
+            {
+                await DisplayAlert("Fail", "There is no Orders to be Submitted Please add your order", "OK");
+                await Navigation.PushAsync(new MainPage());
+
+            }
         }
     }
 }

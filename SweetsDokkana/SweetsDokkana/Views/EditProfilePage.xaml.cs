@@ -45,10 +45,13 @@ namespace SweetsDokkana.Views
             Updatedreg.Password = lblPassword.Text;
             Updatedreg.Email = lblMail.Text;
             Updatedreg.Address = lblAddress.Text;
+            Updatedreg.Phone = lblPhone.Text;
 
-            if (string.IsNullOrWhiteSpace(Updatedreg.UserName))
+            if (string.IsNullOrWhiteSpace(Updatedreg.UserName) && string.IsNullOrWhiteSpace(Updatedreg.Password) 
+                && string.IsNullOrWhiteSpace(Updatedreg.Email) && string.IsNullOrWhiteSpace(Updatedreg.Address)
+                && string.IsNullOrWhiteSpace(Updatedreg.Phone))
             {
-                await DisplayAlert("Error", "Please enter the name.", "OK");
+                await DisplayAlert("Error", "Please complete all the feilds", "OK");
                 return;
             }
 

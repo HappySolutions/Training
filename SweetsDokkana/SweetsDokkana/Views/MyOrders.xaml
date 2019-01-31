@@ -31,14 +31,13 @@
                     <Label  
                         Text="Your Orders" 
                         Style="{StaticResource MainLabel}" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                </StackLayout>
-
-                <BoxView 
+                    <BoxView 
                         HeightRequest="1" 
                         BackgroundColor="Black" 
                         HorizontalOptions="FillAndExpand"
                         Margin="20,0,20,0"/>
-
+                </StackLayout>
+                
                 <ListView x:Name="OrderlistView" HasUnevenRows="True" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -53,7 +52,7 @@
                                         </StackLayout>
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="Delivered To: " Style="{StaticResource MainBodyText}"/>
-                                        <Label Text="{Binding Name}" TextColor="Gray"/>
+                                        <Label Text="{Binding Name}" Style="{StaticResource MainBodyText}" TextColor="Gray"/>
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="Shipping Address: " Style="{StaticResource MainBodyText}"/>

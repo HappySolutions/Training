@@ -11,14 +11,27 @@
                     <RowDefinition Height="AUTO" />
                     <RowDefinition Height="AUTO" />
                     <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="AUTO" />
                 </Grid.RowDefinitions>
 
                 <!--  header background  -->
-                <Image Aspect="AspectFill" Source="testt.jpg" Grid.Row="0" BackgroundColor="Aqua"/>
+                <Image Aspect="AspectFill" Source="testt.jpg" Grid.Row="0"/>
+                <Image Aspect="Fill" Margin="0,-1,0,-1" Source="CurvedMask.png" VerticalOptions="End" />
 
+
+                <StackLayout Grid.Row="1" Margin="10">
+                    <Label  
+                        Text="Profile Info" 
+                        Style="{StaticResource MainLabel}" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <BoxView 
+                        HeightRequest="1" 
+                        BackgroundColor="Black" 
+                        HorizontalOptions="FillAndExpand"
+                        Margin="20,0,20,0"/>
+                </StackLayout>
 
                 <!--  Profile Name  -->
-                <Frame Grid.Row="1" Opacity="0.8" HasShadow="True" OutlineColor="Black" HorizontalOptions="Center" Margin="0,20,0,0">
+                <Frame Grid.Row="2" HasShadow="True" OutlineColor="Black" HorizontalOptions="Center" Margin="0,20,0,0" >
                     <StackLayout  Padding="0" HorizontalOptions="Center">
                         <StackLayout Orientation="Horizontal">
                             <Label Text="User Name: " Style="{StaticResource MainBodyText}" HorizontalTextAlignment="Start"/>
@@ -36,32 +49,36 @@
                             <Label Text="Address: " Style="{StaticResource MainBodyText}" HorizontalTextAlignment="Start"/>
                             <Label x:Name="lblAddress"  Text="{Binding Email}" Style="{StaticResource MainBodyText}" HorizontalTextAlignment="Center" />
                         </StackLayout>
-                    </StackLayout>
-                </Frame>
-
-                <!--  Profile buttons  -->
-                <StackLayout Grid.Row="2">
-                    <local:RoundedButton Margin="20,40,20,0"
+                        <local:RoundedButton Margin="20,40,20,0"
+                         Padding="20, 10"
                          x:Name="btnProfile"
                          Clicked="BtnProfile_Clicked"
                          HeightRequest="50" 
                          Text="Edite Profile"
                          Style="{StaticResource MainButton}"
                          HorizontalOptions="FillAndExpand"/>
-                    <local:RoundedButton Margin="20,40,20,0"
+                    </StackLayout>
+                </Frame>
+
+                <!--  Profile buttons  -->
+                <StackLayout Orientation="Horizontal" Grid.Row="3" Margin="30">
+                    
+                    <local:RoundedButton
                          x:Name="btnMyOrders"
                          Clicked="BtnMyOrders_Clicked"
-                         HeightRequest="50" 
+                         HeightRequest="60" 
                          Text="My Orders"
                          Style="{StaticResource MainButton}"
-                         HorizontalOptions="FillAndExpand"/>
-                    <local:RoundedButton Margin="20,40,20,0"
+                         Padding="10"
+                         HorizontalOptions="StartAndExpand"/>
+                    <local:RoundedButton Grid.Column="1"
                          x:Name="btnLogout"
                          Clicked="BtnLogout_Clicked"
-                         HeightRequest="50" 
+                         HeightRequest="60" 
                          Text="Log Out"
                          Style="{StaticResource MainButton}"
-                         HorizontalOptions="FillAndExpand"/>
+                         Padding="20, 10"
+                         HorizontalOptions="EndAndExpand"/>
                 </StackLayout>
 
             </Grid>

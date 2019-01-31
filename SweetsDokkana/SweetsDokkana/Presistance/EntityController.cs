@@ -38,8 +38,7 @@ namespace SweetsDokkana.Presistance
         //Function to Get the data of an item using 2 variables
         public async Task<RegEntity> GetReg(string email, string password)
         {
-            Expression<Func<RegEntity, bool>> predExpr = x => (x.Email == email && x.Password == password);
-            return await _db.Table<RegEntity>().FirstAsync(predExpr);
+            return await _db.Table<RegEntity>().FirstAsync(x => (x.Email == email && x.Password == password));
         }
 
         //overload for the previuos function using one variable

@@ -40,14 +40,26 @@ namespace SweetsDokkana.Views
             Order.Payment = lblPayment.Text;
 
 
-             await _connection.CreateTableAsync<Order>();
 
-            int rows = await _connection.InsertAsync(Order);
-            if (rows > 0)
-                await DisplayAlert("Success", "Order Data succesfully Added", "Ok");
+            if (string.IsNullOrWhiteSpace(Order.Name)
+                    && string.IsNullOrWhiteSpace(Order.Address1) && string.IsNullOrWhiteSpace(Order.Address2)
+                    && string.IsNullOrWhiteSpace(Order.City) && string.IsNullOrWhiteSpace(Order.Phone) && string.IsNullOrWhiteSpace(Order.Payment))
+            {
+                await DisplayAlert("Error", "Please complete all the feilds", "OK");
+                return;
+            }
             else
-                await DisplayAlert("Failure", "Order failed to be Added", "Ok");
-            await Navigation.PopAsync();
+            {
+                await _connection.CreateTableAsync<Order>();
+
+                int rows = await _connection.InsertAsync(Order);
+                if (rows > 0)
+                    await DisplayAlert("Success", "Order Data succesfully Added", "Ok");
+                else
+                    await DisplayAlert("Failure", "Order failed to be Added", "Ok");
+                await Navigation.PopAsync();
+            }
+                  
         }
     }
 }

@@ -59,7 +59,7 @@ namespace SweetsDokkana.Views
                 _isDataLoaded = false;
 
             }
-            catch (NullReferenceException ex)
+            catch (Exception)
             {
                 await DisplayAlert("Fail", "Your Cart is empty Please Add Some Products", "OK");
             }
@@ -92,7 +92,7 @@ namespace SweetsDokkana.Views
             var result = ent.ToString();
             total.Text = result;
             }
-            catch (NullReferenceException ex)
+            catch (Exception)
             {
                 total.Text = "0";
                 await DisplayAlert("Fail", "Your Cart is empty Please Add Some Products", "OK");
@@ -101,9 +101,20 @@ namespace SweetsDokkana.Views
 
         async void btnCheck_Clicked(object sender, EventArgs e)
         {
-            total.Text = result;
+            try
+            {
+                var ent = await _connection.ExecuteScalarAsync<double>("SELECT SUM(SumPrice) FROM CartOrders");
+                var result = ent.ToString();
+                total.Text = result;
+                await Navigation.PushAsync(new OrderPage(result));
 
-            await Navigation.PushAsync(new OrderPage(result));
+            }
+            catch (Exception)
+            {
+                total.Text = "0";
+                await DisplayAlert("Fail", "Your Cart is empty Please Add Some Products", "OK");
+            }
+
         }             
     }
 }
