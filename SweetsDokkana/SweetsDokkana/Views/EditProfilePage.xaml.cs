@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using SweetsDokkana.Helpers;
 using SweetsDokkana.Models;
 using SweetsDokkana.Presistance;
 using System;
@@ -18,11 +19,10 @@ namespace SweetsDokkana.Views
 	{
         SQLiteAsyncConnection _connection;
         IEntityController<RegEntity> _connectToEntity;
-        public int _id;
+        public int _id = int.Parse(Settings.GeneralSettings);
 
-        public EditProfilePage (int id)
+        public EditProfilePage ()
 		{
-            this._id = id;
 			InitializeComponent ();
             _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
             _connectToEntity = new EntityController<RegEntity>(_connection);

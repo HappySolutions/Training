@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SweetsDokkana.Helpers;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -31,6 +32,7 @@ namespace SweetsDokkana.Views
              try
              {
                  RegEntity userDetail = await _connectToEntity.GetReg(emailEntry.Text, passwordEntry.Text);
+                 var id = userDetail.ID; 
 
                  if (userDetail != null)
                  {
@@ -40,7 +42,8 @@ namespace SweetsDokkana.Views
                      }
                      else
                      {
-                         await Navigation.PushAsync(new MainPage());
+                         Settings.GeneralSettings = id.ToString();
+                        await Navigation.PushAsync(new MainPage());
                      }
                  }
                  else

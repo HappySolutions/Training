@@ -11,8 +11,7 @@
             
              NavigationPage.HasNavigationBar="false"
              x:Class="SweetsDokkana.Views.MainPage"
-             x:Name="MyPage"
-             CurrentPageChanged="MyPage_CurrentPageChanged">
+             x:Name="MyPage">
 
 
     <local:CategoryPage Icon="Home.png" Title="Home" />

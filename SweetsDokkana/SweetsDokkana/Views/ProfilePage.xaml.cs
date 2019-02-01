@@ -1,11 +1,9 @@
 ﻿using SQLite;
+using SweetsDokkana.Helpers;
 using SweetsDokkana.Models;
 using SweetsDokkana.Presistance;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -13,21 +11,20 @@ using Xamarin.Forms.Xaml;
 
 namespace SweetsDokkana.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ProfilePage : ContentPage
 	{
         private SQLiteAsyncConnection _connection;
         IEntityController<RegEntity> _connectToEntity;
-
         private bool _isDataLoaded;
-        public int id { get; set; }
+        public int _id =int.Parse(Settings.GeneralSettings);
 
         public ProfilePage ()
 		{
 			InitializeComponent ();
             _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
             _connectToEntity = new EntityController<RegEntity>(_connection);
-
+            
         }
 
         protected override async void OnAppearing()
@@ -45,15 +42,12 @@ namespace SweetsDokkana.Views
         {
             await _connectToEntity.CreateTableAsync<RegEntity>();
 
-            var regEntity = await _connection.Table<RegEntity>().ToListAsync();
+            var regEntity = await _connectToEntity.getbyId(_id);
 
-            var test = regEntity.FirstOrDefault<RegEntity>() as RegEntity;
-
-            id = test.ID;
-            var usename = test.UserName;
-            var mail = test.Email;
-            var address = test.Address;
-            var phone = test.Phone;
+            var usename = regEntity.UserName;
+            var mail = regEntity.Email;
+            var address = regEntity.Address;
+            var phone = regEntity.Phone;
 
             lblEmail.Text = mail;
             lblName.Text = usename;
@@ -61,9 +55,9 @@ namespace SweetsDokkana.Views
             lblAddress.Text = address;
         }
 
-        private void BtnProfile_Clicked(object sender, EventArgs e)
+        private async void BtnProfile_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new EditProfilePage(id));
+            await Navigation.PushAsync(new EditProfilePage());
         }
 
         private void BtnMyOrders_Clicked(object sender, EventArgs e)
