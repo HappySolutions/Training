@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SweetsDokkana.Styles"
+             xmlns:local1="clr-namespace:SweetsDokkana.Behaviors"
              NavigationPage.HasNavigationBar="false"
              x:Class="SweetsDokkana.Views.SignUpPage">
 
@@ -53,11 +54,18 @@
                 <local:RoundedEntry  Margin="20,10,20,0" 
                          HeightRequest="50" x:Name="lblMail" 
                          Placeholder="Email">
+                    <local:RoundedEntry.Behaviors>
+                        <local1:EmailValidatorBehavior x:Name="emailValidator"/>
+                    </local:RoundedEntry.Behaviors>
                 </local:RoundedEntry>
 
                 <local:RoundedEntry  Margin="20,10,20,0" 
                          HeightRequest="50" x:Name="lblPhone"
                          Placeholder="Phone">
+                    <local:RoundedEntry.Behaviors>
+                        <local1:NumberValidatorBehavior x:Name="PhoneValidator" />
+                        <local1:MaxLengthValidator  MaxLength="13"/>
+                    </local:RoundedEntry.Behaviors>
                 </local:RoundedEntry>
 
                 <local:RoundedEntry  Margin="20,10,20,0" 
