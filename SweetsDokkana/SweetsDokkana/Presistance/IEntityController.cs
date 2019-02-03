@@ -11,7 +11,9 @@ namespace SweetsDokkana.Presistance
 {
     public interface IEntityController<T> where T : class, new()
     {
+#pragma warning disable CS0693 // Type parameter has the same name as the type parameter from outer type
         Task<CreateTableResult> CreateTableAsync<T>(CreateFlags createFlags = CreateFlags.None) where T : new();
+#pragma warning restore CS0693 // Type parameter has the same name as the type parameter from outer type
 
         Task<List<T>> GetAllAsync();
 
