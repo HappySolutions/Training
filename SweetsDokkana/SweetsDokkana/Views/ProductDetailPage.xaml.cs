@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using Rg.Plugins.Popup.Services;
+using SQLite;
 using SweetsDokkana.Models;
 using SweetsDokkana.Presistance;
 using System;
@@ -35,7 +36,6 @@ namespace SweetsDokkana.Views
                 image_link = product.image_link,
                 price = product.price
             };
-
         }
 
         async void ImageButton_Clicked(object sender, EventArgs e)
@@ -62,6 +62,13 @@ namespace SweetsDokkana.Views
 
             else await DisplayAlert("Failure", "Please Select Quantity first", "Ok");
 
+        }
+
+        private async void Btnclient_Clicked(object sender, EventArgs e)
+        {
+#pragma warning disable CS0618 // Type or member is obsolete
+            await PopupNavigation.PushAsync(new RatePopupPage());
+#pragma warning restore CS0618 // Type or member is obsolete
         }
     }
 }
