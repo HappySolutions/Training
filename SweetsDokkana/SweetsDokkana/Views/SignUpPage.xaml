@@ -39,6 +39,15 @@
                          HeightRequest="50"
                          IsPassword="true"
                          Placeholder="Repeat Password">
+                    <local:RoundedEntry.Triggers>
+                        <DataTrigger TargetType="local:RoundedEntry"
+                             Binding="{Binding Source={x:Reference lblPassword},
+                             Path=Text.Length}"
+                             Value="0">
+                            <Setter Property="IsEnabled" Value="False" />
+                        </DataTrigger>
+                    </local:RoundedEntry.Triggers>
+                    
                 </local:RoundedEntry>
 
                 <local:RoundedEntry  Margin="20,10,20,0" 
