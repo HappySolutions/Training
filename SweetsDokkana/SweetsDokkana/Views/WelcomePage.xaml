@@ -7,11 +7,10 @@
 
     <ContentPage>
         <Grid>
-            <Image Source="cake.jpg" Aspect="AspectFill" />
-            <Label Text="Welcome To Sweet Dokkana The Place for all The Happienes You need"
+            <Image Grid.Row="0" Source="cake.jpg" Aspect="AspectFill" />
+            <Label Grid.Row="0" Text="Welcome To Sweet Dokkana The Place for all The Happienes You need"
                    VerticalTextAlignment="Center"
                    Style="{StaticResource HeaderLabels}"
-                   VerticalOptions="Fill"
                    HorizontalTextAlignment="Center">
                 <Label.BackgroundColor>
                     <Color>
@@ -24,16 +23,15 @@
                     </Color>
                 </Label.BackgroundColor>
             </Label>
-
         </Grid>
     </ContentPage>
+    
     <ContentPage>
         <Grid>
             <Image Source="imgGallery4.jpeg" Aspect="AspectFill" />
             <Label Text="We Make Cacks For Your Events " 
                    VerticalTextAlignment="Center"
                    Style="{StaticResource HeaderLabels}"
-                   VerticalOptions="Fill"
                    HorizontalTextAlignment="Center">
                 <Label.BackgroundColor>
                     <Color>
@@ -48,6 +46,7 @@
             </Label>
         </Grid>
     </ContentPage>
+    
     <ContentPage>
         <Grid RowSpacing="0">
             <Grid.RowDefinitions>

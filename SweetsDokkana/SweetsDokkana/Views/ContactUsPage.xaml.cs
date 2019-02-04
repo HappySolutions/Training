@@ -19,7 +19,13 @@ namespace SweetsDokkana.Views
 
         private void BtnSubmit_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("Sent", "Your Message Has been sent", "OK");
+            if (string.IsNullOrWhiteSpace(NameEntry.Text) && string.IsNullOrWhiteSpace(EmailEntry.Text)
+                && string.IsNullOrWhiteSpace(MessageEntry.Text))
+
+                DisplayAlert("Fail", "Please complete All Feilds", "OK");
+            else
+                DisplayAlert("Sent", "Your Message Has been sent", "OK");
+
         }
     }
 }

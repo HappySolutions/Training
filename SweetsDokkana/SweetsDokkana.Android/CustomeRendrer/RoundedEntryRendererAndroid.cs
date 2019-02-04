@@ -5,6 +5,7 @@ using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using Android.Graphics.Drawables;
+using SweetsDokkana.Controls;
 using SweetsDokkana.Styles;
 using SweetsDokkana.Droid;
 

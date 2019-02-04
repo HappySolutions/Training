@@ -27,6 +27,7 @@ namespace SweetsDokkana.Views
             _connectToEntity = new EntityController<RegEntity>(_connection);
 
         }
+
         async void BtnLogin_Clicked(object sender, EventArgs e)
         {            
              try

@@ -4,8 +4,8 @@ using Android.Graphics.Drawables;
 using SweetsDokkana.Droid;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
+using SweetsDokkana.Controls;
 using SweetsDokkana.Styles;
-
 
 [assembly: ExportRenderer(typeof(RoundedButton), typeof(RoundedButtonRendererAndroid))]
 
