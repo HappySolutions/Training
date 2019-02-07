@@ -32,20 +32,20 @@
                             <!--We set a little padding to make it more clear-->
                             <StackLayout>
                                 <StackLayout Orientation="Horizontal" Padding="5" VerticalOptions="Center">
-                                    <Image:CircleImage Source="{Binding image_link}"/>
+                                    <Image:CircleImage Source="{Binding pro_img}"/>
 
                                     <!--We set its horizontalOption to this because we want the middle content to have all the availble space-->
                                     <StackLayout HorizontalOptions="StartAndExpand">
-                                        <Label Text="{Binding name}" Style="{StaticResource Miniheader}"/>
-                                        <Label Text="{Binding discreption}" TextColor="Gray" Style="{StaticResource MainBodyText}"/>
+                                        <Label Text="{Binding pro_name}" Style="{StaticResource Miniheader}"/>
+                                        <Label Text="{Binding pro_description}" TextColor="Gray" Style="{StaticResource MainBodyText}"/>
                                     </StackLayout>
                                     <StackLayout WidthRequest="150" VerticalOptions="Center">
-                                        <Label Text="{Binding price}"  HorizontalOptions="Center"  Style="{StaticResource MainBodyText}"/>
+                                        <Label Text="{Binding pro_price}"  HorizontalOptions="Center"  Style="{StaticResource MainBodyText}"/>
                                         <Label Text="Pounds"  HorizontalOptions="Center" Style="{StaticResource MainBodyText}"/>
                                     </StackLayout>
                                 </StackLayout>
                             </StackLayout>
-                            
+
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

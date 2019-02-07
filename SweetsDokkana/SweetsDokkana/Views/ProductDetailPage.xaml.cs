@@ -31,10 +31,10 @@ namespace SweetsDokkana.Views
 
             BindingContext = new Product
             {
-                name = product.name,
-                discreption = product.discreption,
-                image_link = product.image_link,
-                price = product.price
+                pro_name = product.pro_name,
+                pro_description = product.pro_description,
+                pro_img = product.pro_img,
+                pro_price = product.pro_price
             };
         }
 
