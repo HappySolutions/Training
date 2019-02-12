@@ -1,11 +1,14 @@
 ﻿using Newtonsoft.Json;
+using Refit;
 using SQLite;
+using SweetsDokkana.Helpers;
 using SweetsDokkana.Models;
 using SweetsDokkana.Presistance;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,9 +19,6 @@ namespace SweetsDokkana.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SweetProductsPage : ContentPage
 	{
-        private const string Url = "https://safe-garden-92092.herokuapp.com/Product";
-        private HttpClient _client = new HttpClient();
-        private ObservableCollection<Product> _products;
 
         public SweetProductsPage ()
 		{
@@ -28,13 +28,19 @@ namespace SweetsDokkana.Views
 
         protected override async void OnAppearing()
         {
-            var content = await _client.GetStringAsync(Url);
-            var products = JsonConvert.DeserializeObject<List<Product>>(content);
-
-            _products = new ObservableCollection<Product>(products);
-
-            SweetsList.ItemsSource = _products;
             base.OnAppearing();
+            await CallApi();
+
+            activity.IsEnabled = false;
+            activity.IsRunning = false;
+            activity.IsVisible = false;
+        }
+
+        async Task CallApi()
+        {
+            var apiResponce = RestService.For<ISweetDokkanaApi>("https://safe-garden-92092.herokuapp.com");
+            var Products = await apiResponce.GetProducts();
+            SweetsList.ItemsSource = Products;
         }
 
         //function for item tapped in the list view
@@ -57,9 +63,9 @@ namespace SweetsDokkana.Views
         }
 
         //Function for pull to refresh
-        private void listView_Refreshing(object sender, EventArgs e)
+        private async void listView_Refreshing(object sender, EventArgs e)
         {
-            SweetsList.ItemsSource = _products;
+            await CallApi();
 
             //then we use this function to end the refreshing loading
             SweetsList.EndRefresh();

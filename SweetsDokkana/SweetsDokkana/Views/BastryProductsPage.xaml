@@ -24,10 +24,17 @@
                 </Grid>
                 <SearchBar Margin="0" Placeholder="Search..." FontAttributes="Bold" TextChanged="SearchBar_TextChanged"/>
             </StackLayout>
+                <ActivityIndicator x:Name="activity"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   IsRunning="True"  
+                                   IsEnabled="True"  
+                                   IsVisible="True"  
+                                   Color="Blue"  
+                                   BackgroundColor="Transparent"/>
             <ListView x:Name="SweetsList" HasUnevenRows="True" IsPullToRefreshEnabled="True" Refreshing="listView_Refreshing" ItemTapped="SweetsList_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-
                         <ViewCell>
                             <!--We set a little padding to make it more clear-->
                             <StackLayout>
@@ -45,7 +52,6 @@
                                     </StackLayout>
                                 </StackLayout>
                             </StackLayout>
-                            
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

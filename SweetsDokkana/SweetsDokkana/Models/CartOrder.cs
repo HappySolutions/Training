@@ -1,21 +1,17 @@
-﻿using SQLite;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 
 namespace SweetsDokkana.Models
 {
-    [Table("CartOrders")]
     public class CartOrder : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        [PrimaryKey, AutoIncrement, Column("CartOrderId")]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         private string _prodName;
 
-        [MaxLength(225)]
         public string ProdName
         {
             get { return _prodName; }
@@ -31,7 +27,6 @@ namespace SweetsDokkana.Models
 
         private string _prodDescreption;
 
-        [MaxLength(225)]
         public string ProdDescreption
         {
             get { return _prodDescreption; }
