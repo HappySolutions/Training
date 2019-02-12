@@ -15,7 +15,7 @@ namespace SweetsDokkana.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class OrientalProductsPage : ContentPage
 	{
-        private const string Url = "https://test2restapi.herokuapp.com/products";
+        private const string Url = "https://safe-garden-92092.herokuapp.com/Product";
         private HttpClient _client = new HttpClient();
         private ObservableCollection<Product> _products;
 
@@ -28,7 +28,7 @@ namespace SweetsDokkana.Views
         protected override async void OnAppearing()
         {
             var content = await _client.GetStringAsync(Url);
-            var products = JsonConvert.DeserializeObject<RootObject>(content).rows;
+            var products = JsonConvert.DeserializeObject<List<Product>>(content);
 
             _products = new ObservableCollection<Product>(products);
 
