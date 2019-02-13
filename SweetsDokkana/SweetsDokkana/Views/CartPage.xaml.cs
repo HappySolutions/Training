@@ -4,6 +4,7 @@ using SweetsDokkana.Helpers;
 using SweetsDokkana.Models;
 using SweetsDokkana.Presistance;
 using System;
+using System.Linq;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Net.Http;
@@ -21,7 +22,7 @@ namespace SweetsDokkana.Views
 
         public CartPage ()
 		{
-			InitializeComponent ();
+			InitializeComponent();
         }
 
         protected override async void OnAppearing()
@@ -38,6 +39,9 @@ namespace SweetsDokkana.Views
             var apiResponce = RestService.For<ISweetDokkanaApi>("https://safe-garden-92092.herokuapp.com");
             var CartOrders = await apiResponce.GetCartOrders();
             OrderslistView.ItemsSource = CartOrders;
+
+            double totalResult = CartOrders.Sum(item => item.SumPrice);
+            total.Text = totalResult.ToString();
         }
 
         private async void listView_Refreshing(object sender, EventArgs e)
@@ -66,28 +70,13 @@ namespace SweetsDokkana.Views
 
                 }
             }
-            //var id = Application.Current.Properties["id"];
-            //int i = int.Parse(id.ToString());
-
-            
-
-
-            /* try
-             { 
-             var ent = await _connection.ExecuteScalarAsync<double>("SELECT SUM(SumPrice) FROM CartOrders");
-             var result = ent.ToString();
-             total.Text = result;
-             }
-             catch (Exception)
-             {
-                 total.Text = "0";
-                 await DisplayAlert("Fail", "Your Cart is empty Please Add Some Products", "OK");
-             }*/
         }
 
         async void btnCheck_Clicked(object sender, EventArgs e)
         {
-                await Navigation.PushAsync(new OrderPage());
+
+            var TotalSum = total.Text;
+            await Navigation.PushAsync(new OrderPage(TotalSum));
         }             
     }
 }

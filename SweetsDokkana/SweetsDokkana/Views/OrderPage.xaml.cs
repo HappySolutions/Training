@@ -2,13 +2,7 @@
 using SQLite;
 using SweetsDokkana.Helpers;
 using SweetsDokkana.Models;
-using SweetsDokkana.Presistance;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -19,9 +13,10 @@ namespace SweetsDokkana.Views
 	public partial class OrderPage : ContentPage
 	{
 
-        public OrderPage ()
+        public OrderPage (string totalSum)
 		{
 			InitializeComponent ();
+            total.Text = totalSum;
         }
 
         async void BtnSubmit_Clicked(object sender, EventArgs e)
@@ -57,15 +52,6 @@ namespace SweetsDokkana.Views
                 {
                     await Navigation.PopAsync();
                 }
-
-                /*await _connection.CreateTableAsync<Order>();
-
-                int rows = await _connection.InsertAsync(Order);
-                if (rows > 0)
-                    await DisplayAlert("Success", "Order Data succesfully Added", "Ok");
-                else
-                    await DisplayAlert("Failure", "Order failed to be Added", "Ok");
-                await Navigation.PopAsync();*/
             }
                   
         }
