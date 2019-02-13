@@ -1,11 +1,10 @@
-﻿using SQLite;
+﻿using Refit;
+using SQLite;
+using SweetsDokkana.Helpers;
 using SweetsDokkana.Models;
-using SweetsDokkana.Presistance;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -16,63 +15,60 @@ namespace SweetsDokkana.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MyOrders : ContentPage
 	{
-        private SQLiteAsyncConnection _connection;
-        private ObservableCollection<Order> _myOrder;
-        private bool _isDataLoaded = false;
+        const string UrI = "https://safe-garden-92092.herokuapp.com/Order/{0}";
+        HttpClient clint = new HttpClient();
 
         public MyOrders ()
 		{
 			InitializeComponent ();
-            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
         }
 
         protected override async void OnAppearing()
         {
-            if (_isDataLoaded)
-                return;
-
-            await LoadData();
-
             base.OnAppearing();
+            await CallApi();
+            activity.IsEnabled = false;
+            activity.IsRunning = false;
+            activity.IsVisible = false;
         }
 
-        public async Task LoadData()
+        async Task CallApi()
         {
-            await _connection.CreateTableAsync<Order>();
-
-            var myOrder = await _connection.Table<Order>().ToListAsync();
-
-            _myOrder = new ObservableCollection<Order>(myOrder);
-
-            OrderlistView.ItemsSource = _myOrder;
-            _isDataLoaded = true;
-
+            var apiResponce = RestService.For<ISweetDokkanaApi>("https://safe-garden-92092.herokuapp.com");
+            var Orders = await apiResponce.GetOrders();
+            OrderlistView.ItemsSource = Orders;
         }
+
 
         async void OnDelete(object sender, System.EventArgs e)
         {
-            var myOrder = (Order)((Button)sender).BindingContext;
+            var message = await DisplayAlert("Warning", "Are you Sure you want to remove this item", "Yes", "No");
+            if (message)
+            {
+                var item = (Order)((Button)sender).BindingContext;
 
-            await _connection.DeleteAsync(myOrder);
+                var id = item.Id;
+                var uri = new Uri(string.Format(UrI, id));
+                var responce = await clint.DeleteAsync(uri);
+                if (responce.IsSuccessStatusCode)
+                {
+                    await DisplayAlert("Sucess", "Item has been removed from your shopping cart", "ok");
+                    await CallApi();
 
-            _myOrder.Remove(myOrder);
-            
+                }
+            }
         }
 
         async void BtnSubmit_Clicked(object sender, EventArgs e)
         {
-            if (_myOrder.Count > 0)
-            {
+           
                 await DisplayAlert("Success", "Your Orders Have Been Submitted", "OK");
 
                 await Navigation.PushAsync(new MainPage());
-            }
-            else
-            {
-                await DisplayAlert("Fail", "There is no Orders to be Submitted Please add your order", "OK");
-                await Navigation.PushAsync(new MainPage());
+            
+            
 
-            }
+            
         }
     }
 }

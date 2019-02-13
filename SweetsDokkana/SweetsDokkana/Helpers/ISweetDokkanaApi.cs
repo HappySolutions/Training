@@ -16,5 +16,11 @@ namespace SweetsDokkana.Helpers
         [Post("/CartOrder")]
         Task<CartOrder> AddCartOrder([Body] CartOrder cartOrder);
 
+        [Post("/Order")]
+        Task<Order> AddOrder([Body] Order Order);
+
+        [Get("/Order")]
+        Task<List<Order>> GetOrders();
+
     }
 }

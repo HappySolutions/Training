@@ -53,15 +53,8 @@
                     <local:RoundedEntry  
                         Margin="20,20,20,0"
                         HeightRequest="50"
-                        Placeholder="Address line 1"
-                        x:Name="AddressEntry1">
-                    </local:RoundedEntry>
-                    
-                    <local:RoundedEntry 
-                        Margin="20,20,20,0"
-                        HeightRequest="50"
-                        Placeholder="Address line 2"
-                        x:Name="AddressEntry2">
+                        Placeholder="Shipping Address"
+                        x:Name="Address">
                     </local:RoundedEntry>
 
                     <local:RoundedEntry  

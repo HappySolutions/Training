@@ -1,4 +1,6 @@
-﻿using SQLite;
+﻿using Refit;
+using SQLite;
+using SweetsDokkana.Helpers;
 using SweetsDokkana.Models;
 using SweetsDokkana.Presistance;
 using System;
@@ -17,15 +19,9 @@ namespace SweetsDokkana.Views
 	public partial class OrderPage : ContentPage
 	{
 
-        private SQLiteAsyncConnection _connection;
-        private string result;
-
-        public OrderPage (string result)
+        public OrderPage ()
 		{
 			InitializeComponent ();
-            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
-            this.result = result;
-            total.Text = result;
         }
 
         async void BtnSubmit_Clicked(object sender, EventArgs e)
@@ -33,8 +29,7 @@ namespace SweetsDokkana.Views
             var Order = new Order();
             Order.OrderPrice = total.Text;
             Order.Name = NameEntry.Text;
-            Order.Address1 = AddressEntry1.Text;
-            Order.Address2 = AddressEntry2.Text;
+            Order.Address = Address.Text;
             Order.City = lblCity.Text;
             Order.Phone = Phone.Text;
             Order.Payment = lblPayment.Text;
@@ -42,7 +37,7 @@ namespace SweetsDokkana.Views
 
 
             if (string.IsNullOrWhiteSpace(Order.Name)
-                    && string.IsNullOrWhiteSpace(Order.Address1) && string.IsNullOrWhiteSpace(Order.Address2)
+                    && string.IsNullOrWhiteSpace(Order.Address) 
                     && string.IsNullOrWhiteSpace(Order.City) && string.IsNullOrWhiteSpace(Order.Phone) && string.IsNullOrWhiteSpace(Order.Payment))
             {
                 await DisplayAlert("Error", "Please complete all the feilds", "OK");
@@ -50,14 +45,27 @@ namespace SweetsDokkana.Views
             }
             else
             {
-                await _connection.CreateTableAsync<Order>();
+                var apiResponce = RestService.For<ISweetDokkanaApi>("https://safe-garden-92092.herokuapp.com");
+
+                var _cartOrder = await apiResponce.AddOrder(Order);
+                var answer = await DisplayAlert("Sucess", "Order is added to your Orders Page. Do you want to go back to go to it?", "Yes", "No");
+                if (answer)
+                {
+                    await Navigation.PushAsync(new MyOrders());
+                }
+                else
+                {
+                    await Navigation.PopAsync();
+                }
+
+                /*await _connection.CreateTableAsync<Order>();
 
                 int rows = await _connection.InsertAsync(Order);
                 if (rows > 0)
                     await DisplayAlert("Success", "Order Data succesfully Added", "Ok");
                 else
                     await DisplayAlert("Failure", "Order failed to be Added", "Ok");
-                await Navigation.PopAsync();
+                await Navigation.PopAsync();*/
             }
                   
         }

@@ -4,17 +4,14 @@ using System.Runtime.CompilerServices;
 
 namespace SweetsDokkana.Models
 {
-    [Table("Orders")]
     public class Order : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        [PrimaryKey, AutoIncrement, Column("OrderId")]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         private string _name;
 
-        [MaxLength(225)]
         public string Name
         {
             get { return _name; }
@@ -28,32 +25,18 @@ namespace SweetsDokkana.Models
             }
         }
 
-        private string _address1;
+        
 
-        [MaxLength(225)]
-        public string Address1
+        private string _address;
+
+        public string Address
         {
-            get { return _address1; }
+            get { return _address; }
             set
             {
-                if (_address1 == value)
+                if (_address == value)
                     return;
-                _address1 = value;
-
-                OnPropertyChanged();
-            }
-        }
-
-        private string _address2;
-
-        public string Address2
-        {
-            get { return _address2; }
-            set
-            {
-                if (_address2 == value)
-                    return;
-                _address2 = value;
+                _address = value;
 
                 OnPropertyChanged();
             }

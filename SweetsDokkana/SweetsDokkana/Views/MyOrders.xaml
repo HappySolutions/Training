@@ -37,7 +37,14 @@
                         HorizontalOptions="FillAndExpand"
                         Margin="20,0,20,0"/>
                 </StackLayout>
-                
+                <ActivityIndicator x:Name="activity"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   IsRunning="True"  
+                                   IsEnabled="True"  
+                                   IsVisible="True"  
+                                   Color="Blue"  
+                                   BackgroundColor="Transparent"/>
                 <ListView x:Name="OrderlistView" HasUnevenRows="True" >
                     <ListView.ItemTemplate>
                         <DataTemplate>

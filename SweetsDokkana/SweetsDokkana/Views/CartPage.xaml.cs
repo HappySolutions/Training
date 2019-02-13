@@ -22,7 +22,6 @@ namespace SweetsDokkana.Views
         public CartPage ()
 		{
 			InitializeComponent ();
-
         }
 
         protected override async void OnAppearing()
@@ -88,7 +87,7 @@ namespace SweetsDokkana.Views
 
         async void btnCheck_Clicked(object sender, EventArgs e)
         {
-                await Navigation.PushAsync(new OrderPage(result));
+                await Navigation.PushAsync(new OrderPage());
         }             
     }
 }
