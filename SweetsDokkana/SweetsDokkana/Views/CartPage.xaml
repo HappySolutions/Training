@@ -39,7 +39,15 @@
                         HorizontalOptions="FillAndExpand"
                         Margin="20,0,20,0"/>
 
-                <ListView x:Name="listView" HasUnevenRows="True" IsPullToRefreshEnabled="True" Refreshing="listView_Refreshing" HeightRequest="300">
+            <ActivityIndicator x:Name="activity"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   IsRunning="True"  
+                                   IsEnabled="True"  
+                                   IsVisible="True"  
+                                   Color="Blue"  
+                                   BackgroundColor="Transparent"/>
+            <ListView x:Name="OrderslistView" HasUnevenRows="True" IsPullToRefreshEnabled="True" Refreshing="listView_Refreshing" HeightRequest="300">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

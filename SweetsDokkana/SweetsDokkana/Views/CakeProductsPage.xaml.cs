@@ -1,13 +1,7 @@
-﻿using Newtonsoft.Json;
-using Refit;
-using SQLite;
+﻿using Refit;
 using SweetsDokkana.Helpers;
 using SweetsDokkana.Models;
-using SweetsDokkana.Presistance;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
