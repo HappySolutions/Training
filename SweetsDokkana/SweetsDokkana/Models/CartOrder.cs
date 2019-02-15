@@ -55,6 +55,21 @@ namespace SweetsDokkana.Models
             }
         }
 
+        private string _prodImg;
+
+        public string ProdIMG
+        {
+            get { return _prodImg; }
+            set
+            {
+                if (_prodImg == value)
+                    return;
+                _prodImg = value;
+
+                OnPropertyChanged();
+            }
+        }
+
         double selectedQuantity;
         public double SelectedQuantity
         {

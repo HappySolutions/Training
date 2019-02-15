@@ -1,11 +1,6 @@
-﻿using SQLite;
-using SweetsDokkana.Models;
-using SweetsDokkana.Presistance;
+﻿using SweetsDokkana.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SweetsDokkana.Helpers;
 
 using Xamarin.Forms;

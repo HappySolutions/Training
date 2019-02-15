@@ -1,9 +1,5 @@
-﻿using SQLite;
-using SweetsDokkana.Presistance;
-using System;
+﻿using System;
 using SweetsDokkana.Models;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Refit;

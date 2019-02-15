@@ -1,14 +1,8 @@
 ﻿using Refit;
-using SQLite;
 using SweetsDokkana.Helpers;
 using SweetsDokkana.Models;
-using SweetsDokkana.Presistance;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -40,7 +34,7 @@ namespace SweetsDokkana.Views
                 if (userDetail != null)
                 {
                     await DisplayAlert("Success", "An Email to recover your password has been sent", "OK");
-                    await Navigation.PushAsync(new MainPage());
+                    await Navigation.PushAsync(new LoginPage());
                 }
                 else
                 {

@@ -63,6 +63,13 @@
                          HorizontalOptions="FillAndExpand"
                          x:Name="btnUpdate"
                          Clicked="BtnUpdate_Clicked"/>
+                <local:RoundedButton Margin="20,20,20,0" 
+                         HeightRequest="50"
+                         Text="Cancel"
+                         Style="{StaticResource MainButton}"
+                         HorizontalOptions="FillAndExpand"
+                         x:Name="btnCancel"
+                         Clicked="BtnCancel_Clicked"/>
             </StackLayout>
         </ScrollView>
     </Grid>

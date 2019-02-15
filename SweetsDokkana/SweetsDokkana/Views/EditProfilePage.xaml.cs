@@ -2,7 +2,6 @@
 using SweetsDokkana.Helpers;
 using SweetsDokkana.Models;
 using System;
-using System.Net.Http;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,16 +16,6 @@ namespace SweetsDokkana.Views
         public EditProfilePage ()
 		{
 			InitializeComponent ();
-        
-            BindingContext = new RegEntity()
-            {
-                UserName = lblUsername.Text,
-                Address = lblAddress.Text,
-                Password = lblPassword.Text,
-                Phone = lblPhone.Text,
-                Email = lblMail.Text
-            };
-
         }
 
         async void BtnUpdate_Clicked(object sender, EventArgs e)
@@ -51,6 +40,11 @@ namespace SweetsDokkana.Views
             var responce = await apiResponce.UpdateCustomers(_id, Updatedreg);
             await DisplayAlert("Sucess", "Your Profile is updated successfuly", "ok");
             await Navigation.PopAsync();
+        }
+
+        private void BtnCancel_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
         }
     }
 }

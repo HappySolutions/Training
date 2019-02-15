@@ -85,7 +85,6 @@
   <ItemGroup>
     <Compile Include="CustomeRendrer\CustomEditorRenderer.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Presistance\SQLiteDb.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CustomeRendrer\RoundedButtonRendererAndroid.cs" />
