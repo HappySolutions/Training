@@ -1,13 +1,8 @@
-﻿using SQLite;
+﻿using Refit;
 using SweetsDokkana.Helpers;
 using SweetsDokkana.Models;
-using SweetsDokkana.Presistance;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.Net.Http;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,16 +12,12 @@ namespace SweetsDokkana.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EditProfilePage : ContentPage
 	{
-        SQLiteAsyncConnection _connection;
-        IEntityController<RegEntity> _connectToEntity;
-        public int _id = int.Parse(Settings.GeneralSettings);
+        public string _id = Settings.GeneralSettings;
 
         public EditProfilePage ()
 		{
 			InitializeComponent ();
-            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
-            _connectToEntity = new EntityController<RegEntity>(_connection);
-
+        
             BindingContext = new RegEntity()
             {
                 UserName = lblUsername.Text,
@@ -40,7 +31,8 @@ namespace SweetsDokkana.Views
 
         async void BtnUpdate_Clicked(object sender, EventArgs e)
         {
-            var Updatedreg = await  _connectToEntity.getbyId(_id);
+            var Updatedreg = new Customer();
+            Updatedreg.id = _id;
             Updatedreg.UserName = lblUsername.Text;
             Updatedreg.Password = lblPassword.Text;
             Updatedreg.Email = lblMail.Text;
@@ -55,9 +47,10 @@ namespace SweetsDokkana.Views
                 return;
             }
 
-            await _connectToEntity.Update(Updatedreg);
+            var apiResponce = RestService.For<ISweetDokkanaApi>("https://safe-garden-92092.herokuapp.com");
+            var responce = await apiResponce.UpdateCustomers(_id, Updatedreg);
+            await DisplayAlert("Sucess", "Your Profile is updated successfuly", "ok");
             await Navigation.PopAsync();
-
         }
     }
 }

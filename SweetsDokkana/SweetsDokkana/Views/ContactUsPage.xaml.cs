@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Refit;
+using SweetsDokkana.Helpers;
+using SweetsDokkana.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,14 +20,27 @@ namespace SweetsDokkana.Views
 			InitializeComponent ();
 		}
 
-        private void BtnSubmit_Clicked(object sender, EventArgs e)
+        private async void BtnSubmit_Clicked(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(NameEntry.Text) && string.IsNullOrWhiteSpace(EmailEntry.Text)
                 && string.IsNullOrWhiteSpace(MessageEntry.Text))
-
-                DisplayAlert("Fail", "Please complete All Feilds", "OK");
+            {
+                await DisplayAlert("Fail", "Please complete All Feilds", "OK");
+            }
             else
-                DisplayAlert("Sent", "Your Message Has been sent", "OK");
+            {
+                var contactMessage = new Contact();
+                contactMessage.Name = NameEntry.Text;
+                contactMessage.Mail = EmailEntry.Text;
+                contactMessage.Message = MessageEntry.Text;
+
+                var apiResponce = RestService.For<ISweetDokkanaApi>("https://safe-garden-92092.herokuapp.com");
+
+                var _customer = await apiResponce.SendMessage(contactMessage);
+
+                await DisplayAlert("Sent", "Your Message Has been sent", "OK");
+
+            }
 
         }
     }

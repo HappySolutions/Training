@@ -6,26 +6,24 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Refit;
+using SweetsDokkana.Helpers;
 
 namespace SweetsDokkana.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SignUpPage : ContentPage
 	{
-        private SQLiteAsyncConnection _connection;
-        IEntityController<RegEntity> _connectToEntity;
 
         public SignUpPage ()
 		{
 			InitializeComponent ();
-            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
-            _connectToEntity = new EntityController<RegEntity>(_connection);
 
         }
 
         async void BtnSignUp_Clicked(object sender, EventArgs e)
         {
-            var Reg = new RegEntity();
+            var Reg = new Customer();
             Reg.UserName = lblUsername.Text;
             Reg.Password = lblPassword.Text;
             Reg.Email = lblMail.Text;
@@ -42,18 +40,11 @@ namespace SweetsDokkana.Views
             }
             else
             {
-                await _connectToEntity.CreateTableAsync<RegEntity>();
+                var apiResponce = RestService.For<ISweetDokkanaApi>("https://safe-garden-92092.herokuapp.com");
 
-                var test = await _connectToEntity.Insert(Reg);
+                var _customer = await apiResponce.AddCustomer(Reg);
 
-                if (test > 0)
-                {
-                    await DisplayAlert("Success", "Account registerd", "OK");
-                }
-                else
-                {
-                    await DisplayAlert("Success", "Account not registerd", "OK");
-                }
+                await DisplayAlert("Sucess", "Account registerd. Please Sign in..", "OK");
                 await Navigation.PushAsync(new LoginPage());
             }
         }

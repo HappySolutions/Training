@@ -7,11 +7,11 @@ using System.Text;
 
 namespace SweetsDokkana.Models
 {
-    public class RegEntity : INotifyPropertyChanged
+    public class Customer : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public int ID { get; set; }
+        public string id { get; set; }
 
         private string _userName;
 

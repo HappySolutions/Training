@@ -7,8 +7,16 @@ namespace SweetsDokkana.Helpers
 {
     public interface ISweetDokkanaApi
     {
+        //===================================================
+        //Product end point
+        //===================================================
+
         [Get("/Product")]
         Task<List<Product>> GetProducts();
+
+        //===================================================
+                    //CartOrder end point
+        //===================================================
 
         [Get("/CartOrder")]
         Task<List<CartOrder>> GetCartOrders();
@@ -16,11 +24,41 @@ namespace SweetsDokkana.Helpers
         [Post("/CartOrder")]
         Task<CartOrder> AddCartOrder([Body] CartOrder cartOrder);
 
-        [Post("/Order")]
-        Task<Order> AddOrder([Body] Order Order);
+        [Delete("/CartOrder/{id}")]
+        Task<CartOrder> DeleteCartOrder(string id, [Body] CartOrder cartOrder);
+
+        //===================================================
+        //Order end point
+        //===================================================
 
         [Get("/Order")]
         Task<List<Order>> GetOrders();
+
+        [Post("/Order")]
+        Task<Order> AddOrder([Body] Order Order);
+        
+        [Delete("/Order/{id}")]
+        Task DeleteOrder(string id, [Body] Order Order);
+
+        //===================================================
+        //Customer end point
+        //===================================================
+
+        [Get("/Customer")]
+        Task<List<Customer>> GetCustomers();
+
+        [Post("/Customer")]
+        Task<Customer> AddCustomer([Body] Customer customer);
+
+        [Put("/Customer/{id}")]
+        Task<Customer> UpdateCustomers(string id, [Body] Customer customer);
+
+        //===================================================
+        //Contact us end point
+        //===================================================
+
+        [Post("/ContactUs")]
+        Task<Customer> SendMessage([Body] Contact contactMessage);
 
     }
 }

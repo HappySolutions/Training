@@ -17,9 +17,6 @@ namespace SweetsDokkana.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CartPage : ContentPage
 	{
-        const string UrI = "https://safe-garden-92092.herokuapp.com/CartOrder/{0}";
-        HttpClient clint = new HttpClient();
-
         public CartPage ()
 		{
 			InitializeComponent();
@@ -28,10 +25,12 @@ namespace SweetsDokkana.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+          
             await CallApi();
             activity.IsEnabled = false;
             activity.IsRunning = false;
             activity.IsVisible = false;
+            
         }
 
         async Task CallApi()
@@ -61,14 +60,11 @@ namespace SweetsDokkana.Views
                 var item = (CartOrder)((Button)sender).BindingContext;
 
                 var id = item.Id;
-                var uri = new Uri(string.Format(UrI, id));
-                var responce = await clint.DeleteAsync(uri);
-                if (responce.IsSuccessStatusCode)
-                {
-                    await DisplayAlert("Sucess", "Item has been removed from your shopping cart", "ok");
-                    await CallApi();
+                var apiResponce = RestService.For<ISweetDokkanaApi>("https://safe-garden-92092.herokuapp.com");
+                await apiResponce.DeleteCartOrder(id, item);
+                await DisplayAlert("Sucess", "Item has been removed from your shopping cart", "ok");
+                await CallApi();
 
-                }
             }
         }
 

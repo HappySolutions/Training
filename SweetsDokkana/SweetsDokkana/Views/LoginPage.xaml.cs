@@ -10,52 +10,47 @@ using SweetsDokkana.Helpers;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Refit;
 
 namespace SweetsDokkana.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : ContentPage
 	{
-        SQLiteAsyncConnection _connection;
-        IEntityController<RegEntity> _connectToEntity;
-
-
         public LoginPage ()
 		{
 			InitializeComponent ();
-            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
-            _connectToEntity = new EntityController<RegEntity>(_connection);
-
         }
 
         async void BtnLogin_Clicked(object sender, EventArgs e)
-        {            
-             try
-             {
-                 RegEntity userDetail = await _connectToEntity.GetReg(emailEntry.Text, passwordEntry.Text);
-                 var id = userDetail.ID; 
+        {
+            if (string.IsNullOrWhiteSpace(emailEntry.Text) && string.IsNullOrWhiteSpace(passwordEntry.Text))
+            {
+                await DisplayAlert("Error", "Please complete all the feilds", "OK");
+                return;
+            }
+            else
+            {
+                var apiResponce = RestService.For<ISweetDokkanaApi>("https://safe-garden-92092.herokuapp.com");
 
-                 if (userDetail != null)
-                 {
-                     if (emailEntry.Text != userDetail.Email && passwordEntry.Text != userDetail.Password)
-                     {
-                         await DisplayAlert("Login", "Login failed .. Please try again ", "OK");
-                     }
-                     else
-                     {
-                         Settings.GeneralSettings = id.ToString();
-                        await Navigation.PushAsync(new MainPage());
-                     }
-                 }
-                 else
-                 {
-                     await DisplayAlert("Login", "Login failed .. Please try again ", "OK");
-                 }
-             }
-             catch(Exception)
-             {
-                 await DisplayAlert("Login", "Login failed .. Please try again ", "OK");
-             }
+                var _customer = await apiResponce.GetCustomers();
+
+                var userDetail = _customer.FirstOrDefault<Customer>(x => (x.Email == emailEntry.Text
+                && x.Password == passwordEntry.Text));
+                //T
+
+                if (userDetail != null)
+                {
+                    var id = userDetail.id;
+                    Settings.GeneralSettings = id.ToString();
+                    await Navigation.PushAsync(new MainPage());
+                }
+                else
+                {
+                    await DisplayAlert("Login", "Login failed .. Please try again ", "OK");
+                }
+            }
+            
         }
 
         private void BtnSignUp_Clicked(object sender, EventArgs e)

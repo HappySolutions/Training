@@ -1,7 +1,6 @@
-﻿using SQLite;
+﻿using Refit;
 using SweetsDokkana.Helpers;
 using SweetsDokkana.Models;
-using SweetsDokkana.Presistance;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,17 +13,12 @@ namespace SweetsDokkana.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ProfilePage : ContentPage
 	{
-        private SQLiteAsyncConnection _connection;
-        IEntityController<RegEntity> _connectToEntity;
         private bool _isDataLoaded;
-        public int _id =int.Parse(Settings.GeneralSettings);
+        public string _id =Settings.GeneralSettings;
 
         public ProfilePage ()
 		{
 			InitializeComponent ();
-            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
-            _connectToEntity = new EntityController<RegEntity>(_connection);
-            
         }
 
         protected override async void OnAppearing()
@@ -40,17 +34,19 @@ namespace SweetsDokkana.Views
 
         async Task loadData()
         {
-            await _connectToEntity.CreateTableAsync<RegEntity>();
+            var apiResponce = RestService.For<ISweetDokkanaApi>("https://safe-garden-92092.herokuapp.com");
 
-            var regEntity = await _connectToEntity.getbyId(_id);
+            var _customer = await apiResponce.GetCustomers();
 
-            var usename = regEntity.UserName;
-            var mail = regEntity.Email;
-            var address = regEntity.Address;
-            var phone = regEntity.Phone;
+            var customerDetail = _customer.FirstOrDefault<Customer>(x => (x.id == _id));
+
+            var mail = customerDetail.Email;
+            var username = customerDetail.UserName;
+            var phone = customerDetail.Phone;
+            var address = customerDetail.Address;
 
             lblEmail.Text = mail;
-            lblName.Text = usename;
+            lblName.Text = username;
             lblPhone.Text = phone;
             lblAddress.Text = address;
         }
@@ -69,9 +65,5 @@ namespace SweetsDokkana.Views
         {
             Navigation.PopToRootAsync();
         }
-
-        
-
-        
     }
 }

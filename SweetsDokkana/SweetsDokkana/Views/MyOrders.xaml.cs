@@ -15,9 +15,6 @@ namespace SweetsDokkana.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MyOrders : ContentPage
 	{
-        const string UrI = "https://safe-garden-92092.herokuapp.com/Order/{0}";
-        HttpClient clint = new HttpClient();
-
         public MyOrders ()
 		{
 			InitializeComponent ();
@@ -48,27 +45,18 @@ namespace SweetsDokkana.Views
                 var item = (Order)((Button)sender).BindingContext;
 
                 var id = item.Id;
-                var uri = new Uri(string.Format(UrI, id));
-                var responce = await clint.DeleteAsync(uri);
-                if (responce.IsSuccessStatusCode)
-                {
-                    await DisplayAlert("Sucess", "Item has been removed from your shopping cart", "ok");
-                    await CallApi();
 
-                }
+                var apiResponce = RestService.For<ISweetDokkanaApi>("https://safe-garden-92092.herokuapp.com");
+                await apiResponce.DeleteOrder(id, item);
+                await DisplayAlert("Sucess", "Order has been removed from your orders history", "ok");
+                await CallApi();
+
             }
         }
 
         async void BtnSubmit_Clicked(object sender, EventArgs e)
         {
-           
-                await DisplayAlert("Success", "Your Orders Have Been Submitted", "OK");
-
-                await Navigation.PushAsync(new MainPage());
-            
-            
-
-            
+                await Navigation.PushAsync(new MainPage());                
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Refit;
-using SQLite;
 using SweetsDokkana.Helpers;
 using SweetsDokkana.Models;
 using System;
@@ -43,7 +42,7 @@ namespace SweetsDokkana.Views
                 var apiResponce = RestService.For<ISweetDokkanaApi>("https://safe-garden-92092.herokuapp.com");
 
                 var _cartOrder = await apiResponce.AddOrder(Order);
-                var answer = await DisplayAlert("Sucess", "Order is added to your Orders Page. Do you want to go back to go to it?", "Yes", "No");
+                var answer = await DisplayAlert("Sucess", "Order has been checked out and added to your Orders history Page. Do you want to go to it?", "Yes", "No");
                 if (answer)
                 {
                     await Navigation.PushAsync(new MyOrders());
