@@ -36,6 +36,7 @@ namespace SweetsDokkana.Views
                 cartOrder.ProdName = lblName.Text;
                 cartOrder.ProdDescreption = lbldscrption.Text;
                 cartOrder.ProdPrice = double.Parse(lblPrice.Text);
+                cartOrder.ProdIMG = ((proImg.Source).ToString()).Substring(5);
                 cartOrder.SelectedQuantity = double.Parse(quantity.SelectedItem.ToString());
                 cartOrder.SumPrice = cartOrder.ProdPrice * cartOrder.SelectedQuantity;
  

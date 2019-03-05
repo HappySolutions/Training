@@ -8,7 +8,7 @@
     <ContentPage>
         <Grid>
             <Image Grid.Row="0" Source="cake.jpg" Aspect="AspectFill" />
-            <Label Grid.Row="0" Text="Welcome To Sweet Dokkana The Place for all The Happienes You need"
+            <Label Grid.Row="0" Text="Welcome To Sweet Dokkana The Place for all The Happiness You need"
                    VerticalTextAlignment="Center"
                    Style="{StaticResource HeaderLabels}"
                    HorizontalTextAlignment="Center">

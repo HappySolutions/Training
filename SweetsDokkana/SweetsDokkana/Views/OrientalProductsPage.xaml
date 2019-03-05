@@ -17,7 +17,7 @@
                     </Grid.ColumnDefinitions>
                     <Image Grid.Column="0" Source="left.png"/>
                     <Label Grid.Column="1"
-                           Text="Oriental" 
+                           Text="Oreintal" 
                            HorizontalTextAlignment="Center"
                            VerticalTextAlignment="Center"
                            Style="{StaticResource MainLabel}"/>

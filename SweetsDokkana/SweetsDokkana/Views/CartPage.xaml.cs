@@ -1,13 +1,8 @@
 ﻿using Refit;
-using SQLite;
 using SweetsDokkana.Helpers;
 using SweetsDokkana.Models;
-using SweetsDokkana.Presistance;
 using System;
 using System.Linq;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -57,8 +52,7 @@ namespace SweetsDokkana.Views
             var message = await DisplayAlert("Warning", "Are you Sure you want to remove this item", "Yes", "No");
             if (message)
             {
-                var item = (CartOrder)((Button)sender).BindingContext;
-
+                var item = (CartOrder)((ImageButton)sender).BindingContext;               
                 var id = item.Id;
                 var apiResponce = RestService.For<ISweetDokkanaApi>("https://safe-garden-92092.herokuapp.com");
                 await apiResponce.DeleteCartOrder(id, item);
