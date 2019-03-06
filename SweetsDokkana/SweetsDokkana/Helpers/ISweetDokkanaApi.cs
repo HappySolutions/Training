@@ -11,11 +11,19 @@ namespace SweetsDokkana.Helpers
         //Product end point
         //===================================================
 
-        [Get("/Product")]
-        Task<List<Product>> GetProducts();
+        [Get("/Bastry")]
+        Task<List<Product>> GetBastryProducts();
 
+        [Get("/Cakes")]
+        Task<List<Product>> GetCakesProducts();
+
+        [Get("/Western")]
+        Task<List<Product>> GetWesternProducts();
+
+        [Get("/Oriental")]
+        Task<List<Product>> GetOrientalProducts();
         //===================================================
-                    //CartOrder end point
+        //CartOrder end point
         //===================================================
 
         [Get("/CartOrder")]

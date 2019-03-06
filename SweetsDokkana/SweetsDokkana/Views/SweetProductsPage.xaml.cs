@@ -32,8 +32,8 @@ namespace SweetsDokkana.Views
 
         async Task CallApi()
         {
-            var apiResponce = RestService.For<ISweetDokkanaApi>("https://safe-garden-92092.herokuapp.com");
-            var Products = await apiResponce.GetProducts();
+            var apiResponce = RestService.For<ISweetDokkanaApi>("https://sweetsdokk.herokuapp.com/api/Products");
+            var Products = await apiResponce.GetWesternProducts();
             SweetsList.ItemsSource = Products;
         }
 
