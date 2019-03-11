@@ -14,7 +14,7 @@ namespace SweetsDokkana.Views
 	public partial class ProfilePage : ContentPage
 	{
         private bool _isDataLoaded;
-        public string _id =Settings.GeneralSettings;
+        public string _id =Settings.UserId;
 
         public ProfilePage ()
 		{

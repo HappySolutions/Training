@@ -11,13 +11,20 @@ namespace SweetsDokkana.Helpers
     {
         private static ISettings AppSettings => CrossSettings.Current;
 
-        public static string GeneralSettings
+        public static string UserId
         {
-            get => AppSettings.GetValueOrDefault(nameof(GeneralSettings), string.Empty);
+            get => AppSettings.GetValueOrDefault(nameof(UserId), string.Empty);
 
-            set => AppSettings.AddOrUpdateValue(nameof(GeneralSettings), value);
+            set => AppSettings.AddOrUpdateValue(nameof(UserId), value);
 
         }
 
+        public static string UserName
+        {
+            get => AppSettings.GetValueOrDefault(nameof(UserName), string.Empty);
+
+            set => AppSettings.AddOrUpdateValue(nameof(UserName), value);
+
+        }
     }
 }

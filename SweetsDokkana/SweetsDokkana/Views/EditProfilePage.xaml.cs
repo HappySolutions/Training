@@ -11,7 +11,7 @@ namespace SweetsDokkana.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EditProfilePage : ContentPage
 	{
-        public string _id = Settings.GeneralSettings;
+        public string _id = Settings.UserId;
 
         public EditProfilePage ()
 		{

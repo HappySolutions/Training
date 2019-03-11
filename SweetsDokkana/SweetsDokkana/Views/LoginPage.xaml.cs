@@ -15,6 +15,7 @@ namespace SweetsDokkana.Views
         public LoginPage ()
 		{
 			InitializeComponent ();
+            emailEntry.Text = Settings.UserName;
         }
 
         async void BtnLogin_Clicked(object sender, EventArgs e)
@@ -36,8 +37,10 @@ namespace SweetsDokkana.Views
 
                 if (userDetail != null)
                 {
+                    var email = userDetail.Email;
                     var id = userDetail.id;
-                    Settings.GeneralSettings = id.ToString();
+                    Settings.UserId = id.ToString();
+                    Settings.UserName = email;
                     await Navigation.PushAsync(new MainPage());
                 }
                 else
