@@ -58,6 +58,9 @@ namespace SweetsDokkana.Helpers
         [Post("/Customer")]
         Task<Customer> AddCustomer([Body] Customer customer);
 
+        [Post("/Auth")]
+        Task<Customer> LogCustomer([Body] Customer customer);
+
         [Put("/Customer/{id}")]
         Task<Customer> UpdateCustomers(string id, [Body] Customer customer);
 

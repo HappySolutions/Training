@@ -7,91 +7,18 @@ using System.Text;
 
 namespace SweetsDokkana.Models
 {
-    public class Customer : INotifyPropertyChanged
+    public class Customer 
     {
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public string id { get; set; }
+        public string UserName { get; set; }
 
-        private string _userName;
+        public string Password { get; set; }
+        
+        public string Email { get; set; }
+        
+        public string Phone { get; set; }
 
-        public string UserName
-        {
-            get { return _userName; }
-            set
-            {
-                if (_userName == value)
-                    return;
-                _userName = value;
-
-                OnPropertyChanged();
-            }
-        }
-
-        private string _password;
-
-        public string Password
-        {
-            get { return _password; }
-            set
-            {
-                if (_password == value)
-                    return;
-                _password = value;
-
-                OnPropertyChanged();
-            }
-        }
-
-        private string _email;
-
-        public string Email
-        {
-            get { return _email; }
-            set
-            {
-                if (_email == value)
-                    return;
-                _email = value;
-
-                OnPropertyChanged();
-            }
-        }
-
-        private string _phone;
-        public string Phone
-        {
-            get { return _phone; }
-            set
-            {
-                if (_phone == value)
-                    return;
-                _phone = value;
-
-                OnPropertyChanged();
-            }
-        }
-
-        private string _address;
-
-        [MaxLength(225)]
-        public string Address
-        {
-            get { return _address; }
-            set
-            {
-                if (_address == value)
-                    return;
-                _address = value;
-
-                OnPropertyChanged();
-            }
-        }
-
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
+        public string Address { get; set; }
     }
 }
